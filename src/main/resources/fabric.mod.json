@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "cerebruscraft",
+  "version": "0.0.1",
 
-  "name": "Example Mod",
+  "name": "CerebrusCraft",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "DarkUFO"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -14,16 +14,16 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/cerebruscraft/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.fabricmc.cerebruscraft.CerebrusCraft"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "cerebruscraft.mixins.json"
   ],
 
   "depends": {
