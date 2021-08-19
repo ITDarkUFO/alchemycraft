@@ -1,12 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.cerebruscraft.mixin",
+  "package": "net.cerebruscraft.mixin",
   "compatibilityLevel": "JAVA_16",
-  "mixins": [
-  ],
+  "mixins": [],
   "client": [
-    "ExampleMixin"
+    "CerebrusCraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1
