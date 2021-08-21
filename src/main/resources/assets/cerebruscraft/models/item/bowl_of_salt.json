@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "cerebruscraft:item/brain_in_jar"
+        "layer0": "cerebruscraft:item/bowl_of_salt"
     }
 }
