@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "cerebruscraft",
+  "id": "alchemycraft",
   "version": "0.0.1",
-  "name": "Cerebrus Craft",
+  "name": "Alchemy Craft",
   "description": "Template description!",
   "authors": [
     "DarkUFO"
@@ -12,15 +12,15 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/cerebruscraft/icon.png",
+  "icon": "assets/alchemycraft/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.cerebruscraft.CerebrusCraft"
+      "net.alchemycraft.AlchemyCraft"
     ]
   },
   "mixins": [
-    "cerebruscraft.mixins.json"
+    "alchemycraft.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.3",

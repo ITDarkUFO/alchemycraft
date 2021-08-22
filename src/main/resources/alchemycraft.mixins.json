@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.alchemycraft.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [],
+  "client": [
+    "AlchemyCraftMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

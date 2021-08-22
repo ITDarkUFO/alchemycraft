@@ -1,0 +1,13 @@
+{
+    "itemGroup.alchemycraft.blocks" : "Cerebrus Craft - Blocks",
+    "itemGroup.alchemycraft.crystals" : "Cerebrus Craft - Crystals",
+    "itemGroup.alchemycraft.misc" : "Cerebrus Craft - Misc",
+
+    "item.alchemycraft.brain_in_jar" : "Brain in a Jar",
+    "block.alchemycraft.mortar" : "Mortar",
+    
+    "block.alchemycraft.salt_ore" : "Salt Ore",
+    "block.alchemycraft.salt_crystal" : "Salt Crystal",
+    "item.alchemycraft.bowl_of_salt" : "A bowl of salt",
+    "block.alchemycraft.salt_block" : "Block of Salt"
+}

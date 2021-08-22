@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "alchemycraft:block/salt_crystal"
+    },
+    "facing=down": {
+      "model": "alchemycraft:block/salt_crystal",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "alchemycraft:block/salt_crystal",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "alchemycraft:block/salt_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south": {
+      "model": "alchemycraft:block/salt_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alchemycraft:block/salt_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
