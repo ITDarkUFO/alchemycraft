@@ -8,8 +8,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class BrainInJar extends Item {
-    public BrainInJar(Settings settings) {
+public class AlchemyBrainInJar extends Item {
+    public AlchemyBrainInJar(Settings settings) {
         super(settings);
     }
 

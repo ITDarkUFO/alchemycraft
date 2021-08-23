@@ -1,14 +1,15 @@
 {
-    "itemGroup.alchemycraft.building_blocks" : "Cerebrus Craft - Строительные блоки",
-    "itemGroup.alchemycraft.decorations" : "Cerebrus Craft - Декоративные блоки",
-    "itemGroup.alchemycraft.crystals" : "Cerebrus Craft - Кристаллы",
-    "itemGroup.alchemycraft.misc" : "Cerebrus Craft - Разное",
+    "itemGroup.alchemycraft.building_blocks" : "Alchemy - Строительные блоки",
+    "itemGroup.alchemycraft.decorations" : "Alchemy - Декоративные блоки",
+    "itemGroup.alchemycraft.crystals" : "Alchemy - Кристаллы",
+    "itemGroup.alchemycraft.misc" : "Alchemy - Разное",
 
     "item.alchemycraft.brain_in_jar" : "Банка с мозгом",
     "block.alchemycraft.mortar" : "Ступка",
     
     "block.alchemycraft.salt_ore" : "Соляная руда",
-    "block.alchemycraft.salt_crystal" : "Соляной кристалл",
+    "block.alchemycraft.salt_cluster" : "Соляной кластер",
+    "item.alchemycraft.salt_crystal" : "Соляной кристалл",
     "item.alchemycraft.bowl_of_salt" : "Миска с солью",
     "block.alchemycraft.salt_block" : "Блок соли"
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "alchemycraft:block/salt_crystal"
-  }
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "alchemycraft:item/salt_crystal"
+    }
 }

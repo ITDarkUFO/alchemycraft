@@ -9,7 +9,7 @@
 					"children": [
 						{
 							"type": "minecraft:item",
-							"name": "alchemycraft:salt_ore",
+							"name": "alchemycraft:salt_cluster",
 							"conditions": [
 								{
 									"condition": "minecraft:match_tool",

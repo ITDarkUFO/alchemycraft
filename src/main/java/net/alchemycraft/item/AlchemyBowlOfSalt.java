@@ -2,8 +2,8 @@ package net.alchemycraft.item;
 
 import net.minecraft.item.Item;
 
-public class BowlOfSalt extends Item {
-    public BowlOfSalt(Settings settings) {
+public class AlchemyBowlOfSalt extends Item {
+    public AlchemyBowlOfSalt(Settings settings) {
         super(settings);
     }
 }

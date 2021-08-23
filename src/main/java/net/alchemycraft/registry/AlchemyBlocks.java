@@ -19,7 +19,7 @@ public class AlchemyBlocks {
                                         .breakByTool(FabricToolTags.PICKAXES, 1).requiresTool().strength(3.0f, 3.0f)));
 
         // Кристаллы
-        public static final Block SALT_CRYSTAL = registerBlock("salt_crystal",
+        public static final Block SALT_CLUSTER = registerBlock("salt_cluster",
                         new AlchemyClusterBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE_GRAY)
                                         .breakByTool(FabricToolTags.PICKAXES, 0).strength(1.5f, 1.5f).nonOpaque()));
 
