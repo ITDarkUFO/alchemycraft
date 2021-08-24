@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class RegistryList {
+public class AlchemyRegistryList {
     public static Item registerItem(String id, Item item) {
         if (item instanceof BlockItem) {
             ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);

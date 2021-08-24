@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "net.alchemycraft.AlchemyCraft"
+    ],
+    "client": [
+      "net.alchemycraft.AlchemyCraftClient"
     ]
   },
   "mixins": [

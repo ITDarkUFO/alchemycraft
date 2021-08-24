@@ -1,11 +1,11 @@
 package net.alchemycraft.registry;
 
-import static net.alchemycraft.util.RegistryList.registerBlock;
+import static net.alchemycraft.util.AlchemyRegistryList.registerBlock;
 
 import net.alchemycraft.block.AlchemyClusterBlock;
-import net.alchemycraft.block.AlchemyMortarBlock;
 import net.alchemycraft.block.AlchemyOreBlock;
 import net.alchemycraft.block.AlchemyOreCompactBlock;
+import net.alchemycraft.block.mortar.AlchemyMortarBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;

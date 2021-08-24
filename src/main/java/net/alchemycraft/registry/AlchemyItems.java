@@ -1,6 +1,6 @@
 package net.alchemycraft.registry;
 
-import static net.alchemycraft.util.RegistryList.registerItem;
+import static net.alchemycraft.util.AlchemyRegistryList.registerItem;
 
 import net.alchemycraft.item.AlchemyBowlOfSalt;
 import net.alchemycraft.item.AlchemyBrainInJar;
