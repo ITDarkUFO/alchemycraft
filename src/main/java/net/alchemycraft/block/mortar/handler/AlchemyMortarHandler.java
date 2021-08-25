@@ -51,14 +51,20 @@ public class AlchemyMortarHandler extends ScreenHandler {
 
     // Logic
     @Override
-    public void onSlotClick(int slotIndex, int button, SlotActionType actionType, PlayerEntity player) {
-        player.sendMessage(new LiteralText(Integer.toString(slotIndex)), false);
-        player.sendMessage(new LiteralText(actionType.name()), false);
-        if (slotIndex == 2 && actionType == SlotActionType.PICKUP)
-        {
-            return;
+    public void onSlotClick(int slotId, int button, SlotActionType actionType, PlayerEntity player) {
+        if (inventory.size() > slotId && slotId != 2) {
+            if (inventory.getStack(slotId) != null) {
+                player.sendMessage(new LiteralText("input slots"), false);
+                super.onSlotClick(slotId, button, actionType, player);
+
+                player.sendMessage(new LiteralText("output slot"), false);
+            }
         }
-        super.onSlotClick(slotIndex, button, actionType, player);
+        else if (slotId == 2) {
+            player.sendMessage(new LiteralText("output slot"), false);
+            super.onSlotClick(slotId, button, actionType, player);
+        }
+        else super.onSlotClick(slotId, button, actionType, player);
     }
 
     @Override
@@ -68,6 +74,7 @@ public class AlchemyMortarHandler extends ScreenHandler {
         else
             return true;
     }
+
 
     @Override
     public boolean canUse(PlayerEntity player) {
