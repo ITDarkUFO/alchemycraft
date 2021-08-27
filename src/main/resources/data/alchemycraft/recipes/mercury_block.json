@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "alchemycraft:mercury_crystal"
+        }
+    },
+    "result": {
+        "item": "alchemycraft:mercury_block",
+        "count": 1
+    },
+    "group": "mercury_block"
+}

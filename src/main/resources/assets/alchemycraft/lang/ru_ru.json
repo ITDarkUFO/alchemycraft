@@ -11,5 +11,11 @@
     "block.alchemycraft.salt_cluster" : "Соляной кластер",
     "item.alchemycraft.salt_crystal" : "Соляной кристалл",
     "item.alchemycraft.bowl_of_salt" : "Миска с солью",
-    "block.alchemycraft.salt_block" : "Блок соли"
+    "block.alchemycraft.salt_block" : "Блок соли",
+
+    "block.alchemycraft.mercury_ore" : "Ртутная руда",
+    "block.alchemycraft.mercury_cluster" : "Ртутный кластер",
+    "item.alchemycraft.mercury_crystal" : "Ртутный кристалл",
+    "item.alchemycraft.bowl_of_mercury" : "Миска с ртутью",
+    "block.alchemycraft.mercury_block" : "Блок ртути"
 }

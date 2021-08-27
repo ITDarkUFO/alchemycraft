@@ -1,8 +1,6 @@
 package net.alchemycraft.item;
 
-import net.minecraft.item.Item;
-
-public class AlchemyBowlOfSalt extends Item {
+public class AlchemyBowlOfSalt extends AlchemyBowlOfPowder {
     public AlchemyBowlOfSalt(Settings settings) {
         super(settings);
     }

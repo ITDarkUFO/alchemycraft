@@ -1,9 +1,11 @@
 package net.alchemycraft.registry;
 
-import net.alchemycraft.feature.AlchemySaltOreFeature;
+import net.alchemycraft.feature.AlchemyMercuryOreGenerator;
+import net.alchemycraft.feature.AlchemySaltOreGenerator;
 
 public class AlchemyFeatures {
     public static void init() {
-        AlchemySaltOreFeature.init();
+        AlchemySaltOreGenerator.init();
+        AlchemyMercuryOreGenerator.init();
     }
 }

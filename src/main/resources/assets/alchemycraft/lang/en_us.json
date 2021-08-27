@@ -1,14 +1,21 @@
 {
-    "itemGroup.alchemycraft.blocks" : "Cerebrus Craft - Blocks",
-    "itemGroup.alchemycraft.crystals" : "Cerebrus Craft - Crystals",
-    "itemGroup.alchemycraft.misc" : "Cerebrus Craft - Misc",
+    "itemGroup.alchemycraft.building_blocks" : "Alchemy - Building blocks",
+    "itemGroup.alchemycraft.decorations" : "Alchemy - Decorative blocks",
+    "itemGroup.alchemycraft.crystals" : "Alchemy - Crystals",
+    "itemGroup.alchemycraft.misc" : "Alchemy - Miscellaneous",
 
-    "item.alchemycraft.brain_in_jar" : "Brain in a Jar",
+    "item.alchemycraft.brain_in_jar" : "Brain in a jar",
     "block.alchemycraft.mortar" : "Mortar",
     
     "block.alchemycraft.salt_ore" : "Salt Ore",
     "block.alchemycraft.salt_cluster" : "Salt Cluster",
-    "block.alchemycraft.salt_crystal" : "Salt Crystal",
-    "item.alchemycraft.bowl_of_salt" : "A bowl of salt",
-    "block.alchemycraft.salt_block" : "Block of Salt"
+    "item.alchemycraft.salt_crystal" : "Salt Crystal",
+    "item.alchemycraft.bowl_of_salt" : "Bowl of Salt",
+    "block.alchemycraft.salt_block" : "Salt Block",
+
+    "block.alchemycraft.mercury_ore" : "Mercury Ore",
+    "block.alchemycraft.mercury_cluster" : "Mercury Cluster",
+    "item.alchemycraft.mercury_crystal" : "Mercury Crystal",
+    "item.alchemycraft.bowl_of_mercury" : "Bowl of Mercury",
+    "block.alchemycraft.mercury_block" : "Mercury Block"
 }
