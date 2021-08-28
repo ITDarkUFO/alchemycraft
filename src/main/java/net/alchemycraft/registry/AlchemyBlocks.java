@@ -15,24 +15,24 @@ import net.minecraft.block.Material;
 public class AlchemyBlocks {
     // Salt
     public static final Block SALT_ORE = registerBlock("salt_ore",
-            new AlchemyOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DULL_PINK)
+            new AlchemyOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.STONE_GRAY)
                     .breakByTool(FabricToolTags.PICKAXES, 1).requiresTool().strength(3.0f, 3.0f)));
 
     // public static final Block SALT_CLUSTER = registerBlock("salt_cluster", new
-    // AlchemyClusterBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DULL_PINK).breakByTool(FabricToolTags.PICKAXES,
+    // AlchemyClusterBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.OFF_WHITE).breakByTool(FabricToolTags.PICKAXES,
     // 0).strength(1.5f, 1.5f).nonOpaque()));
 
     public static final Block SALT_BLOCK = registerBlock("salt_block",
-            new AlchemySaltBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DULL_PINK)
+            new AlchemySaltBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.OFF_WHITE)
                     .breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(1.5f, 1.5f)));
 
     // Mercury
     public static final Block MERCURY_ORE = registerBlock("mercury_ore",
-            new AlchemyOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE_GRAY)
+            new AlchemyOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.STONE_GRAY)
                     .breakByTool(FabricToolTags.PICKAXES, 1).requiresTool().strength(3.0f, 3.0f)));
 
     public static final Block MERCURY_BLOCK = registerBlock("mercury_block",
-            new AlchemyMercuryBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE_GRAY)
+            new AlchemyMercuryBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DULL_RED)
                     .breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(1.5f, 1.5f)));
 
     // Ступка
