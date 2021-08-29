@@ -5,6 +5,7 @@ import static net.alchemycraft.AlchemyCraft.MOD_ID;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ToolItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -13,6 +14,11 @@ public class AlchemyRegistryList {
         if (item instanceof BlockItem) {
             ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);
         }
+        return Registry.register(Registry.ITEM, new Identifier(MOD_ID, id), item);
+    }
+
+    public static ToolItem registerItem(String id, ToolItem item)
+    {
         return Registry.register(Registry.ITEM, new Identifier(MOD_ID, id), item);
     }
 

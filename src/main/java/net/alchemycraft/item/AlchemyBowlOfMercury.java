@@ -1,7 +1,9 @@
 package net.alchemycraft.item;
 
+import net.minecraft.item.ToolMaterial;
+
 public class AlchemyBowlOfMercury extends AlchemyBowlOfPowder {
-    public AlchemyBowlOfMercury(Settings settings) {
-        super(settings);
+    public AlchemyBowlOfMercury(ToolMaterial material, Settings settings) {
+        super(material, settings);
     }
 }
