@@ -6,6 +6,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.loot.condition.InvertedLootCondition;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
@@ -51,30 +53,50 @@ public class AlchemyMortarHandler extends ScreenHandler {
 
     // Logic
     @Override
-    public void onSlotClick(int slotId, int button, SlotActionType actionType, PlayerEntity player) {
-        if (inventory.size() > slotId && slotId != 2) {
-            if (inventory.getStack(slotId) != null) {
-                player.sendMessage(new LiteralText("input slots"), false);
-                super.onSlotClick(slotId, button, actionType, player);
-
-                player.sendMessage(new LiteralText("output slot"), false);
-            }
-        }
-        else if (slotId == 2) {
-            player.sendMessage(new LiteralText("output slot"), false);
-            super.onSlotClick(slotId, button, actionType, player);
-        }
-        else super.onSlotClick(slotId, button, actionType, player);
+    public Slot getSlot(int index) {
+        // DEBUG
+        System.out.println("getSlot: " + index);
+        return super.getSlot(index);
     }
 
     @Override
     public boolean canInsertIntoSlot(Slot slot) {
-        if (slot.id == 2)
-            return false;
-        else
+        // DEBUG
+        System.out.println("canInsertIntoSlot: " + slot.id);
+        if (slot.id >= inventory.size())
             return true;
+        if (slot.id == 0 || slot.id == 1)
+            return true;
+        return false;
     }
 
+    public boolean isOutputSlot(Slot slot) {
+        // DEBUG
+        System.out.println("isOutputSlot: " + slot.id);
+        if (slot.id == inventory.size() - 1)
+            return true;
+        return false;
+    }
+
+    @Override
+    public void onSlotClick(int index, int button, SlotActionType actionType, PlayerEntity player) {
+        // DEBUG
+        System.out.println("onSlotClick: " + index + " " + button + " " + actionType.name());
+        player.sendMessage(new LiteralText("Inventory size: " + inventory.size() + ", Index: " + index), false);
+        if (index == -999 || index == -1) {
+            super.onSlotClick(index, button, actionType, player);
+            return;
+        }
+        if (canInsertIntoSlot(getSlot(index))) {
+            super.onSlotClick(index, button, actionType, player);
+        } else {
+            if (isOutputSlot(getSlot(index))) {
+                if (inventory.getStack(index) != ItemStack.EMPTY) {
+                    super.onSlotClick(index, button, actionType, player);
+                }
+            }
+        }
+    }
 
     @Override
     public boolean canUse(PlayerEntity player) {
@@ -83,27 +105,30 @@ public class AlchemyMortarHandler extends ScreenHandler {
 
     // Shift + Player Inv Slot
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int invSlot) {
+    public ItemStack transferSlot(PlayerEntity player, int index) {
         ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
-        if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
-            if (invSlot < this.inventory.size()) {
-                if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+        Slot slot = this.slots.get(index);
+        if (!isOutputSlot(slot))
+        {
+            if (slot != null && slot.hasStack()) {
+                ItemStack originalStack = slot.getStack();
+                newStack = originalStack.copy();
+                if (index < this.inventory.size()) {
+                    if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
-                return ItemStack.EMPTY;
+    
+                if (originalStack.isEmpty()) {
+                    slot.setStack(ItemStack.EMPTY);
+                } else {
+                    slot.markDirty();
+                }
             }
-
-            if (originalStack.isEmpty()) {
-                slot.setStack(ItemStack.EMPTY);
-            } else {
-                slot.markDirty();
-            }
+            return newStack;
         }
-
         return newStack;
     }
 }
