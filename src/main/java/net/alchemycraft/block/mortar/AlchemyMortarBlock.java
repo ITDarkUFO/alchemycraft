@@ -3,6 +3,8 @@ package net.alchemycraft.block.mortar;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.state.property.Property;
+
 import net.alchemycraft.block.mortar.entity.AlchemyMortarEntity;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
@@ -15,6 +17,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -29,8 +32,15 @@ import net.minecraft.world.World;
 public class AlchemyMortarBlock extends BlockWithEntity {
     public AlchemyMortarBlock(Settings settings) {
         super(settings);
-        setDefaultState(this.stateManager.getDefaultState());
+        setDefaultState(this.stateManager.getDefaultState().with(MATERIAL, 0));
         BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.getCutout());
+    }
+
+    public static Property<Integer> MATERIAL;
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
+        stateManager.add(MATERIAL);
     }
 
     @Override
@@ -78,7 +88,7 @@ public class AlchemyMortarBlock extends BlockWithEntity {
     //     return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
     // }
 
-    // Рабочая часть
+    // Work Part
     public final VoxelShape SHAPE = this.generateShape();
 
     private VoxelShape generateShape() {

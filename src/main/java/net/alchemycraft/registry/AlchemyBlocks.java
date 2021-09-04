@@ -35,7 +35,7 @@ public class AlchemyBlocks {
             new AlchemyMercuryBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DULL_RED)
                     .breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(1.5f, 1.5f)));
 
-    // Ступка
+    // Mortar
     public static final Block MORTAR = registerBlock("mortar", new AlchemyMortarBlock(
             FabricBlockSettings.of(Material.STONE).mapColor(MapColor.BROWN).strength(0.5f, 0.5f)));
 

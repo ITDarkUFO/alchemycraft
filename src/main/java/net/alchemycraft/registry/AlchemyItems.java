@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ToolItem;
 
 public class AlchemyItems {
-        // Мозг в банке
+        // Brain in Jar
         public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
                         new AlchemyBrainInJar(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 
@@ -29,10 +29,6 @@ public class AlchemyItems {
         public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
                         new AlchemySaltCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 
-        // public static final Item BOWL_OF_SALT = registerItem("bowl_of_salt",
-        // new AlchemyBowlOfSalt(new
-        // FabricItemSettings().group(AlchemyItemsGroups.MISC)));
-
         public static ToolItem BOWL_OF_SALT = registerItem("bowl_of_salt", new AlchemyBowlOfSalt(
                         AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 
@@ -45,10 +41,6 @@ public class AlchemyItems {
 
         public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
                         new AlchemyMercuryCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
-
-        // public static final Item BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
-        // new AlchemyBowlOfMercury(new
-        // FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 
         public static ToolItem BOWL_OF_MERCURY = registerItem("bowl_of_mercury", new AlchemyBowlOfMercury(
                         AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
