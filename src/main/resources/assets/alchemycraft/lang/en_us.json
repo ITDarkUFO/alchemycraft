@@ -17,5 +17,11 @@
     "block.alchemycraft.mercury_cluster" : "Mercury Cluster",
     "item.alchemycraft.mercury_crystal" : "Mercury Crystal",
     "item.alchemycraft.bowl_of_mercury" : "Bowl of Mercury",
-    "block.alchemycraft.mercury_block" : "Mercury Block"
+    "block.alchemycraft.mercury_block" : "Mercury Block",
+
+    "block.alchemycraft.sulfur_ore" : "Sulfur Ore",
+    "block.alchemycraft.sulfur_cluster" : "Sulfur Cluster",
+    "item.alchemycraft.sulfur_crystal" : "Sulfur Crystal",
+    "item.alchemycraft.bowl_of_sulfur" : "Bowl of Sulfur",
+    "block.alchemycraft.sulfur_block" : "Sulfur Block"
 }

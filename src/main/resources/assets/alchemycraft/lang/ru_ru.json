@@ -17,5 +17,11 @@
     "block.alchemycraft.mercury_cluster" : "Ртутный кластер",
     "item.alchemycraft.mercury_crystal" : "Ртутный кристалл",
     "item.alchemycraft.bowl_of_mercury" : "Миска с ртутью",
-    "block.alchemycraft.mercury_block" : "Блок ртути"
+    "block.alchemycraft.mercury_block" : "Блок ртути",
+
+    "block.alchemycraft.sulfur_ore" : "Серная руда",
+    "block.alchemycraft.sulfur_cluster" : "Серный кластер",
+    "item.alchemycraft.sulfur_crystal" : "Серный кристалл",
+    "item.alchemycraft.bowl_of_sulfur" : "Миска с серой",
+    "block.alchemycraft.sulfur_block" : "Блок серы"
 }

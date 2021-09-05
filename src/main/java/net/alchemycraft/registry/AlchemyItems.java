@@ -4,6 +4,7 @@ import static net.alchemycraft.util.AlchemyRegistryList.registerItem;
 
 import net.alchemycraft.item.AlchemyBowlOfMercury;
 import net.alchemycraft.item.AlchemyBowlOfSalt;
+import net.alchemycraft.item.AlchemyBowlOfSulfur;
 import net.alchemycraft.item.AlchemyBrainInJar;
 import net.alchemycraft.item.AlchemyMercuryCrystal;
 import net.alchemycraft.item.AlchemySaltCrystal;
@@ -54,6 +55,9 @@ public class AlchemyItems {
 
 	public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
 			new AlchemyMercuryCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+
+	public static ToolItem BOWL_OF_SULFUR = registerItem("bowl_of_sulfur", new AlchemyBowlOfSulfur(
+			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 
 	// Mortar
 	public static final Item MORTAR = registerItem("mortar",
