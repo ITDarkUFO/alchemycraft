@@ -23,10 +23,6 @@ public class AlchemyItems {
 	public static final Item SALT_ORE = registerItem("salt_ore",
 			new BlockItem(AlchemyBlocks.SALT_ORE, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
 
-	// public static final Item SALT_CLUSTER = registerItem("salt_cluster", new
-	// BlockItem(AlchemyBlocks.SALT_CLUSTER,
-	// new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
-
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
 			new AlchemySaltCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 

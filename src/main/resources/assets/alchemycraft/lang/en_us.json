@@ -8,19 +8,16 @@
     "block.alchemycraft.mortar" : "Mortar",
     
     "block.alchemycraft.salt_ore" : "Salt Ore",
-    "block.alchemycraft.salt_cluster" : "Salt Cluster",
     "item.alchemycraft.salt_crystal" : "Salt Crystal",
     "item.alchemycraft.bowl_of_salt" : "Bowl of Salt",
     "block.alchemycraft.salt_block" : "Salt Block",
 
     "block.alchemycraft.mercury_ore" : "Mercury Ore",
-    "block.alchemycraft.mercury_cluster" : "Mercury Cluster",
     "item.alchemycraft.mercury_crystal" : "Mercury Crystal",
     "item.alchemycraft.bowl_of_mercury" : "Bowl of Mercury",
     "block.alchemycraft.mercury_block" : "Mercury Block",
 
     "block.alchemycraft.sulfur_ore" : "Sulfur Ore",
-    "block.alchemycraft.sulfur_cluster" : "Sulfur Cluster",
     "item.alchemycraft.sulfur_crystal" : "Sulfur Crystal",
     "item.alchemycraft.bowl_of_sulfur" : "Bowl of Sulfur",
     "block.alchemycraft.sulfur_block" : "Sulfur Block"

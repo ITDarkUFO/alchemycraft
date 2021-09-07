@@ -19,10 +19,6 @@ public class AlchemyBlocks {
             new AlchemyOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.STONE_GRAY)
                     .breakByTool(FabricToolTags.PICKAXES, 1).requiresTool().strength(3.0f, 3.0f)));
 
-    // public static final Block SALT_CLUSTER = registerBlock("salt_cluster", new
-    // AlchemyClusterBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.OFF_WHITE).breakByTool(FabricToolTags.PICKAXES,
-    // 0).strength(1.5f, 1.5f).nonOpaque()));
-
     public static final Block SALT_BLOCK = registerBlock("salt_block",
             new AlchemySaltBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.OFF_WHITE)
                     .breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(1.5f, 1.5f)));
