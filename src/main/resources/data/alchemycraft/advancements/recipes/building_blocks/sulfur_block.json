@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:sulfur_block"
+        ]
+    },
+    "criteria": {
+        "has_sulfur_crystal": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:sulfur_crystal"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:sulfur_block"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_sulfur_crystal",
+            "has_the_recipe"
+        ]
+    ]
+}

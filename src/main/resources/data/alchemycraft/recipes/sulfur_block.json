@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "alchemycraft:sulfur_crystal"
+        }
+    },
+    "result": {
+        "item": "alchemycraft:sulfur_block",
+        "count": 1
+    },
+    "group": "sulfur_block"
+}

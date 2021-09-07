@@ -59,6 +59,9 @@ public class AlchemyItems {
 	public static ToolItem BOWL_OF_SULFUR = registerItem("bowl_of_sulfur", new AlchemyBowlOfSulfur(
 			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
 
+	public static final Item SULFUR_BLOCK = registerItem("sulfur_block",
+			new BlockItem(AlchemyBlocks.SULFUR_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
+
 	// Mortar
 	public static final Item MORTAR = registerItem("mortar",
 			new BlockItem(AlchemyBlocks.MORTAR, new FabricItemSettings().group(AlchemyItemsGroups.DECORATIONS)));
