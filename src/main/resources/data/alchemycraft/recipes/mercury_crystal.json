@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "alchemycraft:mercury_block"
+        }
+    ],
+    "result": {
+        "item": "alchemycraft:mercury_crystal",
+        "count": 4
+    },
+    "group": "mercury_crystal"
+}
