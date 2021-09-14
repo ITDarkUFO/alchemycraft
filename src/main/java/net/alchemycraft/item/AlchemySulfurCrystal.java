@@ -2,8 +2,8 @@ package net.alchemycraft.item;
 
 import net.alchemycraft.registry.AlchemyItemsGroups;
 
-public class AlchemyMercuryCrystal extends AlchemyCrystals {
-    public AlchemyMercuryCrystal(Settings settings) {
+public class AlchemySulfurCrystal extends AlchemyCrystals {
+    public AlchemySulfurCrystal(Settings settings) {
         super(settings.group(AlchemyItemsGroups.MISC));
     }
 }

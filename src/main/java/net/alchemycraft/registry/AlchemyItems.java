@@ -8,6 +8,7 @@ import net.alchemycraft.item.AlchemyBowlOfSulfur;
 import net.alchemycraft.item.AlchemyBrainInJar;
 import net.alchemycraft.item.AlchemyMercuryCrystal;
 import net.alchemycraft.item.AlchemySaltCrystal;
+import net.alchemycraft.item.AlchemySulfurCrystal;
 import net.alchemycraft.item.material.AlchemyBowlOfPowderMaterial;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
@@ -17,14 +18,14 @@ import net.minecraft.item.ToolItem;
 public class AlchemyItems {
 	// Brain in Jar
 	public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
-			new AlchemyBrainInJar(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+			new AlchemyBrainInJar(new FabricItemSettings()));
 
 	// Salt
 	public static final Item SALT_ORE = registerItem("salt_ore",
 			new BlockItem(AlchemyBlocks.SALT_ORE, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
 
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
-			new AlchemySaltCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+			new AlchemySaltCrystal(new FabricItemSettings()));
 
 	public static ToolItem BOWL_OF_SALT = registerItem("bowl_of_salt", new AlchemyBowlOfSalt(
 			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
@@ -37,7 +38,7 @@ public class AlchemyItems {
 			new BlockItem(AlchemyBlocks.MERCURY_ORE, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
 
 	public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
-			new AlchemyMercuryCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+			new AlchemyMercuryCrystal(new FabricItemSettings()));
 
 	public static ToolItem BOWL_OF_MERCURY = registerItem("bowl_of_mercury", new AlchemyBowlOfMercury(
 			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
@@ -50,7 +51,7 @@ public class AlchemyItems {
 			new BlockItem(AlchemyBlocks.SULFUR_ORE, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
 
 	public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
-			new AlchemyMercuryCrystal(new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+			new AlchemySulfurCrystal(new FabricItemSettings()));
 
 	public static ToolItem BOWL_OF_SULFUR = registerItem("bowl_of_sulfur", new AlchemyBowlOfSulfur(
 			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));

@@ -1,5 +1,6 @@
 package net.alchemycraft.item;
 
+import net.alchemycraft.registry.AlchemyItemsGroups;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,7 +11,7 @@ import net.minecraft.world.World;
 
 public class AlchemyBrainInJar extends Item {
     public AlchemyBrainInJar(Settings settings) {
-        super(settings);
+        super(settings.group(AlchemyItemsGroups.MISC));
     }
 
     @Override
