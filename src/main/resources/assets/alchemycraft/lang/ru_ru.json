@@ -20,5 +20,8 @@
     "block.alchemycraft.sulfur_ore" : "Серная руда",
     "item.alchemycraft.sulfur_crystal" : "Серный кристалл",
     "item.alchemycraft.bowl_of_sulfur" : "Миска с серой",
-    "block.alchemycraft.sulfur_block" : "Блок серы"
+    "block.alchemycraft.sulfur_block" : "Блок серы",
+
+    "item.alchemycraft.salted_cod" : "Соленая треска",
+    "item.alchemycraft.salted_salmon" : "Соленый лосось"
 }

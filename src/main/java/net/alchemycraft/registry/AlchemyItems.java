@@ -8,6 +8,8 @@ import net.alchemycraft.item.AlchemyBowlOfSulfur;
 import net.alchemycraft.item.AlchemyBrainInJar;
 import net.alchemycraft.item.AlchemyMercuryCrystal;
 import net.alchemycraft.item.AlchemySaltCrystal;
+import net.alchemycraft.item.AlchemySaltedCod;
+import net.alchemycraft.item.AlchemySaltedSalmon;
 import net.alchemycraft.item.AlchemySulfurCrystal;
 import net.alchemycraft.item.material.AlchemyBowlOfPowderMaterial;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -62,6 +64,12 @@ public class AlchemyItems {
 	// Mortar
 	public static final Item MORTAR = registerItem("mortar",
 			new BlockItem(AlchemyBlocks.MORTAR, new FabricItemSettings().group(AlchemyItemsGroups.DECORATIONS)));
+
+	// Food
+	public static final Item SALTED_COD = registerItem("salted_cod", new AlchemySaltedCod(new FabricItemSettings()));
+
+	public static final Item SALTED_SALMON = registerItem("salted_salmon",
+			new AlchemySaltedSalmon(new FabricItemSettings()));
 
 	public static void init() {
 	}

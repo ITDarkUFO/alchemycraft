@@ -20,5 +20,8 @@
     "block.alchemycraft.sulfur_ore" : "Sulfur Ore",
     "item.alchemycraft.sulfur_crystal" : "Sulfur Crystal",
     "item.alchemycraft.bowl_of_sulfur" : "Bowl of Sulfur",
-    "block.alchemycraft.sulfur_block" : "Sulfur Block"
+    "block.alchemycraft.sulfur_block" : "Sulfur Block",
+
+    "item.alchemycraft.salted_cod" : "Salted Cod",
+    "item.alchemycraft.salted_salmon" : "Salted Salmon"
 }
