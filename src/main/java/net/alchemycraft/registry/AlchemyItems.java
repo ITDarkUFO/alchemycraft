@@ -29,8 +29,8 @@ public class AlchemyItems {
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
 			new AlchemySaltCrystal(new FabricItemSettings()));
 
-	public static ToolItem BOWL_OF_SALT = registerItem("bowl_of_salt", new AlchemyBowlOfSalt(
-			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+	public static ToolItem BOWL_OF_SALT = registerItem("bowl_of_salt",
+			new AlchemyBowlOfSalt(AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings()));
 
 	public static final Item SALT_BLOCK = registerItem("salt_block",
 			new BlockItem(AlchemyBlocks.SALT_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
@@ -42,8 +42,8 @@ public class AlchemyItems {
 	public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
 			new AlchemyMercuryCrystal(new FabricItemSettings()));
 
-	public static ToolItem BOWL_OF_MERCURY = registerItem("bowl_of_mercury", new AlchemyBowlOfMercury(
-			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+	public static ToolItem BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
+			new AlchemyBowlOfMercury(AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings()));
 
 	public static final Item MERCURY_BLOCK = registerItem("mercury_block",
 			new BlockItem(AlchemyBlocks.MERCURY_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
@@ -55,8 +55,8 @@ public class AlchemyItems {
 	public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
 			new AlchemySulfurCrystal(new FabricItemSettings()));
 
-	public static ToolItem BOWL_OF_SULFUR = registerItem("bowl_of_sulfur", new AlchemyBowlOfSulfur(
-			AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings().group(AlchemyItemsGroups.MISC)));
+	public static ToolItem BOWL_OF_SULFUR = registerItem("bowl_of_sulfur",
+			new AlchemyBowlOfSulfur(AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings()));
 
 	public static final Item SULFUR_BLOCK = registerItem("sulfur_block",
 			new BlockItem(AlchemyBlocks.SULFUR_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));

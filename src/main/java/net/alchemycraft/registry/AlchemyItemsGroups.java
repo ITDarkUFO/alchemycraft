@@ -17,6 +17,9 @@ public class AlchemyItemsGroups {
     public static final ItemGroup MISC = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "misc"))
             .icon(() -> new ItemStack(AlchemyItems.BRAIN_IN_JAR)).build();
 
+    public static final ItemGroup FOOD = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "food"))
+            .icon(() -> new ItemStack(AlchemyItems.SALTED_COD)).build();
+
     public static void init() {
     }
 }

@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 
 public class AlchemySaltedSalmon extends Item {
     public AlchemySaltedSalmon(Settings settings) {
-        super(settings.group(AlchemyItemsGroups.MISC)
+        super(settings.group(AlchemyItemsGroups.FOOD)
                 .food(new FoodComponent.Builder().hunger(6).saturationModifier(12f).build()));
     }
 }
