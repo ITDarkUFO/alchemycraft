@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.text.LiteralText;
+// import net.minecraft.text.LiteralText;
 
 public class AlchemyMortarHandler extends ScreenHandler {
     private final Inventory inventory;
