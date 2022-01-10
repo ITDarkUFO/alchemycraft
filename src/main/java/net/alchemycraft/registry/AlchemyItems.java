@@ -68,8 +68,8 @@ public class AlchemyItems {
 	// Food
 	public static final Item SALTED_COD = registerItem("salted_cod", new AlchemySaltedCod(new FabricItemSettings()));
 
-	public static final Item SALTED_SALMON = registerItem("salted_salmon",
-			new AlchemySaltedSalmon(new FabricItemSettings()));
+	// public static final Item SALTED_SALMON = registerItem("salted_salmon",
+	// 		new AlchemySaltedSalmon(new FabricItemSettings()));
 
 	public static void init() {
 	}

@@ -9,28 +9,38 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountPlacementModifier;
+import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
+import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
-@SuppressWarnings("deprecation")
 public class AlchemyMercuryOreGenerator {
-    private static int vein_size = 4, veins_per_chunk = 20, lower_bound = 0, upper_bound = 71;
-    private static ConfiguredFeature<?, ?> MERCURY_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                    AlchemyBlocks.MERCURY_ORE.getDefaultState(), vein_size))
-            .range(new RangeDecoratorConfig(
-                    UniformHeightProvider.create(YOffset.aboveBottom(lower_bound), YOffset.fixed(upper_bound))))
-            .spreadHorizontally().repeat(veins_per_chunk);
+        private static int vein_size = 5, veins_per_chunk = 22, upper_bound = 71;
+        private static ConfiguredFeature<?, ?> OVERWORLD_MERCURY_ORE_CONFIGURATION = Feature.ORE
+                        .configure(new OreFeatureConfig(
+                                        OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                                        AlchemyBlocks.MERCURY_ORE.getDefaultState(),
+                                        vein_size));
 
-    public static void init() {
-        RegistryKey<ConfiguredFeature<?, ?>> MercuryOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-                new Identifier("alchemycraft", "mercury_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, MercuryOreOverworld.getValue(), MERCURY_ORE_OVERWORLD);
+        public static PlacedFeature OVERWORLD_MERCURY_ORE_PLACER = OVERWORLD_MERCURY_ORE_CONFIGURATION.withPlacement(
+                        CountPlacementModifier.of(veins_per_chunk), // number of veins per chunk
+                        SquarePlacementModifier.of(), // spreading horizontally
+                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(upper_bound))); // height
 
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
-                MercuryOreOverworld);
-    }
+        public static void init() {
+                Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
+                                new Identifier("alchemycraft", "overworld_mercury_ore"),
+                                OVERWORLD_MERCURY_ORE_CONFIGURATION);
+                Registry.register(BuiltinRegistries.PLACED_FEATURE,
+                                new Identifier("alchemycraft", "overworld_mercury_ore"),
+                                OVERWORLD_MERCURY_ORE_PLACER);
+                BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                                GenerationStep.Feature.UNDERGROUND_ORES,
+                                RegistryKey.of(Registry.PLACED_FEATURE_KEY,
+                                                new Identifier("alchemycraft", "overworld_mercury_ore")));
+        }
 }

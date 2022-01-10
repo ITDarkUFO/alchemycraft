@@ -1,8 +1,9 @@
 {
-    "itemGroup.alchemycraft.building_blocks" : "Alchemy - Строительные блоки",
-    "itemGroup.alchemycraft.decorations" : "Alchemy - Декоративные блоки",
-    "itemGroup.alchemycraft.crystals" : "Alchemy - Кристаллы",
-    "itemGroup.alchemycraft.misc" : "Alchemy - Разное",
+    "itemGroup.alchemycraft.building_blocks" : "Алхимия - Строительные блоки",
+    "itemGroup.alchemycraft.decorations" : "Алхимия - Декоративные блоки",
+    "itemGroup.alchemycraft.crystals" : "Алхимия - Кристаллы",
+    "itemGroup.alchemycraft.misc" : "Алхимия - Разное",
+    "itemGroup.alchemycraft.food" : "Алхимия - Еда",
 
     "item.alchemycraft.brain_in_jar" : "Банка с мозгом",
     "block.alchemycraft.mortar" : "Ступка",

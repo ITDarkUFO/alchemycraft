@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "id": "alchemycraft",
   "version": "0.0.1",
-  "name": "Alchemy Craft",
-  "description": "Template description!",
+  "name": "AlchemyCraft",
+  "description": "A Minecraft Mod about Alchemy, Transfiguration and much more.",
   "authors": [
     "DarkUFO"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://https://www.curseforge.com/minecraft/mc-mods/alchemycraft-plus/",
+    "sources": "https://github.com/ITDarkUFO/AlchemyCraft"
   },
   "license": "CC0-1.0",
   "icon": "assets/alchemycraft/icon.png",
@@ -26,9 +26,9 @@
     "alchemycraft.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.12.12",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16"
+    "minecraft": "1.18.x",
+    "java": ">=17"
   }
 }

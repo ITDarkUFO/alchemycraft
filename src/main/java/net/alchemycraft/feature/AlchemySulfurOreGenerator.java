@@ -7,33 +7,41 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountPlacementModifier;
+import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
+import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
-@SuppressWarnings("deprecation")
 public class AlchemySulfurOreGenerator {
-    private static int vein_size = 7, veins_per_chunk = 25, lower_bound = 0, upper_bound = 127;
+        private static int vein_size = 5, veins_per_chunk = 18;
 
-    private static ConfiguredFeature<?, ?> SULFUR_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_NETHER,
-                    AlchemyBlocks.SULFUR_ORE.getDefaultState(), vein_size))
-            .range(new RangeDecoratorConfig(
-                    UniformHeightProvider.create(YOffset.fixed(lower_bound), YOffset.fixed(upper_bound))))
-            .spreadHorizontally().repeat(veins_per_chunk);
+        private static ConfiguredFeature<?, ?> NETHER_SULFUR_ORE_CONFIGURATION = Feature.ORE
+                        .configure(new OreFeatureConfig(
+                                        OreConfiguredFeatures.NETHERRACK,
+                                        AlchemyBlocks.SULFUR_ORE.getDefaultState(),
+                                        vein_size));
 
-    public static void init() {
-        RegistryKey<ConfiguredFeature<?, ?>> SulfurOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-                new Identifier("alchemycraft", "sulfur_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, SulfurOreOverworld.getValue(), SULFUR_ORE_OVERWORLD);
+        public static PlacedFeature NETHER_SULFUR_ORE_PLACER = NETHER_SULFUR_ORE_CONFIGURATION.withPlacement(
+                        CountPlacementModifier.of(veins_per_chunk), // number of veins per chunk
+                        SquarePlacementModifier.of(), // spreading horizontally
+                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())); // height
 
-        BiomeModifications.addFeature(
-                BiomeSelectors.includeByKey(BiomeKeys.NETHER_WASTES, BiomeKeys.CRIMSON_FOREST, BiomeKeys.WARPED_FOREST),
-                GenerationStep.Feature.UNDERGROUND_ORES, SulfurOreOverworld);
-    }
+        public static void init() {
+                Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
+                                new Identifier("alchemycraft", "nether_sulfur_ore"),
+                                NETHER_SULFUR_ORE_CONFIGURATION);
+                Registry.register(BuiltinRegistries.PLACED_FEATURE,
+                                new Identifier("alchemycraft", "nether_sulfur_ore"),
+                                NETHER_SULFUR_ORE_PLACER);
+                BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                                GenerationStep.Feature.UNDERGROUND_ORES,
+                                RegistryKey.of(Registry.PLACED_FEATURE_KEY,
+                                                new Identifier("alchemycraft", "nether_sulfur_ore")));
+        }
 }

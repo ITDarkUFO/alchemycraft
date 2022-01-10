@@ -9,28 +9,38 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountPlacementModifier;
+import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
+import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
-@SuppressWarnings("deprecation")
 public class AlchemySaltOreGenerator {
-    private static int vein_size = 12, veins_per_chunk = 25, lower_bound = 0, upper_bound = 131;
-    private static ConfiguredFeature<?, ?> SALT_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                    AlchemyBlocks.SALT_ORE.getDefaultState(), vein_size))
-            .range(new RangeDecoratorConfig(
-                    UniformHeightProvider.create(YOffset.aboveBottom(lower_bound), YOffset.fixed(upper_bound))))
-            .spreadHorizontally().repeat(veins_per_chunk);
+        private static int vein_size = 10, veins_per_chunk = 25, upper_bound = 131;
+        private static ConfiguredFeature<?, ?> OVERWORLD_SALT_ORE_CONFIGURATION = Feature.ORE
+                        .configure(new OreFeatureConfig(
+                                        OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                                        AlchemyBlocks.SALT_ORE.getDefaultState(),
+                                        vein_size));
 
-    public static void init() {
-        RegistryKey<ConfiguredFeature<?, ?>> SaltOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-                new Identifier("alchemycraft", "salt_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, SaltOreOverworld.getValue(), SALT_ORE_OVERWORLD);
+        public static PlacedFeature OVERWORLD_SALT_ORE_PLACER = OVERWORLD_SALT_ORE_CONFIGURATION.withPlacement(
+                        CountPlacementModifier.of(veins_per_chunk), // number of veins per chunk
+                        SquarePlacementModifier.of(), // spreading horizontally
+                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(upper_bound))); // height
 
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
-                SaltOreOverworld);
-    }
+        public static void init() {
+                Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
+                                new Identifier("alchemycraft", "overworld_salt_ore"),
+                                OVERWORLD_SALT_ORE_CONFIGURATION);
+                Registry.register(BuiltinRegistries.PLACED_FEATURE,
+                                new Identifier("alchemycraft", "overworld_salt_ore"),
+                                OVERWORLD_SALT_ORE_PLACER);
+                BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                                GenerationStep.Feature.UNDERGROUND_ORES,
+                                RegistryKey.of(Registry.PLACED_FEATURE_KEY,
+                                                new Identifier("alchemycraft", "overworld_salt_ore")));
+        }
 }
