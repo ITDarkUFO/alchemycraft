@@ -13,17 +13,23 @@
     "block.alchemycraft.salt_ore" : "Соляная руда",
     "item.alchemycraft.salt_crystal" : "Соляной кристалл",
     "item.alchemycraft.bowl_of_salt" : "Миска с солью",
-    "block.alchemycraft.salt_block" : "Блок соли",
+    "block.alchemycraft.salt_block" : "Соляной блок",
 
     "block.alchemycraft.mercury_ore" : "Ртутная руда",
     "item.alchemycraft.mercury_crystal" : "Ртутный кристалл",
     "item.alchemycraft.bowl_of_mercury" : "Миска с ртутью",
-    "block.alchemycraft.mercury_block" : "Блок ртути",
+    "block.alchemycraft.mercury_block" : "Ртутный блок",
 
     "block.alchemycraft.sulfur_ore" : "Серная руда",
     "item.alchemycraft.sulfur_crystal" : "Серный кристалл",
     "item.alchemycraft.bowl_of_sulfur" : "Миска с серой",
-    "block.alchemycraft.sulfur_block" : "Блок серы",
+    "block.alchemycraft.sulfur_block" : "Серный блок",
+
+    "block.alchemycraft.silver_ore" : "Серебрянная руда",
+    "item.alchemycraft.raw_silver" : "Рудное серебро",
+    "block.alhemycraft.raw_silver_block" : "Блок рудного серебра",
+    "item.alchemycraft.silver_ingot" : "Серебрянный слиток",
+    "block.alchemycraft.silver_block" : "Серебрянный блок",
 
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось"

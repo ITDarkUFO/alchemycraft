@@ -25,6 +25,12 @@
     "item.alchemycraft.bowl_of_sulfur" : "Bowl of Sulfur",
     "block.alchemycraft.sulfur_block" : "Sulfur Block",
 
+    "block.alchemycraft.silver_ore" : "Silver Ore",
+    "item.alchemycraft.raw_silver" : "Raw Silver",
+    "block.alhemycraft.raw_silver_block" : "Raw Silver Block",
+    "item.alchemycraft.silver_ingot" : "Silver Ingot",
+    "block.alchemycraft.silver_block" : "Silver Block",
+
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon"
 }

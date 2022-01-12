@@ -1,6 +1,6 @@
 package net.alchemycraft.feature;
 
-import net.alchemycraft.registry.AlchemyBlocks;
+import net.alchemycraft.config.ConfigBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -24,7 +24,7 @@ public class AlchemySulfurOreGenerator {
         private static ConfiguredFeature<?, ?> NETHER_SULFUR_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.NETHERRACK,
-                                        AlchemyBlocks.SULFUR_ORE.getDefaultState(),
+                                        ConfigBlocks.SULFUR_ORE.getDefaultState(),
                                         vein_size));
 
         public static PlacedFeature NETHER_SULFUR_ORE_PLACER = NETHER_SULFUR_ORE_CONFIGURATION.withPlacement(

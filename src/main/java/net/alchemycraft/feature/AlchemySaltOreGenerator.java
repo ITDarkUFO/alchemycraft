@@ -1,6 +1,6 @@
 package net.alchemycraft.feature;
 
-import net.alchemycraft.registry.AlchemyBlocks;
+import net.alchemycraft.config.ConfigBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -23,7 +23,7 @@ public class AlchemySaltOreGenerator {
         private static ConfiguredFeature<?, ?> OVERWORLD_SALT_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
-                                        AlchemyBlocks.SALT_ORE.getDefaultState(),
+                                        ConfigBlocks.SALT_ORE.getDefaultState(),
                                         vein_size));
 
         public static PlacedFeature OVERWORLD_SALT_ORE_PLACER = OVERWORLD_SALT_ORE_CONFIGURATION.withPlacement(

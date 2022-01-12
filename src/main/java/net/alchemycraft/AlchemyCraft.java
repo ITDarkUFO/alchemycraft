@@ -1,11 +1,11 @@
 package net.alchemycraft;
 
-import net.alchemycraft.registry.AlchemyBlockEnities;
-import net.alchemycraft.registry.AlchemyBlocks;
-import net.alchemycraft.registry.AlchemyFeatures;
-import net.alchemycraft.registry.AlchemyHandlers;
-import net.alchemycraft.registry.AlchemyItems;
-import net.alchemycraft.registry.AlchemyItemsGroups;
+import net.alchemycraft.config.ConfigBlockEnities;
+import net.alchemycraft.config.ConfigBlocks;
+import net.alchemycraft.config.ConfigFeatures;
+import net.alchemycraft.config.ConfigHandlers;
+import net.alchemycraft.config.ConfigItems;
+import net.alchemycraft.config.ConfigItemsGroups;
 import net.fabricmc.api.ModInitializer;
 
 public class AlchemyCraft implements ModInitializer {
@@ -13,11 +13,11 @@ public class AlchemyCraft implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		AlchemyItemsGroups.init();
-		AlchemyItems.init();
-		AlchemyBlocks.init();
-		AlchemyBlockEnities.init();
-		AlchemyFeatures.init();
-		AlchemyHandlers.init();
+		ConfigItemsGroups.init();
+		ConfigItems.init();
+		ConfigBlocks.init();
+		ConfigBlockEnities.init();
+		ConfigFeatures.init();
+		ConfigHandlers.init();
 	}
 }

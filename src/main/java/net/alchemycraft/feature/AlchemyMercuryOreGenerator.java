@@ -1,6 +1,6 @@
 package net.alchemycraft.feature;
 
-import net.alchemycraft.registry.AlchemyBlocks;
+import net.alchemycraft.config.ConfigBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -23,7 +23,7 @@ public class AlchemyMercuryOreGenerator {
         private static ConfiguredFeature<?, ?> OVERWORLD_MERCURY_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
-                                        AlchemyBlocks.MERCURY_ORE.getDefaultState(),
+                                        ConfigBlocks.MERCURY_ORE.getDefaultState(),
                                         vein_size));
 
         public static PlacedFeature OVERWORLD_MERCURY_ORE_PLACER = OVERWORLD_MERCURY_ORE_CONFIGURATION.withPlacement(
