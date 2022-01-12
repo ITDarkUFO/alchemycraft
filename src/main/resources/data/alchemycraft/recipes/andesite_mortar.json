@@ -7,11 +7,11 @@
     ],
     "key": {
         "#": {
-            "item": "minecraft:polished_granite"
+            "item": "minecraft:polished_andesite"
         }
     },
     "result": {
-        "item": "alchemycraft:mortar",
+        "item": "alchemycraft:andesite_mortar",
         "count": 1
     }
 }

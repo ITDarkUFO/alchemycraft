@@ -11,11 +11,9 @@ import net.alchemycraft.item.AlchemySaltCrystal;
 import net.alchemycraft.item.AlchemySaltedCod;
 import net.alchemycraft.item.AlchemySaltedSalmon;
 import net.alchemycraft.item.AlchemySulfurCrystal;
-import net.alchemycraft.item.material.AlchemyBowlOfPowderMaterial;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ToolItem;
 
 public class AlchemyItems {
 	// Brain in Jar
@@ -29,8 +27,8 @@ public class AlchemyItems {
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
 			new AlchemySaltCrystal(new FabricItemSettings()));
 
-	public static ToolItem BOWL_OF_SALT = registerItem("bowl_of_salt",
-			new AlchemyBowlOfSalt(AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings()));
+	public static Item BOWL_OF_SALT = registerItem("bowl_of_salt",
+			new AlchemyBowlOfSalt(new FabricItemSettings()));
 
 	public static final Item SALT_BLOCK = registerItem("salt_block",
 			new BlockItem(AlchemyBlocks.SALT_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
@@ -42,8 +40,8 @@ public class AlchemyItems {
 	public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
 			new AlchemyMercuryCrystal(new FabricItemSettings()));
 
-	public static ToolItem BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
-			new AlchemyBowlOfMercury(AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings()));
+	public static Item BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
+			new AlchemyBowlOfMercury(new FabricItemSettings()));
 
 	public static final Item MERCURY_BLOCK = registerItem("mercury_block",
 			new BlockItem(AlchemyBlocks.MERCURY_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
@@ -55,16 +53,21 @@ public class AlchemyItems {
 	public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
 			new AlchemySulfurCrystal(new FabricItemSettings()));
 
-	public static ToolItem BOWL_OF_SULFUR = registerItem("bowl_of_sulfur",
-			new AlchemyBowlOfSulfur(AlchemyBowlOfPowderMaterial.INSTANCE, new FabricItemSettings()));
+	public static Item BOWL_OF_SULFUR = registerItem("bowl_of_sulfur",
+			new AlchemyBowlOfSulfur(new FabricItemSettings()));
 
 	public static final Item SULFUR_BLOCK = registerItem("sulfur_block",
 			new BlockItem(AlchemyBlocks.SULFUR_BLOCK, new FabricItemSettings().group(AlchemyItemsGroups.BLOCKS)));
 
-	// Mortar
-	public static final Item MORTAR = registerItem("mortar",
-			new BlockItem(AlchemyBlocks.MORTAR, new FabricItemSettings().group(AlchemyItemsGroups.DECORATIONS)));
+	// Mortars
+	public static final Item GRANITE_MORTAR = registerItem("granite_mortar",
+			new BlockItem(AlchemyBlocks.GRANITE_MORTAR, new FabricItemSettings().group(AlchemyItemsGroups.DECORATIONS)));
 
+	public static final Item DIORITE_MORTAR = registerItem("diorite_mortar",
+			new BlockItem(AlchemyBlocks.DIORITE_MORTAR, new FabricItemSettings().group(AlchemyItemsGroups.DECORATIONS)));
+
+	public static final Item ANDESITE_MORTAR = registerItem("andesite_mortar",
+			new BlockItem(AlchemyBlocks.ANDESITE_MORTAR, new FabricItemSettings().group(AlchemyItemsGroups.DECORATIONS)));		
 	// Food
 	public static final Item SALTED_COD = registerItem("salted_cod", new AlchemySaltedCod(new FabricItemSettings()));
 

@@ -11,7 +11,7 @@ import net.minecraft.util.registry.Registry;
 public class AlchemyBlockEnities {
     public static final BlockEntityType<AlchemyMortarEntity> MORTAR_ENTITY = Registry.register(
             Registry.BLOCK_ENTITY_TYPE, new Identifier(MOD_ID, "mortar"),
-            FabricBlockEntityTypeBuilder.create(AlchemyMortarEntity::new, AlchemyBlocks.MORTAR).build(null));
+            FabricBlockEntityTypeBuilder.create(AlchemyMortarEntity::new, AlchemyBlocks.GRANITE_MORTAR).build(null));
 
     public static void init() {
     }

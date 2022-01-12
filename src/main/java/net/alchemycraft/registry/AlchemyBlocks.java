@@ -40,10 +40,15 @@ public class AlchemyBlocks {
                         new AlchemySulfurBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.PALE_YELLOW)
                                         .requiresTool().strength(1.5f, 1.5f)));
         
-        // Mortar
-        public static final Block MORTAR = registerBlock("mortar", new AlchemyMortarBlock(
+        // Mortars
+        public static final Block GRANITE_MORTAR = registerBlock("granite_mortar", new AlchemyMortarBlock(
                         FabricBlockSettings.of(Material.STONE).mapColor(MapColor.BROWN).strength(0.5f, 0.5f)));
 
+        public static final Block DIORITE_MORTAR = registerBlock("diorite_mortar", new AlchemyMortarBlock(
+                FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE).strength(0.5f, 0.5f)));
+        
+        public static final Block ANDESITE_MORTAR = registerBlock("andesite_mortar", new AlchemyMortarBlock(
+                FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE_GRAY).strength(0.5f, 0.5f)));                
         public static void init() {
         }
 }

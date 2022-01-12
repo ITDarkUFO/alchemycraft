@@ -12,7 +12,7 @@ public class AlchemyItemsGroups {
             .icon(() -> new ItemStack(AlchemyItems.SALT_ORE)).build();
 
     public static final ItemGroup DECORATIONS = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "decorations"))
-            .icon(() -> new ItemStack(AlchemyBlocks.MORTAR)).build();
+            .icon(() -> new ItemStack(AlchemyBlocks.GRANITE_MORTAR)).build();
 
     public static final ItemGroup MISC = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "misc"))
             .icon(() -> new ItemStack(AlchemyItems.BRAIN_IN_JAR)).build();

@@ -1,12 +1,14 @@
 package net.alchemycraft.item;
 
-import net.alchemycraft.registry.AlchemyItemsGroups;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.FoodComponent;
 
 public class AlchemyBowlOfSalt extends AlchemyBowlOfPowder {
-    public AlchemyBowlOfSalt(ToolMaterial material, Settings settings) {
-        super(material, settings.group(AlchemyItemsGroups.MISC));
+    public AlchemyBowlOfSalt(Settings settings) {
+        super(settings.food(new FoodComponent.Builder().alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20 * 10), 1f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20 * 15), 0.25f).build()));
     }
+    
 
     // @Override
     // public ActionResult useOnBlock(ItemUsageContext context) {

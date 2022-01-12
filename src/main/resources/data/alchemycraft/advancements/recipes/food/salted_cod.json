@@ -1,0 +1,47 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:salted_cod"
+        ]
+    },
+    "criteria": {
+        "has_cod": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:cod"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_bowl_of_salt": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:bowl_of_salt"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:salted_cod"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_cod",
+            "has_bowl_of_salt",
+            "has_the_recipe"
+        ]
+    ]
+}

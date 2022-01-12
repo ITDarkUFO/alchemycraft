@@ -6,7 +6,9 @@
     "itemGroup.alchemycraft.food" : "Alchemy - Food",
 
     "item.alchemycraft.brain_in_jar" : "Brain in a jar",
-    "block.alchemycraft.mortar" : "Mortar",
+    "block.alchemycraft.granite_mortar" : "Granite Mortar",
+    "block.alchemycraft.diorite_mortar" : "Diorite Mortar",
+    "block.alchemycraft.andesite_mortar" : "Andesite Mortar",
     
     "block.alchemycraft.salt_ore" : "Salt Ore",
     "item.alchemycraft.salt_crystal" : "Salt Crystal",

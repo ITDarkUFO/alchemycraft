@@ -6,7 +6,9 @@
     "itemGroup.alchemycraft.food" : "Алхимия - Еда",
 
     "item.alchemycraft.brain_in_jar" : "Банка с мозгом",
-    "block.alchemycraft.mortar" : "Ступка",
+    "block.alchemycraft.granite_mortar" : "Гранитная ступка",
+    "block.alchemycraft.diorite_mortar" : "Диоритная ступка",
+    "block.alchemycraft.andesite_mortar" : "Андезитная ступка",
     
     "block.alchemycraft.salt_ore" : "Соляная руда",
     "item.alchemycraft.salt_crystal" : "Соляной кристалл",
