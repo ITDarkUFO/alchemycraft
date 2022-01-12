@@ -31,16 +31,16 @@ public class ConfigItems {
 	public static final Item SILVER_ORE = registerItem("silver_ore",
 			new BlockItem(ConfigBlocks.SILVER_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
-	// Crystals & Raw Metals 
+	// Crystals & Raw Metals
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
 			new ItemSaltCrystal(new FabricItemSettings()));
-	
+
 	public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
 			new ItemMercuryCrystal(new FabricItemSettings()));
 
 	public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
 			new ItemSulfurCrystal(new FabricItemSettings()));
-	
+
 	public static Item RAW_SILVER = registerItem("raw_silver",
 			new ItemRawSilver(new FabricItemSettings()));
 
@@ -55,7 +55,7 @@ public class ConfigItems {
 	// Blocks
 	public static final Item SALT_BLOCK = registerItem("salt_block",
 			new BlockItem(ConfigBlocks.SALT_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
-		
+
 	public static final Item MERCURY_BLOCK = registerItem("mercury_block",
 			new BlockItem(ConfigBlocks.MERCURY_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
@@ -68,7 +68,7 @@ public class ConfigItems {
 	// Bowl of Powder
 	public static Item BOWL_OF_SALT = registerItem("bowl_of_salt",
 			new ItemBowlOfSalt(new FabricItemSettings()));
-			
+
 	public static Item BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
 			new ItemBowlOfMercury(new FabricItemSettings()));
 
@@ -83,8 +83,8 @@ public class ConfigItems {
 			new BlockItem(ConfigBlocks.DIORITE_MORTAR, new FabricItemSettings().group(ConfigItemsGroups.DECORATIONS)));
 
 	public static final Item ANDESITE_MORTAR = registerItem("andesite_mortar",
-			new BlockItem(ConfigBlocks.ANDESITE_MORTAR, new FabricItemSettings().group(ConfigItemsGroups.DECORATIONS)));		
-	
+			new BlockItem(ConfigBlocks.ANDESITE_MORTAR, new FabricItemSettings().group(ConfigItemsGroups.DECORATIONS)));
+
 	// Food
 	public static final Item SALTED_COD = registerItem("salted_cod", new ItemSaltedCod(new FabricItemSettings()));
 

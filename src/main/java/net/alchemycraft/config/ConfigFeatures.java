@@ -1,13 +1,15 @@
 package net.alchemycraft.config;
 
-import net.alchemycraft.feature.AlchemyMercuryOreGenerator;
-import net.alchemycraft.feature.AlchemySaltOreGenerator;
-import net.alchemycraft.feature.AlchemySulfurOreGenerator;
+import net.alchemycraft.feature.FeatureMercuryOreGenerator;
+import net.alchemycraft.feature.FeatureSaltOreGenerator;
+import net.alchemycraft.feature.FeatureSilverOreGenerator;
+import net.alchemycraft.feature.FeatureSulfurOreGenerator;
 
 public class ConfigFeatures {
     public static void init() {
-        AlchemySaltOreGenerator.init();
-        AlchemyMercuryOreGenerator.init();
-        AlchemySulfurOreGenerator.init();
+        FeatureSaltOreGenerator.init();
+        FeatureMercuryOreGenerator.init();
+        FeatureSulfurOreGenerator.init();
+        FeatureSilverOreGenerator.init();
     }
 }

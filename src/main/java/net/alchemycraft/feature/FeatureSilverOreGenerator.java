@@ -18,29 +18,29 @@ import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
-public class AlchemySaltOreGenerator {
-        private static int vein_size = 10, veins_per_chunk = 25, upper_bound = 131;
-        private static ConfiguredFeature<?, ?> OVERWORLD_SALT_ORE_CONFIGURATION = Feature.ORE
+public class FeatureSilverOreGenerator {
+    private static int vein_size = 5, veins_per_chunk = 10, lower_bound = 0;
+        private static ConfiguredFeature<?, ?> OVERWORLD_SILVER_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
-                                        ConfigBlocks.SALT_ORE.getDefaultState(),
+                                        ConfigBlocks.SILVER_ORE.getDefaultState(),
                                         vein_size));
 
-        public static PlacedFeature OVERWORLD_SALT_ORE_PLACER = OVERWORLD_SALT_ORE_CONFIGURATION.withPlacement(
+        public static PlacedFeature OVERWORLD_SILVER_ORE_PLACER = OVERWORLD_SILVER_ORE_CONFIGURATION.withPlacement(
                         CountPlacementModifier.of(veins_per_chunk), // number of veins per chunk
                         SquarePlacementModifier.of(), // spreading horizontally
-                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(upper_bound))); // height
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(lower_bound), YOffset.getTop())); // height
 
         public static void init() {
                 Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                                new Identifier("alchemycraft", "overworld_salt_ore"),
-                                OVERWORLD_SALT_ORE_CONFIGURATION);
+                                new Identifier("alchemycraft", "overworld_silver_ore"),
+                                OVERWORLD_SILVER_ORE_CONFIGURATION);
                 Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                                new Identifier("alchemycraft", "overworld_salt_ore"),
-                                OVERWORLD_SALT_ORE_PLACER);
+                                new Identifier("alchemycraft", "overworld_silver_ore"),
+                                OVERWORLD_SILVER_ORE_PLACER);
                 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                                 GenerationStep.Feature.UNDERGROUND_ORES,
                                 RegistryKey.of(Registry.PLACED_FEATURE_KEY,
-                                                new Identifier("alchemycraft", "overworld_salt_ore")));
+                                                new Identifier("alchemycraft", "overworld_silver_ore")));
         }
 }

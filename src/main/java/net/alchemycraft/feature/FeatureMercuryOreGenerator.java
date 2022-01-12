@@ -18,30 +18,29 @@ import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
-public class AlchemySulfurOreGenerator {
-        private static int vein_size = 5, veins_per_chunk = 18;
-
-        private static ConfiguredFeature<?, ?> NETHER_SULFUR_ORE_CONFIGURATION = Feature.ORE
+public class FeatureMercuryOreGenerator {
+        private static int vein_size = 5, veins_per_chunk = 15, lower_bound = 0;
+        private static ConfiguredFeature<?, ?> OVERWORLD_MERCURY_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
-                                        OreConfiguredFeatures.NETHERRACK,
-                                        ConfigBlocks.SULFUR_ORE.getDefaultState(),
+                                        OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                                        ConfigBlocks.MERCURY_ORE.getDefaultState(),
                                         vein_size));
 
-        public static PlacedFeature NETHER_SULFUR_ORE_PLACER = NETHER_SULFUR_ORE_CONFIGURATION.withPlacement(
+        public static PlacedFeature OVERWORLD_MERCURY_ORE_PLACER = OVERWORLD_MERCURY_ORE_CONFIGURATION.withPlacement(
                         CountPlacementModifier.of(veins_per_chunk), // number of veins per chunk
                         SquarePlacementModifier.of(), // spreading horizontally
-                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())); // height
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(lower_bound), YOffset.getTop())); // height
 
         public static void init() {
                 Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                                new Identifier("alchemycraft", "nether_sulfur_ore"),
-                                NETHER_SULFUR_ORE_CONFIGURATION);
+                                new Identifier("alchemycraft", "overworld_mercury_ore"),
+                                OVERWORLD_MERCURY_ORE_CONFIGURATION);
                 Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                                new Identifier("alchemycraft", "nether_sulfur_ore"),
-                                NETHER_SULFUR_ORE_PLACER);
-                BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                                new Identifier("alchemycraft", "overworld_mercury_ore"),
+                                OVERWORLD_MERCURY_ORE_PLACER);
+                BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                                 GenerationStep.Feature.UNDERGROUND_ORES,
                                 RegistryKey.of(Registry.PLACED_FEATURE_KEY,
-                                                new Identifier("alchemycraft", "nether_sulfur_ore")));
+                                                new Identifier("alchemycraft", "overworld_mercury_ore")));
         }
 }
