@@ -8,4 +8,4 @@
 </p>
 
 # Features
-* +3 new ores used in Alchemy (And more is expected!)
+* +3 new ores used in Alchemy (and three more are expected!)
