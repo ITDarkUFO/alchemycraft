@@ -1,6 +1,6 @@
-package net.alchemycraft.config;
+package net.alchemycraft.configs;
 
-import static net.alchemycraft.AlchemyCraft.MOD_ID;
+import static net.alchemycraft.configs.Config.MOD_ID;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;

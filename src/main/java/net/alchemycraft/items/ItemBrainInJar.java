@@ -1,6 +1,6 @@
 package net.alchemycraft.items;
 
-import net.alchemycraft.config.ConfigItemsGroups;
+import net.alchemycraft.configs.ConfigItemsGroups;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

@@ -1,6 +1,6 @@
 package net.alchemycraft.libs.utils;
 
-import static net.alchemycraft.AlchemyCraft.MOD_ID;
+import static net.alchemycraft.configs.Config.MOD_ID;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;

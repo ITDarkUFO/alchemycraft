@@ -1,23 +1,22 @@
-package net.alchemycraft.blocks.mortar.screen;
+package net.alchemycraft.screens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
+import net.alchemycraft.configs.Config;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class AlchemyMortarScreen extends HandledScreen<ScreenHandler> {
-    //A path to the gui texture. In this example we use the texture from the dispenser
-    private static final Identifier TEXTURE = new Identifier("alchemycraft", "textures/gui/container/mortar.png");
- 
-    public AlchemyMortarScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
+public class ScreenMortar extends HandledScreen<HandlerMortar> {
+    private static final Identifier TEXTURE = new Identifier(Config.MOD_ID, "textures/gui/container/mortar.png");
+
+    public ScreenMortar(HandlerMortar handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
- 
+
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -27,14 +26,14 @@ public class AlchemyMortarScreen extends HandledScreen<ScreenHandler> {
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
- 
+
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
- 
+
     @Override
     protected void init() {
         super.init();

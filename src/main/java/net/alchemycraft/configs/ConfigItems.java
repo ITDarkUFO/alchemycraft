@@ -1,4 +1,4 @@
-package net.alchemycraft.config;
+package net.alchemycraft.configs;
 
 import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerItem;
 

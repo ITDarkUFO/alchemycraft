@@ -1,6 +1,8 @@
-package net.alchemycraft.feature;
+package net.alchemycraft.features;
 
-import net.alchemycraft.config.ConfigBlocks;
+import static net.alchemycraft.configs.Config.MOD_ID;
+
+import net.alchemycraft.configs.ConfigBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -34,14 +36,14 @@ public class FeatureSulfurOreGenerator {
 
         public static void init() {
                 Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                                new Identifier("alchemycraft", "nether_sulfur_ore"),
+                                new Identifier(MOD_ID, "nether_sulfur_ore"),
                                 NETHER_SULFUR_ORE_CONFIGURATION);
                 Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                                new Identifier("alchemycraft", "nether_sulfur_ore"),
+                                new Identifier(MOD_ID, "nether_sulfur_ore"),
                                 NETHER_SULFUR_ORE_PLACER);
                 BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                                 GenerationStep.Feature.UNDERGROUND_ORES,
                                 RegistryKey.of(Registry.PLACED_FEATURE_KEY,
-                                                new Identifier("alchemycraft", "nether_sulfur_ore")));
+                                                new Identifier(MOD_ID, "nether_sulfur_ore")));
         }
 }
