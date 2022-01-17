@@ -7,13 +7,14 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class ScreenMortar extends HandledScreen<HandlerMortar> {
-    private static final Identifier TEXTURE = new Identifier(Config.MOD_ID, "textures/gui/container/mortar.png");
+public class ScreenMortar extends HandledScreen<ScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier(Config.MOD_ID, "textures/gui/crafting/mortar.png");
 
-    public ScreenMortar(HandlerMortar handler, PlayerInventory inventory, Text title) {
+    public ScreenMortar(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 

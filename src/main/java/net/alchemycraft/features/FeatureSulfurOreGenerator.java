@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class FeatureSulfurOreGenerator {
-        private static int vein_size = 5, veins_per_chunk = 18;
+        private static int vein_size = 5, veins_per_chunk = 20;
 
         private static ConfiguredFeature<?, ?> NETHER_SULFUR_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(

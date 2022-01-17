@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class FeatureMercuryOreGenerator {
-        private static int vein_size = 5, veins_per_chunk = 15, lower_bound = 0;
+        private static int vein_size = 5, veins_per_chunk = 18, lower_bound = 0;
         private static ConfiguredFeature<?, ?> OVERWORLD_MERCURY_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.STONE_ORE_REPLACEABLES,

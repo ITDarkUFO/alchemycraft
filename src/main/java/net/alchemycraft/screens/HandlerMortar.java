@@ -1,49 +1,64 @@
 package net.alchemycraft.screens;
 
+import java.util.Optional;
+
+import net.alchemycraft.configs.ConfigBlocks;
 import net.alchemycraft.configs.ConfigHandlers;
+import net.alchemycraft.inventories.InventoryCraftingMortar;
+import net.alchemycraft.inventories.slots.SlotResultMortar;
+import net.alchemycraft.recipes.RecipesMortar;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeMatcher;
+import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.world.World;
 
-public class HandlerMortar extends ScreenHandler {
-    private final Inventory inventory;
-    // private final ScreenHandlerContext context;
+public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCraftingMortar> {
+    private final InventoryCraftingMortar input;
+    private final CraftingResultInventory result;
+    public final PlayerInventory playerInventory;
+    private final ScreenHandlerContext screenHandlerContext;
 
     public HandlerMortar(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(4));
+        this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
     }
 
-    public HandlerMortar(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+    public HandlerMortar(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ConfigHandlers.MORTAR_HANDLER, syncId);
-        checkSize(inventory, 4);
-        this.inventory = inventory;
-        // this.context = context;
-        inventory.onOpen(playerInventory.player);
+        this.playerInventory = playerInventory;
+        this.input = new InventoryCraftingMortar(this);
+        this.result = new CraftingResultInventory();
+        this.screenHandlerContext = context;
 
-        // Mortar Inventory - 0, 1
-        int sizeY = 2, sizeX = 1;
-        for (int y = 0; y < sizeY; ++y) {
-            for (int x = 0; x < sizeX; ++x) {
-                this.addSlot(new Slot(inventory, x + y * 1, 44 + x * 18, 26 + y * 18));
-            }
-        }
+        checkSize(this.input, 4);
+        this.input.onOpen(playerInventory.player);
 
-        int pestleSlot = 2;
-        this.addSlot(new Slot(inventory, pestleSlot, 44 + 18 * 2, 26));
+        // Mortar Inventory
+        // Input Slots - 0 & 1
+        this.addSlot(new Slot(this.input, 0, 44, 26));
+        this.addSlot(new Slot(this.input, 1, 44, 44));
+
+        // Pestle Slot - 2
+        this.addSlot(new Slot(this.input, 2, 17, 35));
 
         // Output slot - 3
-        this.addSlot(new Slot(inventory, sizeY * sizeX + 1, 116, 35));
+        this.addSlot(new SlotResultMortar(playerInventory.player, this.input, this.result, 3, 116, 35));
 
+        // Player Inventory
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
     }
 
-    // 4 - ...
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int y = 0; y < 3; ++y)
             for (int x = 0; x < 9; ++x)
@@ -56,53 +71,145 @@ public class HandlerMortar extends ScreenHandler {
         }
     }
 
-    @Override
-    public boolean canUse(PlayerEntity player) {
-        return this.inventory.canPlayerUse(player);
+    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity,
+            InventoryCraftingMortar craftingInventory, CraftingResultInventory resultInventory) {
+        if (!world.isClient) {
+            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;
+            ItemStack itemStack = ItemStack.EMPTY;
+            Optional<RecipesMortar> optional = world.getServer().getRecipeManager()
+                    .getFirstMatch(RecipesMortar.Type.INSTANCE, craftingInventory, world);
+            if (optional.isPresent()) {
+                RecipesMortar recipeMortar = optional.get();
+                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, recipeMortar)) {
+                    itemStack = recipeMortar.craft(craftingInventory);
+                }
+            }
+
+            resultInventory.setStack(3, itemStack);
+            handler.setPreviousTrackedSlot(3, itemStack);
+            serverPlayerEntity.networkHandler.sendPacket(
+                    new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 3, itemStack));
+        }
     }
 
-    // Shift + Player Inv Slot
+    public void onContentChanged(Inventory inventory) {
+        this.screenHandlerContext
+                .run((world, pos) -> updateResult(this, world, this.playerInventory.player, this.input, this.result));
+    }
+
+    public void close(PlayerEntity player) {
+        super.close(player);
+        this.screenHandlerContext.run((world, pos) -> this.dropInventory(player, this.input));
+    }
+
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int index) {
+    public ItemStack transferSlot(PlayerEntity player, int index)
+    {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
+
         if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
-            if (index < this.inventory.size()) {
-                if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+            ItemStack oldStack = slot.getStack();
+            newStack = oldStack.copy();
+
+            if (index == 3) {
+                this.screenHandlerContext.run((world, pos) -> oldStack.getItem().onCraft(oldStack, world, player));
+                if (!this.insertItem(oldStack, 4, 40, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
+
+                slot.onQuickTransfer(oldStack, newStack);
+            }
+            else if (index >= 4 && index <= 30) {
+                if (!this.insertItem(oldStack, 0, 3, false)) {
+                    if (!this.insertItem(oldStack, 31, 40, false))
+                        return ItemStack.EMPTY;
+                }
+            }
+            else if (index >= 31 && index <= 39)
+            {
+                if (!this.insertItem(oldStack, 0, 3, false)) {
+                    if (!this.insertItem(oldStack, 4, 31, false))
+                        return ItemStack.EMPTY;
+                }
+            }
+            else if (!this.insertItem(oldStack, 4, 40, false)) {
+                return ItemStack.EMPTY;
+            }
+                        
+            if (oldStack.isEmpty()) {
+                slot.setStack(ItemStack.EMPTY);
+            } else {
+                slot.markDirty();
+            }
+
+            if (oldStack.getCount() == newStack.getCount()) {
                 return ItemStack.EMPTY;
             }
 
-            if (originalStack.isEmpty())
-                slot.setStack(ItemStack.EMPTY);
-            else
-                slot.markDirty();
+            slot.onTakeItem(player, oldStack);
+            if (index == 3) {
+                player.dropItem(oldStack, false);
+            }
         }
         return newStack;
     }
 
-    public boolean isOutputSlot(Slot slot) {
-        if (slot.id == this.inventory.size() - 1)
-            return true;
-        else
-            return false;
+    @Override
+    public boolean canUse(PlayerEntity player) {
+        return canUse(this.screenHandlerContext, player, ConfigBlocks.GRANITE_MORTAR) ||
+                canUse(this.screenHandlerContext, player, ConfigBlocks.ANDESITE_MORTAR) ||
+                canUse(this.screenHandlerContext, player, ConfigBlocks.DIORITE_MORTAR);
+    }
+
+    @Override
+    public void populateRecipeFinder(RecipeMatcher finder) {
+        this.input.provideRecipeInputs(finder);
+    }
+
+    @Override
+    public void clearCraftingSlots() {
+        this.input.clear();
+        this.result.clear();
+    }
+
+    @Override
+    public boolean matches(Recipe<? super InventoryCraftingMortar> recipe) {
+        return recipe.matches(this.input, this.playerInventory.player.world);
+    }
+
+    @Override
+    public int getCraftingResultSlotIndex() {
+        return 3;
+    }
+
+    @Override
+    public int getCraftingWidth() {
+        return Integer.MAX_VALUE;
+    }
+
+    @Override
+    public int getCraftingHeight() {
+        return Integer.MAX_VALUE;
+    }
+
+    @Override
+    public int getCraftingSlotCount() {
+        return 3;
+    }
+
+    @Override
+    public RecipeBookCategory getCategory() {
+        return null;
+    }
+
+    @Override
+    public boolean canInsertIntoSlot(int index) {
+        return index != this.getCraftingResultSlotIndex();
     }
 
     @Override
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
-        if (isOutputSlot(slot))
-            return false;
-        if (slot.id == 1 && stack.getItem() != Items.BOWL)
-            return false;
-        return true;
-    }
-
-    @Override
-    public Slot getSlot(int index) {
-        return super.getSlot(index);
+        return slot.inventory != this.result && super.canInsertIntoSlot(stack, slot);
     }
 }

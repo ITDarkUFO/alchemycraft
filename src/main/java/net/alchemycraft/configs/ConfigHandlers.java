@@ -8,7 +8,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 public class ConfigHandlers {
-    public static final ScreenHandlerType<HandlerMortar> MORTAR_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID, "mortar"), HandlerMortar::new);
     public static void init() {
+        MORTAR_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID, "mortar"), HandlerMortar::new);
     }
+    public static ScreenHandlerType<HandlerMortar> MORTAR_HANDLER;
 }

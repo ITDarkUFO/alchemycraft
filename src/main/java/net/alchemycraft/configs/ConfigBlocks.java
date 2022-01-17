@@ -4,7 +4,9 @@ import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerBlock;
 
 import net.alchemycraft.blocks.BlockMercury;
 import net.alchemycraft.blocks.BlockMercuryOre;
-import net.alchemycraft.blocks.BlockMortar;
+import net.alchemycraft.blocks.BlockAndesiteMortar;
+import net.alchemycraft.blocks.BlockDioriteMortar;
+import net.alchemycraft.blocks.BlockGraniteMortar;
 import net.alchemycraft.blocks.BlockRawSilver;
 import net.alchemycraft.blocks.BlockSalt;
 import net.alchemycraft.blocks.BlockSaltOre;
@@ -58,13 +60,13 @@ public class ConfigBlocks {
                                         .requiresTool().strength(1.5f, 1.5f)));
 
         // Mortars
-        public static final Block GRANITE_MORTAR = registerBlock("granite_mortar", new BlockMortar(
+        public static final Block GRANITE_MORTAR = registerBlock("granite_mortar", new BlockGraniteMortar(
                         FabricBlockSettings.of(Material.STONE).mapColor(MapColor.BROWN).strength(0.5f, 0.5f)));
 
-        public static final Block DIORITE_MORTAR = registerBlock("diorite_mortar", new BlockMortar(
+        public static final Block DIORITE_MORTAR = registerBlock("diorite_mortar", new BlockDioriteMortar(
                         FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE).strength(0.5f, 0.5f)));
 
-        public static final Block ANDESITE_MORTAR = registerBlock("andesite_mortar", new BlockMortar(
+        public static final Block ANDESITE_MORTAR = registerBlock("andesite_mortar", new BlockAndesiteMortar(
                         FabricBlockSettings.of(Material.STONE).mapColor(MapColor.WHITE_GRAY).strength(0.5f, 0.5f)));
 
         public static void init() {

@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class FeatureSilverOreGenerator {
-    private static int vein_size = 5, veins_per_chunk = 12, lower_bound = 0;
+    private static int vein_size = 3, veins_per_chunk = 18, lower_bound = 0;
         private static ConfiguredFeature<?, ?> OVERWORLD_SILVER_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.STONE_ORE_REPLACEABLES,

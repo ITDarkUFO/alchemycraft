@@ -1,35 +1,42 @@
 package net.alchemycraft.recipes;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
-import net.minecraft.inventory.SimpleInventory;
+import net.alchemycraft.inventories.InventoryCraftingMortar;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class RecipesMortar implements Recipe<SimpleInventory> {
-    private final Identifier id;
-    private final ItemStack output;
+public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
     private final DefaultedList<Ingredient> recipeItems;
+    // private final Ingredient pestleSlot;
+    private final ItemStack outputStack;
+    private final Identifier identifier;
 
-    public RecipesMortar(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
-        this.id = id;
-        this.output = output;
+    public RecipesMortar(DefaultedList<Ingredient> recipeItems, /*Ingredient pestleSlot, */ItemStack outputStack, Identifier identifier) {
+        // this.pestleSlot = pestleSlot;
         this.recipeItems = recipeItems;
+        this.outputStack = outputStack;
+        this.identifier = identifier;
+    }
+
+    // public Ingredient getPestleSlot() { return pestleSlot; }
+
+    @Override
+    public boolean matches(InventoryCraftingMortar inventory, World world) {
+        if (recipeItems.get(0).test(inventory.getStack(0))) {
+            return recipeItems.get(1).test(inventory.getStack(1));
+        }
+
+        return false;
     }
 
     @Override
-    public ItemStack craft(SimpleInventory inventory) {
-        return output;
+    public ItemStack craft(InventoryCraftingMortar inventory) {
+        return outputStack.copy();
     }
 
     @Override
@@ -38,18 +45,25 @@ public class RecipesMortar implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public Identifier getId() {
-        return id;
+    public ItemStack getOutput() {
+        return outputStack.copy();
     }
 
     @Override
-    public ItemStack getOutput() {
-        return output.copy();
+    public Identifier getId() {
+        return identifier;
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return RecipeSerializerMortar.INSTANCE;
+    }
+
+    public static class Type implements RecipeType<RecipesMortar> {
+        private Type() {}
+        public static final RecipesMortar.Type INSTANCE = new RecipesMortar.Type();
+
+        public static final String ID = "mortar";
     }
 
     @Override
@@ -57,62 +71,8 @@ public class RecipesMortar implements Recipe<SimpleInventory> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements RecipeType<RecipesMortar> {
-        private Type() {
-        }
-
-        public static final Type INSTANCE = new Type();
-        public static final String ID = "mortar";
-    }
-
     @Override
-    public boolean matches(SimpleInventory inventory, World world) {
-        if (recipeItems.get(0).test(inventory.getStack(0))) {
-            return recipeItems.get(1).test(inventory.getStack(1));
-        }
-
-        return false;
+    public boolean isIgnoredInRecipeBook() {
+        return true;
     }
-
-    public static class Serializer implements RecipeSerializer<RecipesMortar> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "mortar";
-
-        @Override
-        public RecipesMortar read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-            JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-            }
-
-            return new RecipesMortar(id, output, inputs);
-        }
-
-        @Override
-        public RecipesMortar read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromPacket(buf));
-            }
-
-            ItemStack output = buf.readItemStack();
-            return new RecipesMortar(id, output, inputs);
-        }
-
-        @Override
-        public void write(PacketByteBuf buf, RecipesMortar recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.write(buf);
-            }
-            buf.writeItemStack(recipe.getOutput());
-        }
-    }
-
 }

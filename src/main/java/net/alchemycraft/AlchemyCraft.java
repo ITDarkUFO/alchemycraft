@@ -1,6 +1,5 @@
 package net.alchemycraft;
 
-import net.alchemycraft.configs.ConfigBlockEnities;
 import net.alchemycraft.configs.ConfigBlocks;
 import net.alchemycraft.configs.ConfigFeatures;
 import net.alchemycraft.configs.ConfigHandlers;
@@ -15,7 +14,6 @@ public class AlchemyCraft implements ModInitializer {
 		ConfigItemsGroups.init();
 		ConfigItems.init();
 		ConfigBlocks.init();
-		ConfigBlockEnities.init();
 		ConfigFeatures.init();
 		ConfigHandlers.init();
 		ConfigRecipes.init();

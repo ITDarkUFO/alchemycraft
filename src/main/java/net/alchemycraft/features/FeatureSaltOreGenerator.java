@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class FeatureSaltOreGenerator {
-        private static int vein_size = 15, veins_per_chunk = 20, lower_bound = 0;
+        private static int vein_size = 12, veins_per_chunk = 25, lower_bound = 0;
         private static ConfiguredFeature<?, ?> OVERWORLD_SALT_ORE_CONFIGURATION = Feature.ORE
                         .configure(new OreFeatureConfig(
                                         OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
