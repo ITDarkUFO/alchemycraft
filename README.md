@@ -9,4 +9,5 @@
 </p>
 
 # Features
-* +3 new ores used in Alchemy (and three more are expected!)
+* +4 new ores used in Alchemy (and two more are expected!)
+

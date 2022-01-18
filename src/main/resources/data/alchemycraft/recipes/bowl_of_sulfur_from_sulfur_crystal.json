@@ -2,13 +2,16 @@
     "type": "alchemycraft:mortar",
     "ingredients": [
         {
-            "item": "alchemycraft:salt_crystal"
+            "item": "alchemycraft:sulfur_crystal"
         },
         {
             "item": "minecraft:bowl"
+        },
+        {
+            "tag": "alchemycraft:pestles"
         }
     ],
     "output": {
-        "item": "alchemycraft:bowl_of_salt"
+        "item": "alchemycraft:bowl_of_sulfur"
     }
 }

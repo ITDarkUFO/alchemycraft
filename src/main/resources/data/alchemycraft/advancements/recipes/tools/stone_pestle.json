@@ -1,0 +1,32 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:stone_pestle"
+        ]
+    },
+    "criteria": {
+        "has_cobblestone": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "minecraft:stone_tool_materials"
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:stone_pestle"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_cobblestone",
+            "has_the_recipe"
+        ]
+    ]
+}

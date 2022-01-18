@@ -2,17 +2,17 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "alchemycraft:mercury_crystal"
+            "alchemycraft:granite_pestle"
         ]
     },
     "criteria": {
-        "has_mercury_block": {
+        "has_polished_granite": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "alchemycraft:mercury_block"
+                            "minecraft:polished_granite"
                         ]
                     }
                 ]
@@ -21,13 +21,13 @@
         "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "alchemycraft:mercury_crystal"
+                "recipe": "alchemycraft:granite_pestle"
             }
         }
     },
     "requirements": [
         [
-            "has_mercury_block",
+            "has_polished_granite",
             "has_the_recipe"
         ]
     ]

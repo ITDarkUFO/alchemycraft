@@ -12,23 +12,32 @@ import net.minecraft.world.World;
 
 public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
     private final DefaultedList<Ingredient> recipeItems;
-    // private final Ingredient pestleSlot;
+    private final Ingredient pestleSlot;
     private final ItemStack outputStack;
     private final Identifier identifier;
 
-    public RecipesMortar(DefaultedList<Ingredient> recipeItems, /*Ingredient pestleSlot, */ItemStack outputStack, Identifier identifier) {
-        // this.pestleSlot = pestleSlot;
+    public RecipesMortar(DefaultedList<Ingredient> recipeItems, Ingredient pestleSlot, ItemStack outputStack,
+            Identifier identifier) {
+        this.pestleSlot = pestleSlot;
         this.recipeItems = recipeItems;
         this.outputStack = outputStack;
         this.identifier = identifier;
     }
 
-    // public Ingredient getPestleSlot() { return pestleSlot; }
+    @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
+    public Ingredient getPestleSlot() {
+        return pestleSlot;
+    }
 
     @Override
     public boolean matches(InventoryCraftingMortar inventory, World world) {
         if (recipeItems.get(0).test(inventory.getStack(0))) {
-            return recipeItems.get(1).test(inventory.getStack(1));
+            if (recipeItems.get(1).test(inventory.getStack(1)))
+                return pestleSlot.test(inventory.getStack(2));
         }
 
         return false;
@@ -60,7 +69,9 @@ public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
     }
 
     public static class Type implements RecipeType<RecipesMortar> {
-        private Type() {}
+        private Type() {
+        }
+
         public static final RecipesMortar.Type INSTANCE = new RecipesMortar.Type();
 
         public static final String ID = "mortar";

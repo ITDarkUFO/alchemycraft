@@ -1,0 +1,19 @@
+{
+    "type": "alchemycraft:mortar",
+    "ingredients": [
+        {
+            "item": "alchemycraft:mercury_block"
+        },
+        {
+            "item": "minecraft:bowl",
+            "count": 4
+        },
+        {
+            "tag": "alchemycraft:pestles"
+        }
+    ],
+    "output": {
+        "item": "alchemycraft:bowl_of_mercury",
+        "count": 4
+    }
+}

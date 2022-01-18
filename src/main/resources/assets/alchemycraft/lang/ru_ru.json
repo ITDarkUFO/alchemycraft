@@ -1,7 +1,7 @@
 {
     "itemGroup.alchemycraft.building_blocks" : "Алхимия - Строительные блоки",
     "itemGroup.alchemycraft.decorations" : "Алхимия - Декоративные блоки",
-    "itemGroup.alchemycraft.crystals" : "Алхимия - Кристаллы",
+    "itemGroup.alchemycraft.tools" : "Алхимия - Инструменты",
     "itemGroup.alchemycraft.misc" : "Алхимия - Разное",
     "itemGroup.alchemycraft.food" : "Алхимия - Еда",
 
@@ -9,6 +9,17 @@
     "block.alchemycraft.granite_mortar" : "Гранитная ступка",
     "block.alchemycraft.diorite_mortar" : "Диоритная ступка",
     "block.alchemycraft.andesite_mortar" : "Андезитная ступка",
+
+    "item.alchemycraft.wood_pestle" : "Деревянный пестик",
+    "item.alchemycraft.stone_pestle" : "Каменный пестик",
+    "item.alchemycraft.diorite_pestle" : "Диоритовый пестик",
+    "item.alchemycraft.andesite_pestle" : "Андезитовый пестик",
+    "item.alchemycraft.granite_pestle" : "Гранитный пестик",
+    "item.alchemycraft.iron_pestle" : "Железный пестик",
+    "item.alchemycraft.gold_pestle" : "Золотой пестик",
+    "item.alchemycraft.diamond_pestle" : "Алмазный пестик",
+    "item.alchemycraft.netherite_pestle" : "Незеритовый пестик",
+    "item.alchemycraft.infinity_pestle" : "Бесконечный пестик",
     
     "block.alchemycraft.salt_ore" : "Соляная руда",
     "item.alchemycraft.salt_crystal" : "Соляной кристалл",
@@ -32,5 +43,7 @@
     "block.alchemycraft.silver_block" : "Серебрянный блок",
 
     "item.alchemycraft.salted_cod" : "Соленая треска",
-    "item.alchemycraft.salted_salmon" : "Соленый лосось"
+    "item.alchemycraft.salted_salmon" : "Соленый лосось",
+
+    "item.alchemycraft.tooltip.only_for_creative" : "Только для креатива"
 }

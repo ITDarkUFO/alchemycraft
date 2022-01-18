@@ -2,17 +2,17 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "alchemycraft:sulfur_crystal"
+            "alchemycraft:salt_crystal_from_smelting_salt_ore"
         ]
     },
     "criteria": {
-        "has_sulfur_block": {
+        "has_salt_ore": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "alchemycraft:sulfur_block"
+                            "alchemycraft:salt_ore"
                         ]
                     }
                 ]
@@ -21,13 +21,13 @@
         "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "alchemycraft:sulfur_crystal"
+                "recipe": "alchemycraft:salt_crystal_from_smelting_salt_ore"
             }
         }
     },
     "requirements": [
         [
-            "has_sulfur_block",
+            "has_salt_ore",
             "has_the_recipe"
         ]
     ]

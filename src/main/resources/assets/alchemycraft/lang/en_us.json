@@ -1,7 +1,7 @@
 {
     "itemGroup.alchemycraft.building_blocks" : "Alchemy - Building blocks",
     "itemGroup.alchemycraft.decorations" : "Alchemy - Decorative blocks",
-    "itemGroup.alchemycraft.crystals" : "Alchemy - Crystals",
+    "itemGroup.alchemycraft.tools" : "Alchemy - Tools",
     "itemGroup.alchemycraft.misc" : "Alchemy - Miscellaneous",
     "itemGroup.alchemycraft.food" : "Alchemy - Food",
 
@@ -9,6 +9,17 @@
     "block.alchemycraft.granite_mortar" : "Granite Mortar",
     "block.alchemycraft.diorite_mortar" : "Diorite Mortar",
     "block.alchemycraft.andesite_mortar" : "Andesite Mortar",
+
+    "item.alchemycraft.wood_pestle" : "Wood Pestle",
+    "item.alchemycraft.stone_pestle" : "Stone Pestle",
+    "item.alchemycraft.diorite_pestle" : "Diorite Pestle",
+    "item.alchemycraft.andesite_pestle" : "Andesite Pestle",
+    "item.alchemycraft.granite_pestle" : "Granite Pestle",
+    "item.alchemycraft.iron_pestle" : "Iron Pestle",
+    "item.alchemycraft.gold_pestle" : "Gold Pestle",
+    "item.alchemycraft.diamond_pestle" : "Diamond Pestle",
+    "item.alchemycraft.netherite_pestle" : "Netherite Pestle",
+    "item.alchemycraft.infinity_pestle" : "Infinity Pestle",
     
     "block.alchemycraft.salt_ore" : "Salt Ore",
     "item.alchemycraft.salt_crystal" : "Salt Crystal",
@@ -32,5 +43,7 @@
     "block.alchemycraft.silver_block" : "Silver Block",
 
     "item.alchemycraft.salted_cod" : "Salted Cod",
-    "item.alchemycraft.salted_salmon" : "Salted Salmon"
+    "item.alchemycraft.salted_salmon" : "Salted Salmon",
+
+    "item.alchemycraft.tooltip.only_for_creative" : "Only for Creative mode"
 }

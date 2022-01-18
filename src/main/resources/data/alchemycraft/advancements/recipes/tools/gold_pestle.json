@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:gold_pestle"
+        ]
+    },
+    "criteria": {
+        "has_gold_ingot": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:gold_ingot"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:gold_pestle"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_gold_ingot",
+            "has_the_recipe"
+        ]
+    ]
+}

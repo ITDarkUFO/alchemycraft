@@ -1,0 +1,15 @@
+{
+    "replace": false,
+    "values": [
+        "alchemycraft:wood_pestle",
+        "alchemycraft:stone_pestle",
+        "alchemycraft:diorite_pestle",
+        "alchemycraft:andesite_pestle",
+        "alchemycraft:granite_pestle",
+        "alchemycraft:iron_pestle",
+        "alchemycraft:gold_pestle",
+        "alchemycraft:diamond_pestle",
+        "alchemycraft:netherite_pestle",
+        "alchemycraft:infinity_pestle"
+    ]
+}

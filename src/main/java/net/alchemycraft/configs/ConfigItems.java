@@ -6,7 +6,9 @@ import net.alchemycraft.items.ItemBowlOfMercury;
 import net.alchemycraft.items.ItemBowlOfSalt;
 import net.alchemycraft.items.ItemBowlOfSulfur;
 import net.alchemycraft.items.ItemBrainInJar;
+import net.alchemycraft.items.ItemInfinityPestle;
 import net.alchemycraft.items.ItemMercuryCrystal;
+import net.alchemycraft.items.ItemPestle;
 import net.alchemycraft.items.ItemRawSilver;
 import net.alchemycraft.items.ItemSaltCrystal;
 import net.alchemycraft.items.ItemSaltedCod;
@@ -90,6 +92,37 @@ public class ConfigItems {
 
 	public static final Item SALTED_SALMON = registerItem("salted_salmon",
 			new ItemSaltedSalmon(new FabricItemSettings()));
+
+	// Pestles
+	public static final Item WOOD_PESTLE = registerItem("wood_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(32)));
+
+	public static final Item STONE_PESTLE = registerItem("stone_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(64)));
+
+	public static final Item DIORITE_PESTLE = registerItem("diorite_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(80)));
+
+	public static final Item ANDESITE_PESTLE = registerItem("andesite_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(96)));
+
+	public static final Item GRANITE_PESTLE = registerItem("granite_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(128)));
+
+	public static final Item IRON_PESTLE = registerItem("iron_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(192)));
+
+	public static final Item GOLD_PESTLE = registerItem("gold_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(20)));
+
+	public static final Item DIAMOND_PESTLE = registerItem("diamond_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(320)));
+
+	public static final Item NETHERITE_PESTLE = registerItem("netherite_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(512)));
+
+	public static final Item INFINITY_PESTLE = registerItem("infinity_pestle",
+			new ItemInfinityPestle(new FabricItemSettings()));
 
 	// Other
 	public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",

@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "group": "mercury_crystal",
+    "ingredient": {
+      "item": "alchemycraft:mercury_ore"
+    },
+    "result": "alchemycraft:mercury_crystal",
+    "experience": 1.0,
+    "cookingtime": 200
+  }

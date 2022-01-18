@@ -6,6 +6,9 @@
         },
         {
             "item": "minecraft:bowl"
+        },
+        {
+            "tag": "alchemycraft:pestles"
         }
     ],
     "output": {

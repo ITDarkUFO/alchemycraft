@@ -2,17 +2,17 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "alchemycraft:salt_crystal"
+            "alchemycraft:netherite_pestle"
         ]
     },
     "criteria": {
-        "has_salt_block": {
+        "has_netherite_ingot": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "alchemycraft:salt_block"
+                            "minecraft:netherite_ingot"
                         ]
                     }
                 ]
@@ -21,13 +21,13 @@
         "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "alchemycraft:salt_crystal"
+                "recipe": "alchemycraft:netherite_pestle"
             }
         }
     },
     "requirements": [
         [
-            "has_salt_block",
+            "has_netherite_ingot",
             "has_the_recipe"
         ]
     ]
