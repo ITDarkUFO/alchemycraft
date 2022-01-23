@@ -1,11 +1,12 @@
 {
-    "replace": false,
-    "values": [
-      "alchemycraft:salt_ore",
-      "alchemycraft:salt_block",
-      "alchemycraft:mercury_ore",
-      "alchemycraft:mercury_block",
-      "alchemycraft:sulfur_ore",
-      "alchemycraft:sulfur_block"
-    ]
-  }
+	"replace": false,
+	"values": [
+		"alchemycraft:salt_ore",
+		"alchemycraft:salt_block",
+		"alchemycraft:mercury_ore",
+		"alchemycraft:mercury_block",
+		"alchemycraft:sulfur_ore",
+		"alchemycraft:sulfur_block",
+		"alchemycraft:silver_ore"
+	]
+}
