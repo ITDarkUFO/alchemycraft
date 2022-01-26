@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"###",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "alchemycraft:raw_silver"
+		}
+	},
+	"result": {
+		"item": "alchemycraft:raw_silver_block"
+	}
+}

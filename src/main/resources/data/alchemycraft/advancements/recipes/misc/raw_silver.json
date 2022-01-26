@@ -1,0 +1,34 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"alchemycraft:raw_silver"
+		]
+	},
+	"criteria": {
+		"has_raw_silver_block": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"alchemycraft:raw_silver_block"
+						]
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "alchemycraft:raw_silver"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_raw_silver_block",
+			"has_the_recipe"
+		]
+	]
+}
