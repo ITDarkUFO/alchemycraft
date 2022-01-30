@@ -13,5 +13,6 @@
     "result": {
         "item": "alchemycraft:granite_mortar",
         "count": 1
-    }
+    },
+    "group": "granite_mortar"
 }

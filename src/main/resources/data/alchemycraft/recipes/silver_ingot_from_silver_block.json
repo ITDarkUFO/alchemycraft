@@ -1,13 +1,13 @@
 {
 	"type": "minecraft:crafting_shapeless",
-	"group": "silver_ingot",
 	"ingredients": [
 		{
-			"item": "minecraft:silver_block"
+			"item": "alchemycraft:silver_block"
 		}
 	],
 	"result": {
-		"item": "minecraft:silver_ingot",
+		"item": "alchemycraft:silver_ingot",
 		"count": 9
-	}
+	},
+	"group": "silver_ingot"
 }

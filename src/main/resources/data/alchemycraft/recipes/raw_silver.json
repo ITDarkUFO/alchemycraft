@@ -8,5 +8,6 @@
     "result": {
       "item": "alchemycraft:raw_silver",
       "count": 9
-    }
+    },
+    "group": "raw_silver"
   }

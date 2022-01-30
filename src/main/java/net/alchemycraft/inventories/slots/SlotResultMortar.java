@@ -59,14 +59,23 @@ public class SlotResultMortar extends Slot {
         amount = 0;
     }
 
-    @Override 
+    @Override
     public void onTakeItem(PlayerEntity player, ItemStack stack) {
         this.onCrafted(stack);
-        
+
         DefaultedList<ItemStack> defaultedList = player.world.getRecipeManager()
                 .getRemainingStacks(RecipesMortar.Type.INSTANCE, this.input, player.world);
 
-        for (int i = 0; i < defaultedList.size() - 2; ++i) {
+        // Decrease Pestle Durability
+        ItemStack pestleSlot = this.input.getStack(0);
+
+        if (pestleSlot.getDamage() != pestleSlot.getMaxDamage() - 1) {
+            int currentDamage = pestleSlot.getDamage();
+            this.input.getStack(0).setDamage(currentDamage + 1);
+        } else
+            this.input.setStack(0, ItemStack.EMPTY);
+
+        for (int i = 1; i < defaultedList.size() - 1; ++i) {
             ItemStack oldStack = this.input.getStack(i);
             ItemStack newStack = defaultedList.get(i);
             if (!oldStack.isEmpty()) {
@@ -85,15 +94,5 @@ public class SlotResultMortar extends Slot {
                 }
             }
         }
-
-        // Decrease Pestle Durability
-        ItemStack pestleSlot = this.input.getStack(2);
-        
-        if (pestleSlot.getDamage() != pestleSlot.getMaxDamage() - 1)
-        {
-            int currentDamage = pestleSlot.getDamage();
-            this.input.getStack(2).setDamage(currentDamage + 1);
-        }
-        else this.input.setStack(2, ItemStack.EMPTY);
     }
 }

@@ -11,12 +11,12 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
-    private final DefaultedList<Ingredient> recipeItems;
     private final Ingredient pestleSlot;
+    private final DefaultedList<Ingredient> recipeItems;
     private final ItemStack outputStack;
     private final Identifier identifier;
 
-    public RecipesMortar(DefaultedList<Ingredient> recipeItems, Ingredient pestleSlot, ItemStack outputStack,
+    public RecipesMortar(Ingredient pestleSlot, DefaultedList<Ingredient> recipeItems, ItemStack outputStack,
             Identifier identifier) {
         this.pestleSlot = pestleSlot;
         this.recipeItems = recipeItems;
@@ -35,10 +35,9 @@ public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
 
     @Override
     public boolean matches(InventoryCraftingMortar inventory, World world) {
-        if (recipeItems.get(0).test(inventory.getStack(0))) {
-            if (recipeItems.get(1).test(inventory.getStack(1)))
-                return pestleSlot.test(inventory.getStack(2));
-        }
+        if (pestleSlot.test(inventory.getStack(0)))
+            if (recipeItems.get(0).test(inventory.getStack(1)))
+                return recipeItems.get(1).test(inventory.getStack(2));
 
         return false;
     }

@@ -54,6 +54,10 @@ public class ConfigItems {
 	public static Item SILVER_INGOT = registerItem("silver_ingot",
 			new ItemSilverIngot(new FabricItemSettings()));
 
+	// Nuggets
+	public static Item SILVER_NUGGET = registerItem("silver_nugget",
+			new Item(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+
 	// Blocks
 	public static final Item SALT_BLOCK = registerItem("salt_block",
 			new BlockItem(ConfigBlocks.SALT_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
@@ -94,7 +98,7 @@ public class ConfigItems {
 			new ItemSaltedSalmon(new FabricItemSettings()));
 
 	// Pestles
-	public static final Item WOOD_PESTLE = registerItem("wood_pestle",
+	public static final Item WOODEN_PESTLE = registerItem("wooden_pestle",
 			new ItemPestle(new FabricItemSettings().maxDamage(32)));
 
 	public static final Item STONE_PESTLE = registerItem("stone_pestle",

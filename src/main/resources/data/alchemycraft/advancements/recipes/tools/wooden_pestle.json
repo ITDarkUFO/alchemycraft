@@ -2,7 +2,7 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "alchemycraft:wood_pestle"
+            "alchemycraft:wooden_pestle"
         ]
     },
     "criteria": {
@@ -21,7 +21,7 @@
         "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "alchemycraft:wood_pestle"
+                "recipe": "alchemycraft:wooden_pestle"
             }
         }
     },

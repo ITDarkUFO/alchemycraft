@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "alchemycraft:silver_ingot"
+        }
+    },
+    "result": {
+        "item": "alchemycraft:silver_block"
+    },
+    "group": "silver_block"
+}

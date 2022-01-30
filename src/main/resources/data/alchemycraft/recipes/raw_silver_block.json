@@ -12,5 +12,6 @@
 	},
 	"result": {
 		"item": "alchemycraft:raw_silver_block"
-	}
+	},
+    "group": "raw_silver_block"
 }

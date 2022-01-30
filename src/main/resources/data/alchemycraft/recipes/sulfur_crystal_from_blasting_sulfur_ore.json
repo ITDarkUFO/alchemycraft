@@ -1,10 +1,10 @@
 {
-    "type": "minecraft:blasting",
-    "group": "sulfur_crystal",
-    "ingredient": {
-      "item": "alchemycraft:sulfur_ore"
-    },
-    "result": "alchemycraft:sulfur_crystal",
-    "experience": 0.6,
-    "cookingtime": 100
-  }
+	"type": "minecraft:blasting",
+	"ingredient": {
+		"item": "alchemycraft:sulfur_ore"
+	},
+	"result": "alchemycraft:sulfur_crystal",
+	"experience": 0.6,
+	"cookingtime": 100,
+	"group": "sulfur_crystal"
+}

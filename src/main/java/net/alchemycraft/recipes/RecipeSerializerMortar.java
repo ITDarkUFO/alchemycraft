@@ -27,15 +27,15 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
         ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
         JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
 
+        Ingredient pestle = Ingredient.fromJson(ingredients.get(0));
+
         DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2, Ingredient.EMPTY);
 
         for (int i = 0; i < inputs.size(); i++) {
-            inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            inputs.set(i, Ingredient.fromJson(ingredients.get(i + 1)));
         }
 
-        Ingredient pestle = Ingredient.fromJson(ingredients.get(2));
-
-        return new RecipesMortar(inputs, pestle, output, recipeId);
+        return new RecipesMortar(pestle, inputs, output, recipeId);
     }
 
     @Override // Turns Recipe into PacketByteBuf
@@ -44,26 +44,27 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
         // slot)
         packetData.writeInt(recipe.getIngredients().size() + 1);
 
+        Ingredient pestle = recipe.getPestleSlot();
+        pestle.write(packetData);
+
         for (Ingredient ing : recipe.getIngredients()) {
             ing.write(packetData);
         }
-
-        Ingredient pestle = recipe.getPestleSlot();
-        pestle.write(packetData);
 
         packetData.writeItemStack(recipe.getOutput());
     }
 
     @Override // Turns PacketByteBuf into Recipe
     public RecipesMortar read(Identifier recipeId, PacketByteBuf packetData) {
+        Ingredient pestle = Ingredient.fromPacket(packetData);
+
         DefaultedList<Ingredient> inputs = DefaultedList.ofSize(packetData.readInt(), Ingredient.EMPTY);
 
         for (int i = 0; i < inputs.size() - 1; i++) {
             inputs.set(i, Ingredient.fromPacket(packetData));
         }
 
-        Ingredient pestle = Ingredient.fromPacket(packetData);
         ItemStack output = packetData.readItemStack();
-        return new RecipesMortar(inputs, pestle, output, recipeId);
+        return new RecipesMortar(pestle, inputs, output, recipeId);
     }
 }

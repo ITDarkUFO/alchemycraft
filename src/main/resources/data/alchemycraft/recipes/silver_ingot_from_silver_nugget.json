@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "alchemycraft:silver_nugget"
+        }
+    },
+    "result": {
+        "item": "alchemycraft:silver_ingot"
+    },
+    "group": "silver_ingot"
+}

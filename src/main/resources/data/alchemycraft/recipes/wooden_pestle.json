@@ -13,8 +13,8 @@
         }
     },
     "result": {
-        "item": "alchemycraft:wood_pestle",
+        "item": "alchemycraft:wooden_pestle",
         "count": 1
     },
-    "group": "wood_pestle"
+    "group": "wooden_pestle"
 }

@@ -1,10 +1,10 @@
 {
     "type": "minecraft:smelting",
-    "group": "silver_ingot",
     "ingredient": {
       "item": "alchemycraft:raw_silver"
     },
     "result": "alchemycraft:silver_ingot",
     "experience": 1.0,
-    "cookingtime": 200
+    "cookingtime": 200,
+    "group": "silver_ingot"
   }

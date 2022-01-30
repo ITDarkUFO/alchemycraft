@@ -44,12 +44,12 @@ public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCrafting
         this.input.onOpen(playerInventory.player);
 
         // Mortar Inventory
-        // Input Slots - 0 & 1
-        this.addSlot(new Slot(this.input, 0, 44, 26));
-        this.addSlot(new Slot(this.input, 1, 44, 44));
+        // Pestle Slot - 0
+        this.addSlot(new Slot(this.input, 0, 17, 35));
 
-        // Pestle Slot - 2
-        this.addSlot(new Slot(this.input, 2, 17, 35));
+        // Input Slots - 1 & 2
+        this.addSlot(new Slot(this.input, 1, 44, 26));
+        this.addSlot(new Slot(this.input, 2, 44, 44));
 
         // Output slot - 3
         this.addSlot(new SlotResultMortar(playerInventory.player, this.input, this.result, 3, 116, 35));

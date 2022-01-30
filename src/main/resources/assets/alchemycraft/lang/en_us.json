@@ -10,7 +10,7 @@
     "block.alchemycraft.diorite_mortar" : "Diorite Mortar",
     "block.alchemycraft.andesite_mortar" : "Andesite Mortar",
 
-    "item.alchemycraft.wood_pestle" : "Wood Pestle",
+    "item.alchemycraft.wooden_pestle" : "Wooden Pestle",
     "item.alchemycraft.stone_pestle" : "Stone Pestle",
     "item.alchemycraft.diorite_pestle" : "Diorite Pestle",
     "item.alchemycraft.andesite_pestle" : "Andesite Pestle",
@@ -40,6 +40,7 @@
     "item.alchemycraft.raw_silver" : "Raw Silver",
     "block.alchemycraft.raw_silver_block" : "Raw Silver Block",
     "item.alchemycraft.silver_ingot" : "Silver Ingot",
+    "item.alchemycraft.silver_nugget" : "Silver Nugget",
     "block.alchemycraft.silver_block" : "Silver Block",
 
     "item.alchemycraft.salted_cod" : "Salted Cod",

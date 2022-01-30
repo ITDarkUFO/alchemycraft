@@ -10,7 +10,7 @@
     "block.alchemycraft.diorite_mortar" : "Диоритная ступка",
     "block.alchemycraft.andesite_mortar" : "Андезитная ступка",
 
-    "item.alchemycraft.wood_pestle" : "Деревянный пестик",
+    "item.alchemycraft.wooden_pestle" : "Деревянный пестик",
     "item.alchemycraft.stone_pestle" : "Каменный пестик",
     "item.alchemycraft.diorite_pestle" : "Диоритовый пестик",
     "item.alchemycraft.andesite_pestle" : "Андезитовый пестик",
@@ -36,11 +36,12 @@
     "item.alchemycraft.bowl_of_sulfur" : "Миска с серой",
     "block.alchemycraft.sulfur_block" : "Серный блок",
 
-    "block.alchemycraft.silver_ore" : "Серебрянная руда",
+    "block.alchemycraft.silver_ore" : "Серебряная руда",
     "item.alchemycraft.raw_silver" : "Рудное серебро",
     "block.alchemycraft.raw_silver_block" : "Блок рудного серебра",
-    "item.alchemycraft.silver_ingot" : "Серебрянный слиток",
-    "block.alchemycraft.silver_block" : "Серебрянный блок",
+    "item.alchemycraft.silver_ingot" : "Серебряный слиток",
+    "item.alchemycraft.silver_nugget" : "Кусочек серебра",
+    "block.alchemycraft.silver_block" : "Серебряный блок",
 
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось",

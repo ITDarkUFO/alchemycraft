@@ -7,6 +7,8 @@
 		"alchemycraft:mercury_block",
 		"alchemycraft:sulfur_ore",
 		"alchemycraft:sulfur_block",
-		"alchemycraft:silver_ore"
+		"alchemycraft:silver_ore",
+		"alchemycraft:raw_silver_block",
+		"alchemycraft:silver_block"
 	]
 }

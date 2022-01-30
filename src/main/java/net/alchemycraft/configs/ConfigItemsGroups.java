@@ -21,7 +21,7 @@ public class ConfigItemsGroups {
 			.icon(() -> new ItemStack(ConfigItems.BRAIN_IN_JAR)).build();
 
 	public static final ItemGroup TOOLS = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "tools"))
-			.icon(() -> new ItemStack(ConfigItems.WOOD_PESTLE)).build();
+			.icon(() -> new ItemStack(ConfigItems.WOODEN_PESTLE)).build();
 
 	public static void init() {
 	}
