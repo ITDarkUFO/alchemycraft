@@ -43,6 +43,11 @@
     "item.alchemycraft.silver_nugget" : "Silver Nugget",
     "block.alchemycraft.silver_block" : "Silver Block",
 
+    "item.alchemycraft.silver_helmet" : "Silver Helmer",
+    "item.alchemycraft.silver_chestplate" : "Silver Chestplate",
+    "item.alchemycraft.silver_leggings" : "Silver Leggings",
+    "item.alchemycraft.silver_boots" : "Silver Boots",
+
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon",
 

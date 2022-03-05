@@ -26,7 +26,7 @@
     "alchemycraft.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.12",
+    "fabricloader": ">=0.13.3",
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17"

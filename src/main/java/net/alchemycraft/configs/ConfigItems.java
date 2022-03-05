@@ -15,7 +15,11 @@ import net.alchemycraft.items.ItemSaltedCod;
 import net.alchemycraft.items.ItemSaltedSalmon;
 import net.alchemycraft.items.ItemSilverIngot;
 import net.alchemycraft.items.ItemSulfurCrystal;
+import net.alchemycraft.items.materials.MaterialSilverArmor;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 
@@ -127,6 +131,24 @@ public class ConfigItems {
 
 	public static final Item INFINITY_PESTLE = registerItem("infinity_pestle",
 			new ItemInfinityPestle(new FabricItemSettings()));
+
+	// Armors
+	public static final ArmorMaterial SILVER_ARMOR_MATERIAL = new MaterialSilverArmor();
+	public static final Item SILVER_HELMET = registerItem("silver_helmet",
+			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.HEAD,
+					new FabricItemSettings().group(ConfigItemsGroups.TOOLS)));
+
+	public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate",
+			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.CHEST,
+					new FabricItemSettings().group(ConfigItemsGroups.TOOLS)));
+
+	public static final Item SILVER_LEGGINGS = registerItem("silver_leggings",
+			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.LEGS,
+					new FabricItemSettings().group(ConfigItemsGroups.TOOLS)));
+
+	public static final Item SILVER_BOOTS = registerItem("silver_boots",
+			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.FEET,
+					new Item.Settings().group(ConfigItemsGroups.TOOLS)));
 
 	// Other
 	public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
