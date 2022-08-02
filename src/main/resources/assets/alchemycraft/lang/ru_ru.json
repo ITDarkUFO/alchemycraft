@@ -51,5 +51,11 @@
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось",
 
-    "item.alchemycraft.tooltip.only_for_creative" : "Только для креатива"
+    "item.alchemycraft.tooltip.only_for_creative" : "Только для креатива",
+
+
+    "advancements.alchemy.root.title" : "Alchemycraft",
+    "advancements.alchemy.root.description" : "Познай тайны алхимического искусства",
+    "advancements.alchemy.get_silver_armor.title" : "Почётный рыцарь",
+    "advancements.alchemy.get_silver_armor.description" : "Получите блестящую серебряную броню"
 }
