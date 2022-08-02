@@ -12,21 +12,16 @@ import net.minecraft.world.World;
 
 public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
     private final Ingredient pestleSlot;
-    private final DefaultedList<Ingredient> recipeItems;
+    private final DefaultedList<ItemStack> recipeItems;
     private final ItemStack outputStack;
     private final Identifier identifier;
 
-    public RecipesMortar(Ingredient pestleSlot, DefaultedList<Ingredient> recipeItems, ItemStack outputStack,
+    public RecipesMortar(Ingredient pestleSlot, DefaultedList<ItemStack> recipeItems, ItemStack outputStack,
             Identifier identifier) {
         this.pestleSlot = pestleSlot;
         this.recipeItems = recipeItems;
         this.outputStack = outputStack;
         this.identifier = identifier;
-    }
-
-    @Override
-    public DefaultedList<Ingredient> getIngredients() {
-        return recipeItems;
     }
 
     public Ingredient getPestleSlot() {
@@ -36,10 +31,21 @@ public class RecipesMortar implements Recipe<InventoryCraftingMortar> {
     @Override
     public boolean matches(InventoryCraftingMortar inventory, World world) {
         if (pestleSlot.test(inventory.getStack(0)))
-            if (recipeItems.get(0).test(inventory.getStack(1)))
-                return recipeItems.get(1).test(inventory.getStack(2));
+            if (recipeItems.get(0).getItem() == inventory.getStack(1).getItem() && recipeItems.get(0).getCount() <= inventory.getStack(1).getCount())
+                return recipeItems.get(1).getItem() == inventory.getStack(2).getItem() && recipeItems.get(1).getCount() <= inventory.getStack(2).getCount();
 
         return false;
+    }
+
+    @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(0);
+
+        for (ItemStack itemStack : recipeItems) 
+            for (int i = 0; i < itemStack.getCount(); i++)
+                ingredients.add(Ingredient.ofStacks(itemStack));
+
+        return ingredients;
     }
 
     @Override

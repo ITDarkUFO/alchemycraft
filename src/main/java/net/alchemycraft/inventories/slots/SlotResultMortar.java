@@ -1,10 +1,13 @@
 package net.alchemycraft.inventories.slots;
 
+import java.util.Optional;
+
 import net.alchemycraft.inventories.InventoryCraftingMortar;
 import net.alchemycraft.recipes.RecipesMortar;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeUnlocker;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.collection.DefaultedList;
@@ -65,6 +68,8 @@ public class SlotResultMortar extends Slot {
 
         DefaultedList<ItemStack> defaultedList = player.world.getRecipeManager()
                 .getRemainingStacks(RecipesMortar.Type.INSTANCE, this.input, player.world);
+            
+        Optional<RecipesMortar> ingredients = player.world.getRecipeManager().getFirstMatch(RecipesMortar.Type.INSTANCE, this.input, player.world);
 
         // Decrease Pestle Durability
         ItemStack pestleSlot = this.input.getStack(0);
@@ -75,11 +80,17 @@ public class SlotResultMortar extends Slot {
         } else
             this.input.setStack(0, ItemStack.EMPTY);
 
+        // Remove recipe items
         for (int i = 1; i < defaultedList.size() - 1; ++i) {
             ItemStack oldStack = this.input.getStack(i);
             ItemStack newStack = defaultedList.get(i);
             if (!oldStack.isEmpty()) {
-                this.input.removeStack(i, 1);
+                int removed_items_counter = 0;
+                for (Ingredient ingredient : ingredients.get().getIngredients()) {
+                    if (ingredient.test(oldStack))
+                        removed_items_counter++;
+                }
+                this.input.removeStack(i, removed_items_counter);
                 oldStack = this.input.getStack(i);
             }
             if (!newStack.isEmpty()) {

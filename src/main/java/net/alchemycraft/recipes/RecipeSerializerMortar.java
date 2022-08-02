@@ -2,8 +2,10 @@ package net.alchemycraft.recipes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 
 import net.alchemycraft.configs.Config;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
@@ -12,6 +14,7 @@ import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.registry.Registry;
 
 public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
 
@@ -24,15 +27,30 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
 
     @Override // Turns json into Recipe
     public RecipesMortar read(Identifier recipeId, JsonObject json) {
-        ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
         JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-
+        ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
         Ingredient pestle = Ingredient.fromJson(ingredients.get(0));
 
-        DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2, Ingredient.EMPTY);
+        DefaultedList<ItemStack> inputs = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
         for (int i = 0; i < inputs.size(); i++) {
-            inputs.set(i, Ingredient.fromJson(ingredients.get(i + 1)));
+            JsonObject jsonObject = ingredients.get(i + 1).getAsJsonObject();
+
+            Identifier itemID = new Identifier(jsonObject.get("item").getAsString());
+            Item ingredientItem = null;
+            int itemCount = 0;
+
+            if (jsonObject.size() == 2) {
+                itemCount = jsonObject.get("count").getAsInt();
+            } else if (jsonObject.size() == 1) {
+                itemCount = 1;
+            } else {
+                throw new JsonSyntaxException("Recipe {" + jsonObject + "} is broken.");
+            }
+
+            ingredientItem = Registry.ITEM.get(itemID);
+            ItemStack ingredientItemStack = new ItemStack(ingredientItem, itemCount);
+            inputs.set(i, ingredientItemStack);
         }
 
         return new RecipesMortar(pestle, inputs, output, recipeId);
@@ -58,10 +76,10 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
     public RecipesMortar read(Identifier recipeId, PacketByteBuf packetData) {
         Ingredient pestle = Ingredient.fromPacket(packetData);
 
-        DefaultedList<Ingredient> inputs = DefaultedList.ofSize(packetData.readInt(), Ingredient.EMPTY);
+        DefaultedList<ItemStack> inputs = DefaultedList.ofSize(packetData.readInt(), ItemStack.EMPTY);
 
         for (int i = 0; i < inputs.size() - 1; i++) {
-            inputs.set(i, Ingredient.fromPacket(packetData));
+            inputs.set(i, packetData.readItemStack());
         }
 
         ItemStack output = packetData.readItemStack();
