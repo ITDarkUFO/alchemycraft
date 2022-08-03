@@ -11,7 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -46,9 +46,10 @@ public class BlockGraniteMortar extends Block {
     }
 
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
-        return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
-                new HandlerMortar(syncId, inventory, ScreenHandlerContext.create(world, pos)),
-                new TranslatableText("block.alchemycraft.granite_mortar"));
+        return new SimpleNamedScreenHandlerFactory(
+                (syncId, inventory, player) -> new HandlerMortar(syncId, inventory,
+                        ScreenHandlerContext.create(world, pos)),
+                Text.translatable("block.alchemycraft.granite_mortar"));
     }
 
     @Override
