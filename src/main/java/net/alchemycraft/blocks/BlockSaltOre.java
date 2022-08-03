@@ -15,11 +15,13 @@ public class BlockSaltOre extends OreBlock {
     }
 
     @Override
-    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack) {
-        super.onStacksDropped(state, world, pos, stack);
-        if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-            int experience = MathHelper.nextInt(world.random, 0, 2);
-            this.dropExperience(world, pos, experience);
+    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack, boolean dropExperience) {
+        super.onStacksDropped(state, world, pos, stack, dropExperience);
+        if (dropExperience) {
+            if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
+                int experience = MathHelper.nextInt(world.random, 0, 2);
+                this.dropExperience(world, pos, experience);
+            }
         }
     }
 }
