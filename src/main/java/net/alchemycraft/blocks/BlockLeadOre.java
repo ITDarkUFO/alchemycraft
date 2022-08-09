@@ -9,8 +9,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
-public class BlockSilverOre extends OreBlock {
-    public BlockSilverOre(Settings settings) {
+public class BlockLeadOre extends OreBlock {
+    public BlockLeadOre(Settings settings) {
         super(settings);
     }
 
@@ -19,7 +19,7 @@ public class BlockSilverOre extends OreBlock {
         super.onStacksDropped(state, world, pos, stack, dropExperience);
         if (dropExperience) {
             if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-                int experience = MathHelper.nextInt(world.random, 1, 5);
+                int experience = MathHelper.nextInt(world.random, 1, 3);
                 this.dropExperience(world, pos, experience);
             }
         }

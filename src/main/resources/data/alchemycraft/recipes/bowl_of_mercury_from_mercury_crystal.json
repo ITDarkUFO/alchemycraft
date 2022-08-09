@@ -2,7 +2,7 @@
     "type": "alchemycraft:mortar",
     "ingredients": [
         {
-            "tag": "alchemycraft:pestles"
+            "tag": "c:pestles"
         },
         {
             "item": "alchemycraft:mercury_crystal"

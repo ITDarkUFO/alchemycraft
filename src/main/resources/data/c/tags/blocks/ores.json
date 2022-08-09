@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"alchemycraft:salt_ore",
+		"alchemycraft:mercury_ore",
+		"alchemycraft:sulfur_ore",
+		"alchemycraft:silver_ore",
+		"alchemycraft:lead_ore"
+	]
+}

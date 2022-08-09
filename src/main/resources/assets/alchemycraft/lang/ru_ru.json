@@ -4,6 +4,7 @@
     "itemGroup.alchemycraft.tools" : "Алхимия - Инструменты",
     "itemGroup.alchemycraft.misc" : "Алхимия - Разное",
     "itemGroup.alchemycraft.food" : "Алхимия - Еда",
+    "itemGroup.alchemycraft.combat" : "Алхимия - Оружие и броня",
 
     "item.alchemycraft.brain_in_jar" : "Банка с мозгом",
     "block.alchemycraft.granite_mortar" : "Гранитная ступка",
@@ -42,6 +43,13 @@
     "item.alchemycraft.silver_ingot" : "Серебряный слиток",
     "item.alchemycraft.silver_nugget" : "Кусочек серебра",
     "block.alchemycraft.silver_block" : "Серебряный блок",
+
+    "block.alchemycraft.lead_ore" : "Свинцовая руда",
+    "item.alchemycraft.raw_lead" : "Рудный свинец",
+    "block.alchemycraft.raw_lead_block" : "Блок рудного свинца",
+    "item.alchemycraft.lead_ingot" : "Свинцовый слиток",
+    "item.alchemycraft.lead_nugget" : "Кусочек свинца",
+    "block.alchemycraft.lead_block" : "Свинцовый блок",
 
     "item.alchemycraft.silver_helmet" : "Серебряный шлем",
     "item.alchemycraft.silver_chestplate" : "Серебряный нагрудник",

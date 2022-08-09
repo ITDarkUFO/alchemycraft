@@ -7,8 +7,10 @@ import net.alchemycraft.items.ItemBowlOfSalt;
 import net.alchemycraft.items.ItemBowlOfSulfur;
 import net.alchemycraft.items.ItemBrainInJar;
 import net.alchemycraft.items.ItemInfinityPestle;
+import net.alchemycraft.items.ItemLeadIngot;
 import net.alchemycraft.items.ItemMercuryCrystal;
 import net.alchemycraft.items.ItemPestle;
+import net.alchemycraft.items.ItemRawLead;
 import net.alchemycraft.items.ItemRawSilver;
 import net.alchemycraft.items.ItemSaltCrystal;
 import net.alchemycraft.items.ItemSaltedCod;
@@ -37,26 +39,38 @@ public class ConfigItems {
 	public static final Item SILVER_ORE = registerItem("silver_ore",
 			new BlockItem(ConfigBlocks.SILVER_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
+	public static final Item LEAD_ORE = registerItem("lead_ore",
+			new BlockItem(ConfigBlocks.LEAD_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
 	// Crystals & Raw Metals
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
-			new ItemSaltCrystal(new FabricItemSettings()));
+			new ItemSaltCrystal(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
-			new ItemMercuryCrystal(new FabricItemSettings()));
+			new ItemMercuryCrystal(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
-			new ItemSulfurCrystal(new FabricItemSettings()));
+			new ItemSulfurCrystal(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	public static Item RAW_SILVER = registerItem("raw_silver",
-			new ItemRawSilver(new FabricItemSettings()));
+			new ItemRawSilver(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+
+	public static Item RAW_LEAD = registerItem("raw_lead",
+			new ItemRawLead(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	// Raw Metal Blocks
 	public static final Item RAW_SILVER_BLOCK = registerItem("raw_silver_block",
 			new BlockItem(ConfigBlocks.RAW_SILVER_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
+	public static final Item RAW_LEAD_BLOCK = registerItem("raw_lead_block",
+			new BlockItem(ConfigBlocks.RAW_LEAD_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
 	// Ingots
 	public static Item SILVER_INGOT = registerItem("silver_ingot",
-			new ItemSilverIngot(new FabricItemSettings()));
+			new ItemSilverIngot(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+
+	public static Item LEAD_INGOT = registerItem("lead_ingot",
+			new ItemLeadIngot(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	// Nuggets
 	public static Item SILVER_NUGGET = registerItem("silver_nugget",
@@ -74,6 +88,9 @@ public class ConfigItems {
 
 	public static final Item SILVER_BLOCK = registerItem("silver_block",
 			new BlockItem(ConfigBlocks.SILVER_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
+	public static final Item LEAD_BLOCK = registerItem("lead_block",
+			new BlockItem(ConfigBlocks.LEAD_BLOCK, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
 	// Bowl of Powder
 	public static Item BOWL_OF_SALT = registerItem("bowl_of_salt",
@@ -96,10 +113,11 @@ public class ConfigItems {
 			new BlockItem(ConfigBlocks.ANDESITE_MORTAR, new FabricItemSettings().group(ConfigItemsGroups.DECORATIONS)));
 
 	// Food
-	public static final Item SALTED_COD = registerItem("salted_cod", new ItemSaltedCod(new FabricItemSettings()));
+	public static final Item SALTED_COD = registerItem("salted_cod",
+			new ItemSaltedCod(new FabricItemSettings().group(ConfigItemsGroups.FOOD)));
 
 	public static final Item SALTED_SALMON = registerItem("salted_salmon",
-			new ItemSaltedSalmon(new FabricItemSettings()));
+			new ItemSaltedSalmon(new FabricItemSettings().group(ConfigItemsGroups.FOOD)));
 
 	// Pestles
 	public static final Item WOODEN_PESTLE = registerItem("wooden_pestle",
@@ -136,23 +154,23 @@ public class ConfigItems {
 	public static final ArmorMaterial SILVER_ARMOR_MATERIAL = new MaterialSilverArmor();
 	public static final Item SILVER_HELMET = registerItem("silver_helmet",
 			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.HEAD,
-					new FabricItemSettings().group(ConfigItemsGroups.TOOLS)));
+					new FabricItemSettings().group(ConfigItemsGroups.COMBAT)));
 
 	public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate",
 			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.CHEST,
-					new FabricItemSettings().group(ConfigItemsGroups.TOOLS)));
+					new FabricItemSettings().group(ConfigItemsGroups.COMBAT)));
 
 	public static final Item SILVER_LEGGINGS = registerItem("silver_leggings",
 			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.LEGS,
-					new FabricItemSettings().group(ConfigItemsGroups.TOOLS)));
+					new FabricItemSettings().group(ConfigItemsGroups.COMBAT)));
 
 	public static final Item SILVER_BOOTS = registerItem("silver_boots",
 			new ArmorItem(SILVER_ARMOR_MATERIAL, EquipmentSlot.FEET,
-					new Item.Settings().group(ConfigItemsGroups.TOOLS)));
+					new Item.Settings().group(ConfigItemsGroups.COMBAT)));
 
 	// Other
 	public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
-			new ItemBrainInJar(new FabricItemSettings()));
+			new ItemBrainInJar(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	public static void init() {
 	}

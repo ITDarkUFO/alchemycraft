@@ -29,4 +29,7 @@ public class ConfigTags {
             return TagKey.of(Registry.ITEM_KEY, new Identifier("c", name));
         }
     }
+
+    public static void init() {
+	}
 }

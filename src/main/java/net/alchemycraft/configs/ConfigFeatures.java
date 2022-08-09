@@ -1,5 +1,6 @@
 package net.alchemycraft.configs;
 
+import net.alchemycraft.features.FeatureLeadOreGenerator;
 import net.alchemycraft.features.FeatureMercuryOreGenerator;
 import net.alchemycraft.features.FeatureSaltOreGenerator;
 import net.alchemycraft.features.FeatureSilverOreGenerator;
@@ -11,5 +12,6 @@ public class ConfigFeatures {
         FeatureMercuryOreGenerator.init();
         FeatureSulfurOreGenerator.init();
         FeatureSilverOreGenerator.init();
+        FeatureLeadOreGenerator.init();
     }
 }

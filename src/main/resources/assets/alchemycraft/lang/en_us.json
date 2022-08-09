@@ -4,6 +4,7 @@
     "itemGroup.alchemycraft.tools" : "Alchemy - Tools",
     "itemGroup.alchemycraft.misc" : "Alchemy - Miscellaneous",
     "itemGroup.alchemycraft.food" : "Alchemy - Food",
+    "itemGroup.alchemycraft.combat" : "Алхимия - Combat",
 
     "item.alchemycraft.brain_in_jar" : "Brain in a jar",
     "block.alchemycraft.granite_mortar" : "Granite Mortar",
@@ -42,6 +43,13 @@
     "item.alchemycraft.silver_ingot" : "Silver Ingot",
     "item.alchemycraft.silver_nugget" : "Silver Nugget",
     "block.alchemycraft.silver_block" : "Silver Block",
+
+    "block.alchemycraft.lead_ore" : "Lead Ore",
+    "item.alchemycraft.raw_lead" : "Raw Lead",
+    "block.alchemycraft.raw_lead_block" : "Raw Lead Block",
+    "item.alchemycraft.lead_ingot" : "Lead Ingot",
+    "item.alchemycraft.lead_nugget" : "Lead Nugget",
+    "block.alchemycraft.lead_block" : "Lead Block",
 
     "item.alchemycraft.silver_helmet" : "Silver Helmer",
     "item.alchemycraft.silver_chestplate" : "Silver Chestplate",

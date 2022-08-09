@@ -6,6 +6,7 @@ import net.alchemycraft.configs.ConfigHandlers;
 import net.alchemycraft.configs.ConfigItems;
 import net.alchemycraft.configs.ConfigItemsGroups;
 import net.alchemycraft.configs.ConfigRecipes;
+import net.alchemycraft.configs.ConfigTags;
 import net.fabricmc.api.ModInitializer;
 
 public class AlchemyCraft implements ModInitializer {
@@ -17,5 +18,6 @@ public class AlchemyCraft implements ModInitializer {
 		ConfigFeatures.init();
 		ConfigHandlers.init();
 		ConfigRecipes.init();
+		ConfigTags.init();
 	}
 }

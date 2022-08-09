@@ -23,6 +23,9 @@ public class ConfigItemsGroups {
 	public static final ItemGroup TOOLS = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "tools"))
 			.icon(() -> new ItemStack(ConfigItems.WOODEN_PESTLE)).build();
 
+	public static final ItemGroup COMBAT = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "combat"))
+			.icon(() -> new ItemStack(ConfigItems.SILVER_CHESTPLATE)).build();
+
 	public static void init() {
 	}
 }

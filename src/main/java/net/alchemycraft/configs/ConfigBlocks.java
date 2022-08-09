@@ -4,9 +4,12 @@ import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerBlock;
 
 import net.alchemycraft.blocks.BlockMercury;
 import net.alchemycraft.blocks.BlockMercuryOre;
+import net.alchemycraft.blocks.BlockRawLead;
 import net.alchemycraft.blocks.BlockAndesiteMortar;
 import net.alchemycraft.blocks.BlockDioriteMortar;
 import net.alchemycraft.blocks.BlockGraniteMortar;
+import net.alchemycraft.blocks.BlockLead;
+import net.alchemycraft.blocks.BlockLeadOre;
 import net.alchemycraft.blocks.BlockRawSilver;
 import net.alchemycraft.blocks.BlockSalt;
 import net.alchemycraft.blocks.BlockSaltOre;
@@ -36,10 +39,18 @@ public class ConfigBlocks {
 	public static final Block SILVER_ORE = registerBlock("silver_ore",
 			new BlockSilverOre(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
 					.requiresTool().strength(3.0f, 3.0f)));
+	
+	public static final Block LEAD_ORE = registerBlock("lead_ore",
+			new BlockLeadOre(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
+					.requiresTool().strength(3.0f, 3.0f)));
 
 	// Raw Metal Blocks
 	public static final Block RAW_SILVER_BLOCK = registerBlock("raw_silver_block",
 			new BlockRawSilver(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
+					.requiresTool().strength(3.0f, 3.0f)));
+	
+	public static final Block RAW_LEAD_BLOCK = registerBlock("raw_lead_block",
+			new BlockRawLead(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
 					.requiresTool().strength(3.0f, 3.0f)));
 
 	// Blocks
@@ -57,6 +68,10 @@ public class ConfigBlocks {
 
 	public static final Block SILVER_BLOCK = registerBlock("silver_block",
 			new BlockSilver(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.PALE_YELLOW)
+					.requiresTool().strength(1.5f, 1.5f)));
+	
+	public static final Block LEAD_BLOCK = registerBlock("lead_block",
+			new BlockLead(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.PALE_YELLOW)
 					.requiresTool().strength(1.5f, 1.5f)));
 
 	// Mortars
