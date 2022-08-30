@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "alchemycraft:lead_ore"
+	},
+	"result": "alchemycraft:lead_ingot",
+	"experience": 1.0,
+	"cookingtime": 200,
+	"group": "lead_ingot"
+}

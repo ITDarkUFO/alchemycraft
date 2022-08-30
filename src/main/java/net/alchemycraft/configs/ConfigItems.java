@@ -75,6 +75,9 @@ public class ConfigItems {
 	// Nuggets
 	public static Item SILVER_NUGGET = registerItem("silver_nugget",
 			new Item(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+	
+	public static Item LEAD_NUGGET = registerItem("lead_nugget",
+			new Item(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	// Blocks
 	public static final Item SALT_BLOCK = registerItem("salt_block",
