@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "spgoding.datapack-language-server",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-pack",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "dgileadi.java-decompiler",
+        "dbaeumer.jshint",
+        "redhat.java",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-java-test",
+        "thisotherthing.vscode-todo-list"
+    ]
+}

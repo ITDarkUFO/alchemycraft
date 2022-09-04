@@ -1,0 +1,29 @@
+# gradle
+.gradle/
+build/
+out/
+classes/
+
+# macos
+*.DS_Store
+
+# fabric
+run/
+
+# windows ini files
+*/desktop.ini
+
+# eclipse
+*.launch
+
+# idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+bin/
+.classpath
+.project
+
