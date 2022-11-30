@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": {
+		"item": "alchemycraft:deepslate_silver_ore"
+	},
+	"result": "alchemycraft:silver_ingot",
+	"experience": 1.0,
+	"cookingtime": 100,
+	"group": "silver_ingot"
+}

@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "alchemycraft:deepslate_salt_ore"
+	},
+	"result": "alchemycraft:salt_crystal",
+	"experience": 0.4,
+	"cookingtime": 200,
+	"group": "salt_crystal"
+}
