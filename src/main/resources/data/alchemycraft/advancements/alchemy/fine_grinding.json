@@ -1,0 +1,41 @@
+{
+    "parent": "alchemycraft:alchemy/coarse_grinding",
+    "criteria": {
+        "netherite_pestle": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:netherite_pestle"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "title": {
+            "translate": "advancements.alchemy.fine_grinding.title"
+        },
+        "description": {
+            "translate": "advancements.alchemy.fine_grinding.description"
+        },
+        "announce_to_chat": true,
+        "show_toast": true,
+        "frame": "challenge",
+        "hidden": false,
+        "icon": {
+            "item": "alchemycraft:netherite_pestle",
+            "nbt": "{Damage:0}"
+        }
+    },
+    "requirements": [
+        [
+            "netherite_pestle"
+        ]
+    ],
+    "rewards": {
+        "experience": 100
+    }
+}

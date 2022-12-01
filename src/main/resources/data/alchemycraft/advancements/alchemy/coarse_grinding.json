@@ -1,0 +1,36 @@
+{
+    "parent": "alchemycraft:alchemy/root",
+    "criteria": {
+        "grind_item": {
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "c:powders"
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "title": {
+            "translate": "advancements.alchemy.coarse_grinding.title"
+        },
+        "description": {
+            "translate": "advancements.alchemy.coarse_grinding.description"
+        },
+        "icon": {
+            "item": "alchemycraft:wooden_pestle",
+            "nbt": "{Damage:0}"
+        },
+        "announce_to_chat": true,
+        "show_toast": true,
+        "frame": "task",
+        "hidden": false
+    },
+    "requirements": [
+        [
+            "grind_item"
+        ]
+    ]
+}

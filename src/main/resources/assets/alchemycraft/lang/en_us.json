@@ -67,6 +67,10 @@
 
     "advancements.alchemy.root.title" : "Alchemycraft",
     "advancements.alchemy.root.description" : "Learn the secrets of the alchemical art",
-    "advancements.alchemy.get_silver_armor.title" : "Honorary Knight",
-    "advancements.alchemy.get_silver_armor.description" : "Get shiny Silver armor"
+    "advancements.alchemy.silver_armor.title" : "Honorary Knight",
+    "advancements.alchemy.silver_armor.description" : "Get shiny Silver armor",
+    "advancements.alchemy.coarse_grinding.title" : "Coarse Grinding",
+    "advancements.alchemy.coarse_grinding.description" : "Grind something with your first pestle",
+    "advancements.alchemy.fine_grinding.title" : "Fine Grinding",
+    "advancements.alchemy.fine_grinding.description" : "Use a Netherite Ingot to upgrade a pestle, and then reevaluate your life choices again"
 }

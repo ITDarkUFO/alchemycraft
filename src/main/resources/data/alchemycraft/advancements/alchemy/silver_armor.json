@@ -1,7 +1,7 @@
 {
     "parent": "alchemycraft:alchemy/root",
     "criteria": {
-        "get_silver_armor": {
+        "silver_armor": {
             "conditions": {
                 "items": [
                     {
@@ -19,10 +19,10 @@
     },
     "display": {
         "title": {
-            "translate": "advancements.alchemy.get_silver_armor.title"
+            "translate": "advancements.alchemy.silver_armor.title"
         },
         "description": {
-            "translate": "advancements.alchemy.get_silver_armor.description"
+            "translate": "advancements.alchemy.silver_armor.description"
         },
         "icon": {
             "item": "alchemycraft:silver_chestplate",
@@ -35,7 +35,7 @@
     },
     "requirements": [
         [
-            "get_silver_armor"
+            "silver_armor"
         ]
     ]
 }

@@ -67,6 +67,10 @@
 
     "advancements.alchemy.root.title" : "Alchemycraft",
     "advancements.alchemy.root.description" : "Познай тайны алхимического искусства",
-    "advancements.alchemy.get_silver_armor.title" : "Почётный рыцарь",
-    "advancements.alchemy.get_silver_armor.description" : "Получите блестящую серебряную броню"
+    "advancements.alchemy.silver_armor.title" : "Почётный рыцарь",
+    "advancements.alchemy.silver_armor.description" : "Получите блестящую серебряную броню",
+    "advancements.alchemy.coarse_grinding.title" : "Грубый помол",
+    "advancements.alchemy.coarse_grinding.description" : "Размелите что-нибудь своим первым пестиком",
+    "advancements.alchemy.fine_grinding.title" : "Мелкий помол",
+    "advancements.alchemy.fine_grinding.description" : "Улучшите пестик с помощью слитка незерита и переосмыслите свою жизнь еще раз"
 }
