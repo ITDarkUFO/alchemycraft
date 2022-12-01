@@ -4,35 +4,17 @@
     "experience": 0.1,
     "ingredient": [
       {
-        "item": "minecraft:silver_pickaxe"
+        "item": "alchemycraft:silver_helmet"
       },
       {
-        "item": "minecraft:silver_shovel"
+        "item": "alchemycraft:silver_chestplate"
       },
       {
-        "item": "minecraft:silver_axe"
+        "item": "alchemycraft:silver_leggings"
       },
       {
-        "item": "minecraft:silver_hoe"
-      },
-      {
-        "item": "minecraft:silver_sword"
-      },
-      {
-        "item": "minecraft:silver_helmet"
-      },
-      {
-        "item": "minecraft:silver_chestplate"
-      },
-      {
-        "item": "minecraft:silver_leggings"
-      },
-      {
-        "item": "minecraft:silver_boots"
-      },
-      {
-        "item": "minecraft:silver_horse_armor"
+        "item": "alchemycraft:silver_boots"
       }
     ],
-    "result": "minecraft:silver_nugget"
+    "result": "alchemycraft:silver_nugget"
   }
