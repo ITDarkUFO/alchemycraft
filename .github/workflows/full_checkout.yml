@@ -1,10 +1,7 @@
-name: Gradle Error Checker
+name: Full Gradle Error Checker
 
-on:
-  push:
-    branches-ignore: [master, main]
-  pull_request:
-    branches: [master, main]
+on: 
+  workflow_dispatch:
 
 ###############
 # Set the Job #
@@ -36,6 +33,6 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
