@@ -43,10 +43,6 @@ public class ConfigItems {
 	public static final Item SULFUR_ORE = registerItem("sulfur_ore",
 			new BlockItem(ConfigBlocks.SULFUR_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
-	public static final Item DEEPSLATE_SULFUR_ORE = registerItem("deepslate_sulfur_ore",
-			new BlockItem(ConfigBlocks.DEEPSLATE_SULFUR_ORE,
-					new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
-
 	public static final Item SILVER_ORE = registerItem("silver_ore",
 			new BlockItem(ConfigBlocks.SILVER_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 

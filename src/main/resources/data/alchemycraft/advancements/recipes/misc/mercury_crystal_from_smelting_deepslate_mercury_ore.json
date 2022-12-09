@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:mercury_crystal_from_smelting_deepslate_mercury_ore"
+        ]
+    },
+    "criteria": {
+        "has_deepslate_mercury_ore": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:deepslate_mercury_ore"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:mercury_crystal_from_smelting_deepslate_mercury_ore"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_deepslate_mercury_ore",
+            "has_the_recipe"
+        ]
+    ]
+}

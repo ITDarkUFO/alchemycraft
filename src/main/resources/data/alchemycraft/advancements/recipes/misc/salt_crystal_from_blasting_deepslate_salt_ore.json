@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:salt_crystal_from_blasting_deepslate_salt_ore"
+        ]
+    },
+    "criteria": {
+        "has_deepslate_salt_ore": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:deepslate_salt_ore"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:salt_crystal_from_blasting_deepslate_salt_ore"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_deepslate_salt_ore",
+            "has_the_recipe"
+        ]
+    ]
+}

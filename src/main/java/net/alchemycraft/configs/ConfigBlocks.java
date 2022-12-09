@@ -46,10 +46,6 @@ public class ConfigBlocks {
 			new BlockSulfurOre(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
 					.requiresTool().strength(3.0f, 3.0f)));
 
-	public static final Block DEEPSLATE_SULFUR_ORE = registerBlock("deepslate_sulfur_ore",
-			new BlockSulfurOre(FabricBlockSettings.copyOf(SULFUR_ORE).mapColor(MapColor.DEEPSLATE_GRAY)
-					.strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
-
 	public static final Block SILVER_ORE = registerBlock("silver_ore",
 			new OreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
 					.requiresTool().strength(3.0f, 3.0f)));

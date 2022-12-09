@@ -2,15 +2,19 @@
 	"replace": false,
 	"values": [
 		"alchemycraft:salt_ore",
+		"alchemycraft:deepslate_salt_ore",
 		"alchemycraft:salt_block",
 		"alchemycraft:mercury_ore",
+		"alchemycraft:deepslate_mercury_ore",
 		"alchemycraft:mercury_block",
 		"alchemycraft:sulfur_ore",
 		"alchemycraft:sulfur_block",
 		"alchemycraft:silver_ore",
+		"alchemycraft:deepslate_silver_ore",
 		"alchemycraft:raw_silver_block",
 		"alchemycraft:silver_block",
 		"alchemycraft:lead_ore",
+		"alchemycraft:deepslate_lead_ore",
 		"alchemycraft:raw_lead_block",
 		"alchemycraft:lead_block"
 	]
