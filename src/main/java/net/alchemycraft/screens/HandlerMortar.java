@@ -6,6 +6,8 @@ import net.alchemycraft.configs.ConfigBlocks;
 import net.alchemycraft.configs.ConfigHandlers;
 import net.alchemycraft.configs.ConfigTags;
 import net.alchemycraft.inventories.InventoryCraftingMortar;
+import net.alchemycraft.inventories.slots.SlotPestle;
+import net.alchemycraft.inventories.slots.SlotPowderStorage;
 import net.alchemycraft.inventories.slots.SlotResultMortar;
 import net.alchemycraft.recipes.RecipesMortar;
 import net.minecraft.entity.player.PlayerEntity;
@@ -35,6 +37,11 @@ public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCrafting
         this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
     }
 
+    /**
+     * @param syncId
+     * @param playerInventory
+     * @param context
+     */
     public HandlerMortar(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ConfigHandlers.MORTAR_HANDLER, syncId);
         this.playerInventory = playerInventory;
@@ -47,11 +54,13 @@ public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCrafting
 
         // Mortar Inventory
         // Pestle Slot - 0
-        this.addSlot(new Slot(this.input, 0, 17, 35));
+        this.addSlot(new SlotPestle(this.input, 0, 17, 35));
 
-        // Input Slots - 1 & 2
+        // Input Slot
         this.addSlot(new Slot(this.input, 1, 44, 26));
-        this.addSlot(new Slot(this.input, 2, 44, 44));
+
+        // Input Slot for powder storage item
+        this.addSlot(new SlotPowderStorage(this.input, 2, 44, 44));
 
         // Output slot - 3
         this.addSlot(new SlotResultMortar(playerInventory.player, this.input, this.result, 3, 116, 35));
@@ -105,8 +114,7 @@ public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCrafting
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int index)
-    {
+    public ItemStack transferSlot(PlayerEntity player, int index) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
 
@@ -121,24 +129,20 @@ public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCrafting
                 }
 
                 slot.onQuickTransfer(oldStack, newStack);
-            }
-            else if (index >= 4 && index <= 30) {
+            } else if (index >= 4 && index <= 30) {
                 if (!this.insertItem(oldStack, 0, 3, false)) {
                     if (!this.insertItem(oldStack, 31, 40, false))
                         return ItemStack.EMPTY;
                 }
-            }
-            else if (index >= 31 && index <= 39)
-            {
+            } else if (index >= 31 && index <= 39) {
                 if (!this.insertItem(oldStack, 0, 3, false)) {
                     if (!this.insertItem(oldStack, 4, 31, false))
                         return ItemStack.EMPTY;
                 }
-            }
-            else if (!this.insertItem(oldStack, 4, 40, false)) {
+            } else if (!this.insertItem(oldStack, 4, 40, false)) {
                 return ItemStack.EMPTY;
             }
-                        
+
             if (oldStack.isEmpty()) {
                 slot.setStack(ItemStack.EMPTY);
             } else {
