@@ -20,8 +20,6 @@ import net.alchemycraft.items.ItemSulfurCrystal;
 import net.alchemycraft.items.materials.MaterialSilverArmor;
 import net.alchemycraft.items.materials.MaterialSilverTool;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 
@@ -137,6 +135,20 @@ public class ConfigItems {
 	public static final Item SALTED_SALMON = registerItem("salted_salmon",
 			new ItemSaltedSalmon(new FabricItemSettings().group(ConfigItemsGroups.FOOD)));
 
+	// Armors
+	public static final Item SILVER_HELMET = registerItem("silver_helmet", MaterialSilverArmor.SILVER_HELMET);
+	public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate",
+			MaterialSilverArmor.SILVER_CHESTPLATE);
+	public static final Item SILVER_LEGGINGS = registerItem("silver_leggings", MaterialSilverArmor.SILVER_LEGGINGS);
+	public static final Item SILVER_BOOTS = registerItem("silver_boots", MaterialSilverArmor.SILVER_BOOTS);
+
+	// Tools
+	public static final Item SILVER_PICKAXE = registerItem("silver_pickaxe", MaterialSilverTool.SILVER_PICKAXE);
+	public static final Item SILVER_SWORD = registerItem("silver_sword", MaterialSilverTool.SILVER_SWORD);
+	public static final Item SILVER_SHOVEL = registerItem("silver_shovel", MaterialSilverTool.SILVER_SHOVEL);
+	public static final Item SILVER_HOE = registerItem("silver_hoe", MaterialSilverTool.SILVER_HOE);
+	public static final Item SILVER_AXE = registerItem("silver_axe", MaterialSilverTool.SILVER_AXE);
+
 	// Pestles
 	public static final Item WOODEN_PESTLE = registerItem("wooden_pestle",
 			new ItemPestle(new FabricItemSettings().maxDamage(32)));
@@ -167,26 +179,6 @@ public class ConfigItems {
 
 	public static final Item INFINITY_PESTLE = registerItem("infinity_pestle",
 			new ItemInfinityPestle(new FabricItemSettings()));
-
-	// Armors
-	public static final Item SILVER_HELMET = registerItem("silver_helmet",
-			new ArmorItem(MaterialSilverArmor.INSTANCE, EquipmentSlot.HEAD,
-					new FabricItemSettings().group(ConfigItemsGroups.COMBAT)));
-
-	public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate",
-			new ArmorItem(MaterialSilverArmor.INSTANCE, EquipmentSlot.CHEST,
-					new FabricItemSettings().group(ConfigItemsGroups.COMBAT)));
-
-	public static final Item SILVER_LEGGINGS = registerItem("silver_leggings",
-			new ArmorItem(MaterialSilverArmor.INSTANCE, EquipmentSlot.LEGS,
-					new FabricItemSettings().group(ConfigItemsGroups.COMBAT)));
-
-	public static final Item SILVER_BOOTS = registerItem("silver_boots",
-			new ArmorItem(MaterialSilverArmor.INSTANCE, EquipmentSlot.FEET,
-					new Item.Settings().group(ConfigItemsGroups.COMBAT)));
-
-	// Tools
-	public static final Item SILVER_PICKAXE = registerItem("silver_pickaxe", MaterialSilverTool.SILVER_PICKAXE);
 
 	// Other
 	public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
