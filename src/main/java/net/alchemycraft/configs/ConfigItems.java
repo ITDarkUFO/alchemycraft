@@ -165,6 +165,9 @@ public class ConfigItems {
 	public static final Item GRANITE_PESTLE = registerItem("granite_pestle",
 			new ItemPestle(new FabricItemSettings().maxDamage(128)));
 
+	public static final Item SILVER_PESTLE = registerItem("silver_pestle",
+			new ItemPestle(new FabricItemSettings().maxDamage(160)));
+
 	public static final Item IRON_PESTLE = registerItem("iron_pestle",
 			new ItemPestle(new FabricItemSettings().maxDamage(192)));
 

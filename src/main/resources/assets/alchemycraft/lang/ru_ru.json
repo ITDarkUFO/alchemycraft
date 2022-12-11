@@ -16,6 +16,7 @@
     "item.alchemycraft.diorite_pestle" : "Диоритовый пестик",
     "item.alchemycraft.andesite_pestle" : "Андезитовый пестик",
     "item.alchemycraft.granite_pestle" : "Гранитный пестик",
+    "item.alchemycraft.silver_pestle" : "Серебряный пестик",
     "item.alchemycraft.iron_pestle" : "Железный пестик",
     "item.alchemycraft.gold_pestle" : "Золотой пестик",
     "item.alchemycraft.diamond_pestle" : "Алмазный пестик",
@@ -59,6 +60,12 @@
     "item.alchemycraft.silver_chestplate" : "Серебряный нагрудник",
     "item.alchemycraft.silver_leggings" : "Серебряные поножи",
     "item.alchemycraft.silver_boots" : "Серебряные ботинки",
+
+    "item.alchemycraft.silver_pickaxe" : "Серебряная кирка",
+    "item.alchemycraft.silver_axe" : "Серебряный топор",
+    "item.alchemycraft.silver_sword" : "Серебряный меч",
+    "item.alchemycraft.silver_hoe" : "Серебряная мотыга",
+    "item.alchemycraft.silver_shovel" : "Серебряная лопата",
 
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось",

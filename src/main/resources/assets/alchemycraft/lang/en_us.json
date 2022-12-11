@@ -16,6 +16,7 @@
     "item.alchemycraft.diorite_pestle" : "Diorite Pestle",
     "item.alchemycraft.andesite_pestle" : "Andesite Pestle",
     "item.alchemycraft.granite_pestle" : "Granite Pestle",
+    "item.alchemycraft.silver_pestle" : "Silver Pestle",
     "item.alchemycraft.iron_pestle" : "Iron Pestle",
     "item.alchemycraft.gold_pestle" : "Gold Pestle",
     "item.alchemycraft.diamond_pestle" : "Diamond Pestle",
@@ -59,6 +60,12 @@
     "item.alchemycraft.silver_chestplate" : "Silver Chestplate",
     "item.alchemycraft.silver_leggings" : "Silver Leggings",
     "item.alchemycraft.silver_boots" : "Silver Boots",
+
+    "item.alchemycraft.silver_pickaxe" : "Silver Pickaxe",
+    "item.alchemycraft.silver_axe" : "Silver Axe",
+    "item.alchemycraft.silver_sword" : "Silver Sword",
+    "item.alchemycraft.silver_hoe" : "Silver Hoe",
+    "item.alchemycraft.silver_shovel" : "Silver Shovel",
 
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon",
