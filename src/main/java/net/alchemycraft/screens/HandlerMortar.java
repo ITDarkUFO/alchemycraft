@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import net.alchemycraft.configs.ConfigBlocks;
 import net.alchemycraft.configs.ConfigHandlers;
-import net.alchemycraft.configs.ConfigTags;
 import net.alchemycraft.inventories.InventoryCraftingMortar;
 import net.alchemycraft.inventories.slots.SlotPestle;
 import net.alchemycraft.inventories.slots.SlotPowderStorage;
@@ -24,7 +23,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class HandlerMortar extends AbstractRecipeScreenHandler<InventoryCraftingMortar> {
