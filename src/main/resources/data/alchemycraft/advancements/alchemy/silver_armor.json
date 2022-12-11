@@ -1,0 +1,41 @@
+{
+    "parent": "alchemycraft:alchemy/root",
+    "criteria": {
+        "silver_armor": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:silver_helmet",
+                            "alchemycraft:silver_chestplate",
+                            "alchemycraft:silver_leggings",
+                            "alchemycraft:silver_boots"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "title": {
+            "translate": "advancements.alchemy.silver_armor.title"
+        },
+        "description": {
+            "translate": "advancements.alchemy.silver_armor.description"
+        },
+        "icon": {
+            "item": "alchemycraft:silver_chestplate",
+            "nbt": "{Damage:0}"
+        },
+        "frame": "task",
+        "announce_to_chat": true,
+        "show_toast": true,
+        "hidden": false
+    },
+    "requirements": [
+        [
+            "silver_armor"
+        ]
+    ]
+}

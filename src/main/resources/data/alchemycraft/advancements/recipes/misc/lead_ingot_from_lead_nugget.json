@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:lead_ingot_from_lead_nugget"
+        ]
+    },
+    "criteria": {
+        "has_lead_nugget": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:lead_nugget"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:lead_ingot_from_lead_nugget"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_lead_nugget",
+            "has_the_recipe"
+        ]
+    ]
+}

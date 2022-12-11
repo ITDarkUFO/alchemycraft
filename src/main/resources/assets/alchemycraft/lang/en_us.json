@@ -4,7 +4,7 @@
     "itemGroup.alchemycraft.tools" : "Alchemy - Tools",
     "itemGroup.alchemycraft.misc" : "Alchemy - Miscellaneous",
     "itemGroup.alchemycraft.food" : "Alchemy - Food",
-    "itemGroup.alchemycraft.combat" : "Алхимия - Combat",
+    "itemGroup.alchemycraft.combat" : "Alchemy - Combat",
 
     "item.alchemycraft.brain_in_jar" : "Brain in a jar",
     "block.alchemycraft.granite_mortar" : "Granite Mortar",
@@ -23,11 +23,13 @@
     "item.alchemycraft.infinity_pestle" : "Infinity Pestle",
     
     "block.alchemycraft.salt_ore" : "Salt Ore",
+    "block.alchemycraft.deepslate_salt_ore" : "Deepslate Salt Ore",
     "item.alchemycraft.salt_crystal" : "Salt Crystal",
     "item.alchemycraft.bowl_of_salt" : "Bowl of Salt",
     "block.alchemycraft.salt_block" : "Salt Block",
 
     "block.alchemycraft.mercury_ore" : "Mercury Ore",
+    "block.alchemycraft.deepslate_mercury_ore" : "Deepslate Mercury Ore",
     "item.alchemycraft.mercury_crystal" : "Mercury Crystal",
     "item.alchemycraft.bowl_of_mercury" : "Bowl of Mercury",
     "block.alchemycraft.mercury_block" : "Mercury Block",
@@ -38,6 +40,7 @@
     "block.alchemycraft.sulfur_block" : "Sulfur Block",
 
     "block.alchemycraft.silver_ore" : "Silver Ore",
+    "block.alchemycraft.deepslate_silver_ore" : "Deepslate Silver Ore",
     "item.alchemycraft.raw_silver" : "Raw Silver",
     "block.alchemycraft.raw_silver_block" : "Raw Silver Block",
     "item.alchemycraft.silver_ingot" : "Silver Ingot",
@@ -45,6 +48,7 @@
     "block.alchemycraft.silver_block" : "Silver Block",
 
     "block.alchemycraft.lead_ore" : "Lead Ore",
+    "block.alchemycraft.deepslate_lead_ore" : "Deepslate Lead Ore",
     "item.alchemycraft.raw_lead" : "Raw Lead",
     "block.alchemycraft.raw_lead_block" : "Raw Lead Block",
     "item.alchemycraft.lead_ingot" : "Lead Ingot",
@@ -59,5 +63,14 @@
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon",
 
-    "item.alchemycraft.tooltip.only_for_creative" : "Only for Creative mode"
+    "item.alchemycraft.tooltip.only_for_creative" : "Only for Creative mode",
+
+    "advancements.alchemy.root.title" : "Alchemycraft",
+    "advancements.alchemy.root.description" : "Learn the secrets of the alchemical art",
+    "advancements.alchemy.silver_armor.title" : "Honorary Knight",
+    "advancements.alchemy.silver_armor.description" : "Get shiny Silver armor",
+    "advancements.alchemy.coarse_grinding.title" : "Coarse Grinding",
+    "advancements.alchemy.coarse_grinding.description" : "Grind something with your first pestle",
+    "advancements.alchemy.fine_grinding.title" : "Fine Grinding",
+    "advancements.alchemy.fine_grinding.description" : "Use a Netherite Ingot to upgrade a pestle, and then reevaluate your life choices again"
 }

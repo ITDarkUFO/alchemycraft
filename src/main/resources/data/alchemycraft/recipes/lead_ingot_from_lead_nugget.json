@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "alchemycraft:lead_nugget"
+        }
+    },
+    "result": {
+        "item": "alchemycraft:lead_ingot"
+    },
+    "group": "lead_ingot"
+}

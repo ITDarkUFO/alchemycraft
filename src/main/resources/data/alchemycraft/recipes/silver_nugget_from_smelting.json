@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:smelting",
+    "cookingtime": 200,
+    "experience": 0.1,
+    "ingredient": [
+      {
+        "item": "alchemycraft:silver_helmet"
+      },
+      {
+        "item": "alchemycraft:silver_chestplate"
+      },
+      {
+        "item": "alchemycraft:silver_leggings"
+      },
+      {
+        "item": "alchemycraft:silver_boots"
+      }
+    ],
+    "result": "alchemycraft:silver_nugget"
+  }

@@ -30,8 +30,15 @@ public class ConfigItems {
 	public static final Item SALT_ORE = registerItem("salt_ore",
 			new BlockItem(ConfigBlocks.SALT_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
+	public static final Item DEEPSLATE_SALT_ORE = registerItem("deepslate_salt_ore",
+			new BlockItem(ConfigBlocks.DEEPSLATE_SALT_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
 	public static final Item MERCURY_ORE = registerItem("mercury_ore",
 			new BlockItem(ConfigBlocks.MERCURY_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
+	public static final Item DEEPSLATE_MERCURY_ORE = registerItem("deepslate_mercury_ore",
+			new BlockItem(ConfigBlocks.DEEPSLATE_MERCURY_ORE,
+					new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
 	public static final Item SULFUR_ORE = registerItem("sulfur_ore",
 			new BlockItem(ConfigBlocks.SULFUR_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
@@ -39,8 +46,16 @@ public class ConfigItems {
 	public static final Item SILVER_ORE = registerItem("silver_ore",
 			new BlockItem(ConfigBlocks.SILVER_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
+	public static final Item DEEPSLATE_SILVER_ORE = registerItem("deepslate_silver_ore",
+			new BlockItem(ConfigBlocks.DEEPSLATE_SILVER_ORE,
+					new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
 	public static final Item LEAD_ORE = registerItem("lead_ore",
 			new BlockItem(ConfigBlocks.LEAD_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
+
+	public static final Item DEEPSLATE_LEAD_ORE = registerItem("deepslate_lead_ore",
+			new BlockItem(ConfigBlocks.DEEPSLATE_LEAD_ORE,
+					new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
 	// Crystals & Raw Metals
 	public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
@@ -74,6 +89,9 @@ public class ConfigItems {
 
 	// Nuggets
 	public static Item SILVER_NUGGET = registerItem("silver_nugget",
+			new Item(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+
+	public static Item LEAD_NUGGET = registerItem("lead_nugget",
 			new Item(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 
 	// Blocks

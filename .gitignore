@@ -1,36 +1,61 @@
 # gradle
-
 .gradle/
 build/
 out/
 classes/
 
-# eclipse
+# macos
+*.DS_Store
 
+# fabric
+run/
+
+# windows ini files
+*/desktop.ini
+
+# eclipse
 *.launch
 
 # idea
-
 .idea/
 *.iml
 *.ipr
 *.iws
 
 # vscode
-
-.settings/
-.vscode/
 bin/
 .classpath
 .project
 
-# macos
+.gradle
+**/build/
+!src/**/build/
 
-*.DS_Store
+# Ignore Gradle GUI config
+gradle-app.setting
 
-# fabric
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
 
-run/
+# Avoid ignore Gradle wrappper properties
+!gradle-wrapper.properties
 
-# windows ini files
-*/desktop.ini
+# Cache of project
+.gradletasknamecache
+
+# Eclipse Gradle plugin generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix

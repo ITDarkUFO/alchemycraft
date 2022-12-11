@@ -20,6 +20,9 @@ public class ConfigTags {
 
     public static class Items {
         public static final TagKey<Item> PESTLES = createCommonTag("pestles");
+        public static final TagKey<Item> GRINDABLE = createCommonTag("grindable");
+        public static final TagKey<Item> POWDERS = createCommonTag("powders");
+        public static final TagKey<Item> POWDER_STORAGES = createCommonTag("powder_storages");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(Registry.ITEM_KEY, new Identifier(Config.MOD_ID, name));
