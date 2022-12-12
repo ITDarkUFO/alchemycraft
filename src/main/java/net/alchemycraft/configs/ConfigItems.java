@@ -1,3 +1,10 @@
+/**
+ * Registration of all modification items.
+ * 
+ * @author ITDarkUFO
+ * @version 1.0
+ * @since 1.0
+ */
 package net.alchemycraft.configs;
 
 import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerItem;
@@ -186,6 +193,9 @@ public class ConfigItems {
 	// Other
 	public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
 			new ItemBrainInJar(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+
+	private ConfigItems() {
+	}
 
 	public static void init() {
 	}
