@@ -1,7 +1,7 @@
 {
     "parent": "alchemycraft:alchemy/coarse_grinding",
     "criteria": {
-        "netherite_pestle": {
+        "get_netherite_pestle": {
             "conditions": {
                 "items": [
                     {
@@ -24,15 +24,14 @@
         "announce_to_chat": true,
         "show_toast": true,
         "frame": "challenge",
-        "hidden": false,
+        "hidden": true,
         "icon": {
-            "item": "alchemycraft:netherite_pestle",
-            "nbt": "{Damage:0}"
+            "item": "alchemycraft:netherite_pestle"
         }
     },
     "requirements": [
         [
-            "netherite_pestle"
+            "get_netherite_pestle"
         ]
     ],
     "rewards": {

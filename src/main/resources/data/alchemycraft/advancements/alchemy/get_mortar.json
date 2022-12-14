@@ -1,0 +1,39 @@
+{
+    "parent": "alchemycraft:alchemy/root",
+    "criteria": {
+        "get_mortar": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:granite_mortar",
+                            "alchemycraft:diorite_mortar",
+                            "alchemycraft:andesite_mortar"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "title": {
+            "translate": "advancements.alchemy.get_mortar.title"
+        },
+        "description": {
+            "translate": "advancements.alchemy.get_mortar.description"
+        },
+        "icon": {
+            "item": "alchemycraft:granite_mortar"
+        },
+        "announce_to_chat": true,
+        "show_toast": true,
+        "frame": "task",
+        "hidden": false
+    },
+    "requirements": [
+        [
+            "get_mortar"
+        ]
+    ]
+}

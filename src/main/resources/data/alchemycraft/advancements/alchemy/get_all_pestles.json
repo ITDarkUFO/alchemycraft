@@ -1,0 +1,85 @@
+{
+    "parent": "alchemycraft:alchemy/fine_grinding",
+    "criteria": {
+        "get_all_pestles": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:wooden_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:stone_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:diorite_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:andesite_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:granite_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:silver_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:iron_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:gold_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:diamond_pestle"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "alchemycraft:netherite_pestle"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "title": {
+            "translate": "advancements.alchemy.get_all_pestles.title"
+        },
+        "description": {
+            "translate": "advancements.alchemy.get_all_pestles.description"
+        },
+        "announce_to_chat": true,
+        "show_toast": true,
+        "frame": "challenge",
+        "hidden": true,
+        "icon": {
+            "item": "alchemycraft:netherite_pestle"
+        }
+    },
+    "requirements": [
+        [
+            "get_all_pestles"
+        ]
+    ],
+    "rewards": {
+        "experience": 150
+    }
+}

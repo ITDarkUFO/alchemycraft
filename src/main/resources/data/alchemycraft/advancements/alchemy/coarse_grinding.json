@@ -1,5 +1,5 @@
 {
-    "parent": "alchemycraft:alchemy/root",
+    "parent": "alchemycraft:alchemy/get_mortar",
     "criteria": {
         "grind_item": {
             "conditions": {

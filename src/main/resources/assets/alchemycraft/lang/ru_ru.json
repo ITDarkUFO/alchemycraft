@@ -7,6 +7,8 @@
     "itemGroup.alchemycraft.combat" : "Алхимия - Оружие и броня",
 
     "item.alchemycraft.brain_in_jar" : "Банка с мозгом",
+    "item.alchemycraft.alchemy_book" : "Книга по алхимии",
+
     "block.alchemycraft.granite_mortar" : "Гранитная ступка",
     "block.alchemycraft.diorite_mortar" : "Диоритная ступка",
     "block.alchemycraft.andesite_mortar" : "Андезитная ступка",
@@ -48,14 +50,6 @@
     "item.alchemycraft.silver_nugget" : "Кусочек серебра",
     "block.alchemycraft.silver_block" : "Серебряный блок",
 
-    "block.alchemycraft.lead_ore" : "Свинцовая руда",
-    "block.alchemycraft.deepslate_lead_ore" : "Свинценосный глубинный сланец",
-    "item.alchemycraft.raw_lead" : "Рудный свинец",
-    "block.alchemycraft.raw_lead_block" : "Блок рудного свинца",
-    "item.alchemycraft.lead_ingot" : "Свинцовый слиток",
-    "item.alchemycraft.lead_nugget" : "Кусочек свинца",
-    "block.alchemycraft.lead_block" : "Свинцовый блок",
-
     "item.alchemycraft.silver_helmet" : "Серебряный шлем",
     "item.alchemycraft.silver_chestplate" : "Серебряный нагрудник",
     "item.alchemycraft.silver_leggings" : "Серебряные поножи",
@@ -67,6 +61,16 @@
     "item.alchemycraft.silver_hoe" : "Серебряная мотыга",
     "item.alchemycraft.silver_shovel" : "Серебряная лопата",
 
+    "block.alchemycraft.lead_ore" : "Свинцовая руда",
+    "block.alchemycraft.deepslate_lead_ore" : "Свинценосный глубинный сланец",
+    "item.alchemycraft.raw_lead" : "Рудный свинец",
+    "block.alchemycraft.raw_lead_block" : "Блок рудного свинца",
+    "item.alchemycraft.lead_ingot" : "Свинцовый слиток",
+    "item.alchemycraft.lead_nugget" : "Кусочек свинца",
+    "block.alchemycraft.lead_block" : "Свинцовый блок",
+
+    "item.alchemycraft.bowl_of_lapis_lazuli" : "Миска с лазуритом",
+
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось",
 
@@ -74,10 +78,16 @@
 
     "advancements.alchemy.root.title" : "Alchemycraft",
     "advancements.alchemy.root.description" : "Познай тайны алхимического искусства",
-    "advancements.alchemy.silver_armor.title" : "Почётный рыцарь",
-    "advancements.alchemy.silver_armor.description" : "Получите блестящую серебряную броню",
+    "advancements.alchemy.get_mortar.title" : "Необычная посуда",
+    "advancements.alchemy.get_mortar.description" : "Создайте ступку из 7 блоков полированного гранита, андезита или диорита",
     "advancements.alchemy.coarse_grinding.title" : "Грубый помол",
     "advancements.alchemy.coarse_grinding.description" : "Размелите что-нибудь своим первым пестиком",
     "advancements.alchemy.fine_grinding.title" : "Мелкий помол",
-    "advancements.alchemy.fine_grinding.description" : "Улучшите пестик с помощью слитка незерита и переосмыслите свою жизнь еще раз"
+    "advancements.alchemy.fine_grinding.description" : "Улучшите пестик с помощью слитка незерита и переосмыслите свою жизнь еще раз",
+    "advancements.alchemy.get_all_pestles.title" : "Наконец-то, я нашел их все",
+    "advancements.alchemy.get_all_pestles.description" : "Соберите все возможные пестики",
+    "advancements.alchemy.alchemy_book.title" : "Дверь в мир алхимии",
+    "advancements.alchemy.alchemy_book.description" : "Создайте книгу по алхимии в верстаке",
+    "advancements.alchemy.silver_armor.title" : "Почётный рыцарь",
+    "advancements.alchemy.silver_armor.description" : "Получите блестящую серебряную броню"
 }

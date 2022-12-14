@@ -2,9 +2,8 @@ package net.alchemycraft.configs;
 
 import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerItem;
 
-import net.alchemycraft.items.ItemBowlOfMercury;
+import net.alchemycraft.items.ItemBowlOfPowder;
 import net.alchemycraft.items.ItemBowlOfSalt;
-import net.alchemycraft.items.ItemBowlOfSulfur;
 import net.alchemycraft.items.ItemBrainInJar;
 import net.alchemycraft.items.ItemInfinityPestle;
 import net.alchemycraft.items.ItemLeadIngot;
@@ -32,14 +31,20 @@ import net.minecraft.item.Item;
  */
 public final class ConfigItems {
     /**
-     * Salt Ore
+     * Salt Ore Block
      */
     public static final Item SALT_ORE = registerItem("salt_ore",
             new BlockItem(ConfigBlocks.SALT_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
+    /**
+     * Deepslate Salt Ore Block
+     */
     public static final Item DEEPSLATE_SALT_ORE = registerItem("deepslate_salt_ore",
             new BlockItem(ConfigBlocks.DEEPSLATE_SALT_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
+    /**
+     * Mercury Ore Block
+     */
     public static final Item MERCURY_ORE = registerItem("mercury_ore",
             new BlockItem(ConfigBlocks.MERCURY_ORE, new FabricItemSettings().group(ConfigItemsGroups.BLOCKS)));
 
@@ -122,10 +127,13 @@ public final class ConfigItems {
             new ItemBowlOfSalt(new FabricItemSettings()));
 
     public static Item BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
-            new ItemBowlOfMercury(new FabricItemSettings()));
+            new ItemBowlOfPowder(new FabricItemSettings()));
 
     public static Item BOWL_OF_SULFUR = registerItem("bowl_of_sulfur",
-            new ItemBowlOfSulfur(new FabricItemSettings()));
+            new ItemBowlOfPowder(new FabricItemSettings()));
+
+    public static Item BOWL_OF_LAPIS_LAZULI = registerItem("bowl_of_lapis_lazuli",
+            new ItemBowlOfPowder(new FabricItemSettings()));
 
     // Mortars
     public static final Item GRANITE_MORTAR = registerItem("granite_mortar",
@@ -193,6 +201,9 @@ public final class ConfigItems {
             new ItemInfinityPestle(new FabricItemSettings()));
 
     // Other
+    public static Item ALCHEMY_BOOK = registerItem("alchemy_book",
+            new Item(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
+
     public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
             new ItemBrainInJar(new FabricItemSettings().group(ConfigItemsGroups.MISC)));
 

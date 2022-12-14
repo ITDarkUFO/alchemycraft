@@ -7,6 +7,8 @@
     "itemGroup.alchemycraft.combat" : "Alchemy - Combat",
 
     "item.alchemycraft.brain_in_jar" : "Brain in a jar",
+    "item.alchemycraft.alchemy_book" : "Alchemy Book",
+
     "block.alchemycraft.granite_mortar" : "Granite Mortar",
     "block.alchemycraft.diorite_mortar" : "Diorite Mortar",
     "block.alchemycraft.andesite_mortar" : "Andesite Mortar",
@@ -48,14 +50,6 @@
     "item.alchemycraft.silver_nugget" : "Silver Nugget",
     "block.alchemycraft.silver_block" : "Silver Block",
 
-    "block.alchemycraft.lead_ore" : "Lead Ore",
-    "block.alchemycraft.deepslate_lead_ore" : "Deepslate Lead Ore",
-    "item.alchemycraft.raw_lead" : "Raw Lead",
-    "block.alchemycraft.raw_lead_block" : "Raw Lead Block",
-    "item.alchemycraft.lead_ingot" : "Lead Ingot",
-    "item.alchemycraft.lead_nugget" : "Lead Nugget",
-    "block.alchemycraft.lead_block" : "Lead Block",
-
     "item.alchemycraft.silver_helmet" : "Silver Helmer",
     "item.alchemycraft.silver_chestplate" : "Silver Chestplate",
     "item.alchemycraft.silver_leggings" : "Silver Leggings",
@@ -67,6 +61,16 @@
     "item.alchemycraft.silver_hoe" : "Silver Hoe",
     "item.alchemycraft.silver_shovel" : "Silver Shovel",
 
+    "block.alchemycraft.lead_ore" : "Lead Ore",
+    "block.alchemycraft.deepslate_lead_ore" : "Deepslate Lead Ore",
+    "item.alchemycraft.raw_lead" : "Raw Lead",
+    "block.alchemycraft.raw_lead_block" : "Raw Lead Block",
+    "item.alchemycraft.lead_ingot" : "Lead Ingot",
+    "item.alchemycraft.lead_nugget" : "Lead Nugget",
+    "block.alchemycraft.lead_block" : "Lead Block",
+
+    "item.alchemycraft.bowl_of_lapis_lazuli" : "Bowl of Lapis Lazuli",
+
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon",
 
@@ -74,10 +78,17 @@
 
     "advancements.alchemy.root.title" : "Alchemycraft",
     "advancements.alchemy.root.description" : "Learn the secrets of the alchemical art",
-    "advancements.alchemy.silver_armor.title" : "Honorary Knight",
-    "advancements.alchemy.silver_armor.description" : "Get shiny Silver armor",
+    "advancements.alchemy.get_mortar.title" : "Unusual Crockery",
+    "advancements.alchemy.get_mortar.description" : "Craft a Mortar from 7 blocks of Polished Granite, Andesite or Diorite",
     "advancements.alchemy.coarse_grinding.title" : "Coarse Grinding",
     "advancements.alchemy.coarse_grinding.description" : "Grind something with your first pestle",
     "advancements.alchemy.fine_grinding.title" : "Fine Grinding",
-    "advancements.alchemy.fine_grinding.description" : "Use a Netherite Ingot to upgrade a pestle, and then reevaluate your life choices again"
+    "advancements.alchemy.fine_grinding.description" : "Use a Netherite Ingot to upgrade a pestle, and then reevaluate your life choices again",
+    "advancements.alchemy.get_all_pestles.title" : "Finally, I have them all",
+    "advancements.alchemy.get_all_pestles.description" : "Gather all possible pestles",
+    "advancements.alchemy.alchemy_book.title" : "Door to the world of alchemy",
+    "advancements.alchemy.alchemy_book.description" : "Craft a alchemy book in a workbench",
+    "advancements.alchemy.silver_armor.title" : "Honorary Knight",
+    "advancements.alchemy.silver_armor.description" : "Get shiny Silver armor"
+    
 }

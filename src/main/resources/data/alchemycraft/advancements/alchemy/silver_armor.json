@@ -1,5 +1,5 @@
 {
-    "parent": "alchemycraft:alchemy/root",
+    "parent": "alchemycraft:alchemy/alchemy_book",
     "criteria": {
         "silver_armor": {
             "conditions": {
@@ -25,8 +25,7 @@
             "translate": "advancements.alchemy.silver_armor.description"
         },
         "icon": {
-            "item": "alchemycraft:silver_chestplate",
-            "nbt": "{Damage:0}"
+            "item": "alchemycraft:silver_chestplate"
         },
         "frame": "task",
         "announce_to_chat": true,
