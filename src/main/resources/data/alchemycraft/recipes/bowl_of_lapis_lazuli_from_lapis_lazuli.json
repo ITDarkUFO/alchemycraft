@@ -1,0 +1,17 @@
+{
+    "type": "alchemycraft:mortar",
+    "ingredients": [
+        {
+            "tag": "c:pestles"
+        },
+        {
+            "item": "minecraft:lapis_lazuli"
+        },
+        {
+            "item": "minecraft:bowl"
+        }
+    ],
+    "output": {
+        "item": "alchemycraft:bowl_of_lapis_lazuli"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "parent": "alchemycraft:alchemy/coarse_grinding",
+    "criteria": {
+        "alchemy_book": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:alchemy_book"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "title": {
+            "translate": "advancements.alchemy.alchemy_book.title"
+        },
+        "description": {
+            "translate": "advancements.alchemy.alchemy_book.description"
+        },
+        "icon": {
+            "item": "alchemycraft:alchemy_book"
+        },
+        "announce_to_chat": true,
+        "show_toast": true,
+        "frame": "task",
+        "hidden": false
+    },
+    "requirements": [
+        [
+            "alchemy_book"
+        ]
+    ]
+}
