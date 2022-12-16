@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "alchemycraft:bowl_of_lapis_lazuli"
+      },
+      {
+        "item": "alchemycraft:bowl_of_lapis_lazuli"
+      },
+      {
+        "item": "alchemycraft:bowl_of_lapis_lazuli"
+      },
+      {
+        "item": "minecraft:paper"
+      }
+    ],
+    "result": {
+      "item": "alchemycraft:lapis_paper",
+      "count": 1
+    },
+    "group": "lapis_paper"
+  }

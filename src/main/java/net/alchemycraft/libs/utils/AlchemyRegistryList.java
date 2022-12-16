@@ -1,6 +1,6 @@
 package net.alchemycraft.libs.utils;
 
-import static net.alchemycraft.configs.Config.MOD_ID;
+import static net.alchemycraft.config.Config.MOD_ID;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -12,6 +12,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class AlchemyRegistryList {
+    
+    public static Block registerBlock(String id, Block block) {
+        return Registry.register(Registry.BLOCK, new Identifier(MOD_ID, id), block);
+    }
+
     public static Item registerItem(String id, Item item) {
         if (item instanceof BlockItem) {
             ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);
@@ -21,10 +26,6 @@ public class AlchemyRegistryList {
 
     public static ToolItem registerItem(String id, ToolItem item) {
         return Registry.register(Registry.ITEM, new Identifier(MOD_ID, id), item);
-    }
-
-    public static Block registerBlock(String id, Block block) {
-        return Registry.register(Registry.BLOCK, new Identifier(MOD_ID, id), block);
     }
 
     public static <T extends ScreenHandler> ScreenHandlerType<T> registerHandler(String id, ScreenHandlerType<T> type) {

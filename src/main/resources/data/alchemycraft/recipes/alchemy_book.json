@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "alchemycraft:lapis_paper"
+      },
+      {
+        "item": "alchemycraft:lapis_paper"
+      },
+      {
+        "item": "alchemycraft:lapis_paper"
+      },
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "result": {
+      "item": "alchemycraft:alchemy_book",
+      "count": 1
+    },
+    "group": "alchemy_book"
+  }

@@ -8,10 +8,12 @@
     "DarkUFO"
   ],
   "contact": {
-    "homepage": "https://https://www.curseforge.com/minecraft/mc-mods/alchemycraft-plus/",
-    "sources": "https://github.com/ITDarkUFO/AlchemyCraft"
+    "homepage": "",
+    "sources": "https://github.com/ITDarkUFO/AlchemyCraft/",
+    "curseforge": "https://www.curseforge.com/minecraft/mc-mods/alchemycraft-plus/",
+    "modrinth": "https://modrinth.com/mod/alchemycraft_plus/"
   },
-  "license": "CC0-1.0",
+  "license": "GPL-3",
   "icon": "assets/alchemycraft/icon.png",
   "environment": "*",
   "entrypoints": {
