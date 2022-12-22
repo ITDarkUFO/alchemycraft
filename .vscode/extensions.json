@@ -2,7 +2,6 @@
     "recommendations": [
         "spgoding.datapack-language-server",
         "vscjava.vscode-java-debug",
-        "vscjava.vscode-java-pack",
         "visualstudioexptteam.vscodeintellicode",
         "visualstudioexptteam.intellicode-api-usage-examples",
         "dgileadi.java-decompiler",
@@ -11,6 +10,9 @@
         "vscjava.vscode-maven",
         "vscjava.vscode-java-dependency",
         "vscjava.vscode-java-test",
-        "thisotherthing.vscode-todo-list"
+        "thisotherthing.vscode-todo-list",
+        "vscjava.vscode-gradle",
+        "github.vscode-pull-request-github",
+        "redhat.vscode-yaml"
     ]
 }

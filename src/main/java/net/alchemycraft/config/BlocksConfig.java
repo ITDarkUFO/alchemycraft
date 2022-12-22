@@ -2,7 +2,7 @@ package net.alchemycraft.config;
 
 import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerBlock;
 
-import net.alchemycraft.block.MercuryOreBlock;
+import net.alchemycraft.block.CinnabarOreBlock;
 import net.alchemycraft.block.MortarBlock;
 import net.alchemycraft.block.SaltOreBlock;
 import net.alchemycraft.block.SulfurOreBlock;
@@ -25,12 +25,12 @@ public class BlocksConfig {
 			new SaltOreBlock(FabricBlockSettings.copyOf(SALT_ORE).mapColor(MapColor.DEEPSLATE_GRAY)
 					.strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
 
-	public static final Block MERCURY_ORE = registerBlock("mercury_ore",
-			new MercuryOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.STONE_GRAY)
+	public static final Block CINNABAR_ORE = registerBlock("cinnabar_ore",
+			new CinnabarOreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.STONE_GRAY)
 					.requiresTool().strength(3.0f, 3.0f)));
 
-	public static final Block DEEPSLATE_MERCURY_ORE = registerBlock("deepslate_mercury_ore",
-			new MercuryOreBlock(FabricBlockSettings.copyOf(MERCURY_ORE).mapColor(MapColor.DEEPSLATE_GRAY)
+	public static final Block DEEPSLATE_CINNABAR_ORE = registerBlock("deepslate_cinnabar_ore",
+			new CinnabarOreBlock(FabricBlockSettings.copyOf(CINNABAR_ORE).mapColor(MapColor.DEEPSLATE_GRAY)
 					.strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
 
 	public static final Block SULFUR_ORE = registerBlock("sulfur_ore",
@@ -68,7 +68,7 @@ public class BlocksConfig {
 			new Block(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.OFF_WHITE)
 					.requiresTool().strength(5.0f, 6.0f)));
 
-	public static final Block MERCURY_BLOCK = registerBlock("mercury_block",
+	public static final Block CINNABAR_BLOCK = registerBlock("cinnabar_block",
 			new Block(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DULL_RED)
 					.requiresTool().strength(5.0f, 6.0f)));
 

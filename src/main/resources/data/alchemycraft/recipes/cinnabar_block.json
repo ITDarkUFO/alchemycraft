@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "alchemycraft:cinnabar_crystal"
+        }
+    },
+    "result": {
+        "item": "alchemycraft:cinnabar_block",
+        "count": 1
+    },
+    "group": "cinnabar_block"
+}

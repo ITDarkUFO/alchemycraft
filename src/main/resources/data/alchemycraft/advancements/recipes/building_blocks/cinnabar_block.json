@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:cinnabar_block"
+        ]
+    },
+    "criteria": {
+        "has_cinnabar_crystal": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:cinnabar_crystal"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:cinnabar_block"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_cinnabar_crystal",
+            "has_the_recipe"
+        ]
+    ]
+}

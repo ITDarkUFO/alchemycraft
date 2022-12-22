@@ -1,6 +1,6 @@
 package net.alchemycraft.block;
 
-import net.alchemycraft.screen.mortar.HandlerMortar;
+import net.alchemycraft.screen.mortar.MortarHandler;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -50,7 +50,7 @@ public class MortarBlock extends Block {
 
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory(
-                (syncId, inventory, player) -> new HandlerMortar(syncId, inventory,
+                (syncId, inventory, player) -> new MortarHandler(syncId, inventory,
                         ScreenHandlerContext.create(world, pos)),
                 Text.translatable(name));
     }

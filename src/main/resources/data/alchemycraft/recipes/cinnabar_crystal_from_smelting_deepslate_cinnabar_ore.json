@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+      "item": "alchemycraft:deepslate_cinnabar_ore"
+    },
+    "result": "alchemycraft:cinnabar_crystal",
+    "experience": 0.6,
+    "cookingtime": 200,
+    "group": "cinnabar_crystal"
+  }

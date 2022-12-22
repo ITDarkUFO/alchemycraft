@@ -2,6 +2,7 @@ package net.alchemycraft.config;
 
 import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerItem;
 
+import net.alchemycraft.item.AlchemynomiconItem;
 import net.alchemycraft.item.BowlOfPowderItem;
 import net.alchemycraft.item.BowlOfSaltItem;
 import net.alchemycraft.item.BrainInJarItem;
@@ -29,11 +30,11 @@ public final class ItemsConfig {
     public static final Item DEEPSLATE_SALT_ORE = registerItem("deepslate_salt_ore",
             new BlockItem(BlocksConfig.DEEPSLATE_SALT_ORE, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
 
-    public static final Item MERCURY_ORE = registerItem("mercury_ore",
-            new BlockItem(BlocksConfig.MERCURY_ORE, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
+    public static final Item CINNABAR_ORE = registerItem("cinnabar_ore",
+            new BlockItem(BlocksConfig.CINNABAR_ORE, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
 
-    public static final Item DEEPSLATE_MERCURY_ORE = registerItem("deepslate_mercury_ore",
-            new BlockItem(BlocksConfig.DEEPSLATE_MERCURY_ORE,
+    public static final Item DEEPSLATE_CINNABAR_ORE = registerItem("deepslate_cinnabar_ore",
+            new BlockItem(BlocksConfig.DEEPSLATE_CINNABAR_ORE,
                     new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
 
     public static final Item SULFUR_ORE = registerItem("sulfur_ore",
@@ -57,7 +58,7 @@ public final class ItemsConfig {
     public static final Item SALT_CRYSTAL = registerItem("salt_crystal",
             new Item(new FabricItemSettings().group(ItemGroupsConfig.MISC)));
 
-    public static final Item MERCURY_CRYSTAL = registerItem("mercury_crystal",
+    public static final Item CINNABAR_CRYSTAL = registerItem("cinnabar_crystal",
             new Item(new FabricItemSettings().group(ItemGroupsConfig.MISC)));
 
     public static final Item SULFUR_CRYSTAL = registerItem("sulfur_crystal",
@@ -94,8 +95,8 @@ public final class ItemsConfig {
     public static final Item SALT_BLOCK = registerItem("salt_block",
             new BlockItem(BlocksConfig.SALT_BLOCK, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
 
-    public static final Item MERCURY_BLOCK = registerItem("mercury_block",
-            new BlockItem(BlocksConfig.MERCURY_BLOCK, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
+    public static final Item CINNABAR_BLOCK = registerItem("cinnabar_block",
+            new BlockItem(BlocksConfig.CINNABAR_BLOCK, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
 
     public static final Item SULFUR_BLOCK = registerItem("sulfur_block",
             new BlockItem(BlocksConfig.SULFUR_BLOCK, new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
@@ -110,7 +111,7 @@ public final class ItemsConfig {
     public static Item BOWL_OF_SALT = registerItem("bowl_of_salt",
             new BowlOfSaltItem(new FabricItemSettings()));
 
-    public static Item BOWL_OF_MERCURY = registerItem("bowl_of_mercury",
+    public static Item BOWL_OF_CINNABAR = registerItem("bowl_of_cinnabar",
             new BowlOfPowderItem(new FabricItemSettings()));
 
     public static Item BOWL_OF_SULFUR = registerItem("bowl_of_sulfur",
@@ -184,10 +185,8 @@ public final class ItemsConfig {
             new InfinityPestleItem(new FabricItemSettings()));
 
     // Other
-    public static Item LAPIS_PAPER = registerItem("lapis_paper",
-            new Item(new FabricItemSettings().group(ItemGroupsConfig.MISC)));
-    public static Item ALCHEMY_BOOK = registerItem("alchemy_book",
-            new Item(new FabricItemSettings().group(ItemGroupsConfig.MISC)));
+    public static Item ALCHEMYNOMICON = registerItem("alchemynomicon",
+            new AlchemynomiconItem(new FabricItemSettings().group(ItemGroupsConfig.MISC)));
 
     public static final Item BRAIN_IN_JAR = registerItem("brain_in_jar",
             new BrainInJarItem(new FabricItemSettings().group(ItemGroupsConfig.MISC)));

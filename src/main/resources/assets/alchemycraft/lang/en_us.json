@@ -31,11 +31,11 @@
     "item.alchemycraft.bowl_of_salt" : "Bowl of Salt",
     "block.alchemycraft.salt_block" : "Salt Block",
 
-    "block.alchemycraft.mercury_ore" : "Mercury Ore",
-    "block.alchemycraft.deepslate_mercury_ore" : "Deepslate Mercury Ore",
-    "item.alchemycraft.mercury_crystal" : "Mercury Crystal",
-    "item.alchemycraft.bowl_of_mercury" : "Bowl of Mercury",
-    "block.alchemycraft.mercury_block" : "Mercury Block",
+    "block.alchemycraft.cinnabar_ore" : "Cinnabar Ore",
+    "block.alchemycraft.deepslate_cinnabar_ore" : "Deepslate Cinnabar Ore",
+    "item.alchemycraft.cinnabar_crystal" : "Cinnabar Crystal",
+    "item.alchemycraft.bowl_of_cinnabar" : "Bowl of Cinnabar",
+    "block.alchemycraft.cinnabar_block" : "Cinnabar Block",
 
     "block.alchemycraft.sulfur_ore" : "Sulfur Ore",
     "item.alchemycraft.sulfur_crystal" : "Sulfur Crystal",

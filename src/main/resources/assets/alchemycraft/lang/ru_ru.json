@@ -31,11 +31,11 @@
     "item.alchemycraft.bowl_of_salt" : "Миска с солью",
     "block.alchemycraft.salt_block" : "Соляной блок",
 
-    "block.alchemycraft.mercury_ore" : "Ртутная руда",
-    "block.alchemycraft.deepslate_mercury_ore" : "Ртутьсодержащий глубинный сланец",
-    "item.alchemycraft.mercury_crystal" : "Ртутный кристалл",
-    "item.alchemycraft.bowl_of_mercury" : "Миска с ртутью",
-    "block.alchemycraft.mercury_block" : "Ртутный блок",
+    "block.alchemycraft.cinnabar_ore" : "Киноварная руда",
+    "block.alchemycraft.deepslate_cinnabar_ore" : "Киноварьсодержащий глубинный сланец",
+    "item.alchemycraft.cinnabar_crystal" : "Киноварный кристалл",
+    "item.alchemycraft.bowl_of_cinnabar" : "Миска с киноварью",
+    "block.alchemycraft.cinnabar_block" : "Киноварный блок",
 
     "block.alchemycraft.sulfur_ore" : "Серная руда",
     "item.alchemycraft.sulfur_crystal" : "Серный кристалл",
@@ -87,8 +87,8 @@
     "advancements.alchemy.fine_grinding.description" : "Улучшите пестик с помощью слитка незерита и переосмыслите свою жизнь еще раз",
     "advancements.alchemy.get_all_pestles.title" : "Наконец-то, я нашел их все",
     "advancements.alchemy.get_all_pestles.description" : "Соберите все возможные пестики",
-    "advancements.alchemy.alchemy_book.title" : "Дверь в мир алхимии",
-    "advancements.alchemy.alchemy_book.description" : "Создайте книгу по алхимии в верстаке",
+    "advancements.alchemy.alchemynomicon.title" : "Дверь в мир алхимии",
+    "advancements.alchemy.alchemynomicon.description" : "Создайте книгу по алхимии в верстаке",
     "advancements.alchemy.silver_armor.title" : "Почётный рыцарь",
     "advancements.alchemy.silver_armor.description" : "Получите блестящую серебряную броню"
 }

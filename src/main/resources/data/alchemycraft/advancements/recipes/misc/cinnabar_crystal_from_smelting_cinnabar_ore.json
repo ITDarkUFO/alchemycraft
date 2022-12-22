@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "alchemycraft:cinnabar_crystal_from_smelting_cinnabar_ore"
+        ]
+    },
+    "criteria": {
+        "has_cinnabar_ore": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "alchemycraft:cinnabar_ore"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "alchemycraft:cinnabar_crystal_from_smelting_cinnabar_ore"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_cinnabar_ore",
+            "has_the_recipe"
+        ]
+    ]
+}

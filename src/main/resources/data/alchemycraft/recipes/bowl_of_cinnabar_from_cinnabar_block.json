@@ -1,0 +1,19 @@
+{
+    "type": "alchemycraft:mortar",
+    "ingredients": [
+        {
+            "tag": "c:pestles"
+        },
+        {
+            "item": "alchemycraft:cinnabar_block"
+        },
+        {
+            "item": "minecraft:bowl",
+            "count": 4
+        }
+    ],
+    "output": {
+        "item": "alchemycraft:bowl_of_cinnabar",
+        "count": 4
+    }
+}

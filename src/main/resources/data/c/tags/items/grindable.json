@@ -2,7 +2,7 @@
     "replace": false,
     "values": [
         "alchemycraft:salt_crystal",
-        "alchemycraft:mercury_crystal",
+        "alchemycraft:cinnabar_crystal",
         "alchemycraft:sulfur_crystal"
     ]
 }
