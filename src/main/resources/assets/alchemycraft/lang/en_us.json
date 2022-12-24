@@ -7,7 +7,7 @@
     "itemGroup.alchemycraft.combat" : "Alchemy - Combat",
 
     "item.alchemycraft.brain_in_jar" : "Brain in a jar",
-    "item.alchemycraft.alchemy_book" : "Alchemy Book",
+    "item.alchemycraft.alchemynomicon" : "Alchemynomicon - %s",
 
     "block.alchemycraft.granite_mortar" : "Granite Mortar",
     "block.alchemycraft.diorite_mortar" : "Diorite Mortar",
@@ -70,7 +70,6 @@
     "block.alchemycraft.lead_block" : "Lead Block",
 
     "item.alchemycraft.bowl_of_lapis_lazuli" : "Bowl of Lapis Lazuli",
-    "item.alchemycraft.lapis_paper" : "Lapis Lazuli Coated Paper",
 
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon",
@@ -87,8 +86,8 @@
     "advancements.alchemy.fine_grinding.description" : "Use a Netherite Ingot to upgrade a pestle, and then reevaluate your life choices again",
     "advancements.alchemy.get_all_pestles.title" : "Finally, I have them all",
     "advancements.alchemy.get_all_pestles.description" : "Gather all possible pestles",
-    "advancements.alchemy.alchemy_book.title" : "Door to the world of alchemy",
-    "advancements.alchemy.alchemy_book.description" : "Craft a alchemy book in a workbench",
+    "advancements.alchemy.alchemynomicon.title" : "Door to the world of alchemy",
+    "advancements.alchemy.alchemynomicon.description" : "Craft a alchemy book in a workbench",
     "advancements.alchemy.silver_armor.title" : "Honorary Knight",
     "advancements.alchemy.silver_armor.description" : "Get shiny Silver armor"
     

@@ -1,12 +1,12 @@
 {
     "parent": "alchemycraft:alchemy/coarse_grinding",
     "criteria": {
-        "alchemy_book": {
+        "alchemynomicon": {
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "alchemycraft:alchemy_book"
+                            "alchemycraft:alchemynomicon"
                         ]
                     }
                 ]
@@ -16,13 +16,13 @@
     },
     "display": {
         "title": {
-            "translate": "advancements.alchemy.alchemy_book.title"
+            "translate": "advancements.alchemy.alchemynomicon.title"
         },
         "description": {
-            "translate": "advancements.alchemy.alchemy_book.description"
+            "translate": "advancements.alchemy.alchemynomicon.description"
         },
         "icon": {
-            "item": "alchemycraft:alchemy_book"
+            "item": "alchemycraft:alchemynomicon"
         },
         "announce_to_chat": true,
         "show_toast": true,
@@ -31,7 +31,7 @@
     },
     "requirements": [
         [
-            "alchemy_book"
+            "alchemynomicon"
         ]
     ]
 }

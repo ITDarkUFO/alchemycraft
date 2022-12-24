@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import net.alchemycraft.config.BlocksConfig;
 import net.alchemycraft.config.HandlersConfig;
+import net.alchemycraft.config.TagsConfig;
 import net.alchemycraft.inventory.mortar.MortarCraftingInventory;
 import net.alchemycraft.inventory.mortar.MortarResultSlot;
-import net.alchemycraft.inventory.slot.PestleSlot;
-import net.alchemycraft.inventory.slot.PowderStorageSlot;
+import net.alchemycraft.inventory.slot.ItemSlot;
 import net.alchemycraft.recipe.RecipesMortar;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -47,13 +47,13 @@ public class MortarHandler extends AbstractRecipeScreenHandler<MortarCraftingInv
 
         // Mortar Inventory
         // Pestle Slot - 0
-        this.addSlot(new PestleSlot(this.input, 0, 17, 35));
+        this.addSlot(new ItemSlot(this.input, 0, 17, 35, TagsConfig.Items.PESTLES));
 
         // Input Slot
         this.addSlot(new Slot(this.input, 1, 44, 26));
 
         // Input Slot for powder storage item
-        this.addSlot(new PowderStorageSlot(this.input, 2, 44, 44));
+        this.addSlot(new ItemSlot(this.input, 2, 44, 44, TagsConfig.Items.POWDER_STORAGES));
 
         // Output slot - 3
         this.addSlot(new MortarResultSlot(playerInventory.player, this.input, this.result, 3, 116, 35));

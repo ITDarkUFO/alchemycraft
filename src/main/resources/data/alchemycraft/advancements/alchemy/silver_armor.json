@@ -1,5 +1,5 @@
 {
-    "parent": "alchemycraft:alchemy/alchemy_book",
+    "parent": "alchemycraft:alchemy/alchemynomicon",
     "criteria": {
         "silver_armor": {
             "conditions": {

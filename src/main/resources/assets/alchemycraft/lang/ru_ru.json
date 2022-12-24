@@ -7,7 +7,7 @@
     "itemGroup.alchemycraft.combat" : "Алхимия - Оружие и броня",
 
     "item.alchemycraft.brain_in_jar" : "Банка с мозгом",
-    "item.alchemycraft.alchemy_book" : "Книга по алхимии",
+    "item.alchemycraft.alchemynomicon" : "Алхиминомикон - %s",
 
     "block.alchemycraft.granite_mortar" : "Гранитная ступка",
     "block.alchemycraft.diorite_mortar" : "Диоритная ступка",
@@ -70,7 +70,6 @@
     "block.alchemycraft.lead_block" : "Свинцовый блок",
 
     "item.alchemycraft.bowl_of_lapis_lazuli" : "Миска с лазуритом",
-    "item.alchemycraft.lapis_paper" : "Покрытая лазуритом бумага",
 
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось",

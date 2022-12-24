@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "alchemycraft:item/alchemy_book"
+        "layer0": "alchemycraft:item/alchemynomicon"
     }
 }

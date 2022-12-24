@@ -2,17 +2,17 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"alchemycraft:alchemy_book"
+			"alchemycraft:alchemynomicon"
 		]
 	},
 	"criteria": {
-		"has_lapis_paper": {
+		"has_bowl_of_lapis_lazuli": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
 						"items": [
-							"alchemycraft:lapis_paper"
+							"alchemycraft:bowl_of_lapis_lazuli"
 						]
 					}
 				]
@@ -21,13 +21,13 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "alchemycraft:alchemy_book"
+				"recipe": "alchemycraft:alchemynomicon"
 			}
 		}
 	},
 	"requirements": [
 		[
-			"has_lapis_paper",
+			"has_bowl_of_lapis_lazuli",
 			"has_the_recipe"
 		]
 	]

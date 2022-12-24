@@ -1,31 +1,31 @@
-package net.alchemycraft.inventory.mortar;
+package net.alchemycraft.inventory.alchemybook;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.RecipeInputProvider;
-import net.minecraft.recipe.RecipeMatcher;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.collection.DefaultedList;
 
-public class MortarCraftingInventory implements Inventory, RecipeInputProvider {
+public final class AlchemynomiconInventory implements Inventory {
+    private final ItemStack instance;
 
-    DefaultedList<ItemStack> items = DefaultedList.ofSize(4, ItemStack.EMPTY);
-    ScreenHandler screenHandler;
+    private Integer pages;
+    private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
-    public MortarCraftingInventory(ScreenHandler screenHandler) {
-        this.screenHandler = screenHandler;
+    public AlchemynomiconInventory(ItemStack instance) {
+        this.instance = instance;
+
+        NbtCompound pages_tag = instance.getSubNbt("Pages");
+
+        if (pages_tag != null) {
+            pages = pages_tag.getInt("Pages");
+        }
     }
 
     @Override
     public void clear() {
         this.items.clear();
-    }
-
-    @Override
-    public void provideRecipeInputs(RecipeMatcher finder) {
-        this.items.forEach((finder::addInput));
     }
 
     @Override
@@ -45,6 +45,12 @@ public class MortarCraftingInventory implements Inventory, RecipeInputProvider {
 
     @Override
     public void markDirty() {
+        NbtCompound pages_tag = instance.getSubNbt("Pages");
+        pages_tag.putInt("Pages", pages);
+    }
+
+    public Integer getPages() {
+        return pages;
     }
 
     @Override
@@ -55,22 +61,16 @@ public class MortarCraftingInventory implements Inventory, RecipeInputProvider {
     @Override
     public ItemStack removeStack(int slot, int amount) {
         ItemStack itemStack = Inventories.splitStack(this.items, slot, amount);
-
-        if (!itemStack.isEmpty()) {
-            this.screenHandler.onContentChanged(this);
-        }
         return itemStack;
     }
 
     @Override
     public void setStack(int slot, ItemStack stack) {
         this.items.set(slot, stack);
-        this.screenHandler.onContentChanged(this);
     }
 
     @Override
     public int size() {
         return this.items.size();
     }
-
 }
