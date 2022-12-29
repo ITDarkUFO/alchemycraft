@@ -24,7 +24,7 @@ public class AlchemynomiconItem extends Item {
 
         NbtCompound nbt = stack.getOrCreateNbt();
 
-        if (nbt.get("Pages") == null) {
+        if (!nbt.contains("Pages")) {
             nbt.putInt("Pages", 3);
             stack.setNbt(nbt);
         }
@@ -38,7 +38,7 @@ public class AlchemynomiconItem extends Item {
         String pages = Integer.toString(nbt.getInt("Pages")) + " страниц";
 
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) -> {
-            return new AlchemynomiconHandler(syncId, inventory, new AlchemynomiconInventory(stack));
+            return new AlchemynomiconHandler(syncId, inventory, new AlchemynomiconInventory(/* stack */));
         }, Text.translatable("item.alchemycraft.alchemynomicon", pages));
     }
 }

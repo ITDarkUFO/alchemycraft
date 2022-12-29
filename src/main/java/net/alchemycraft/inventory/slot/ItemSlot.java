@@ -1,5 +1,6 @@
 package net.alchemycraft.inventory.slot;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,46 +14,54 @@ public class ItemSlot extends Slot {
     private TagKey<Item> tag;
     private DefaultedList<ItemStack> list;
 
+    private Boolean takeable;
+
     /**
      * Constructor for a slot that only accepts specified item.
-     * 
-     * @param inventory
-     * @param index
-     * @param x
-     * @param y
-     * @param item
      */
     public ItemSlot(Inventory inventory, int index, int x, int y, Item item) {
+        this(inventory, index, x, y, item, true);
+    }
+
+    /**
+     * Constructor for a slot that only accepts specified item.
+     */
+    public ItemSlot(Inventory inventory, int index, int x, int y, Item item, Boolean takeable) {
         this(inventory, index, x, y);
         this.item = item;
+        this.takeable = takeable;
     }
 
     /**
      * Constructor for a slot that only accepts items with specified tag.
-     * 
-     * @param inventory
-     * @param index
-     * @param x
-     * @param y
-     * @param tag
      */
     public ItemSlot(Inventory inventory, int index, int x, int y, TagKey<Item> tag) {
+        this(inventory, index, x, y, tag, true);
+    }
+
+    /**
+     * Constructor for a slot that only accepts items with specified tag.
+     */
+    public ItemSlot(Inventory inventory, int index, int x, int y, TagKey<Item> tag, Boolean takeable) {
         this(inventory, index, x, y);
         this.tag = tag;
+        this.takeable = takeable;
     }
 
     /**
      * Constructor for a slot that only accepts items from specified list.
-     * 
-     * @param inventory
-     * @param index
-     * @param x
-     * @param y
-     * @param list
      */
     public ItemSlot(Inventory inventory, int index, int x, int y, DefaultedList<ItemStack> list) {
+        this(inventory, index, x, y, list, true);
+    }
+
+    /**
+     * Constructor for a slot that only accepts items from specified list.
+     */
+    public ItemSlot(Inventory inventory, int index, int x, int y, DefaultedList<ItemStack> list, Boolean takeable) {
         this(inventory, index, x, y);
         this.list = list;
+        this.takeable = takeable;
     }
 
     /**
@@ -68,14 +77,16 @@ public class ItemSlot extends Slot {
             return stack.getItem() == item;
         else if (tag != null)
             return stack.getRegistryEntry().isIn(tag);
-        else if (list != null) {
-            for (ItemStack itemStack : list) {
+        else if (list != null)
+            for (ItemStack itemStack : list)
                 if (stack == itemStack)
                     return true;
-            }
-        }
 
         return false;
     }
 
+    @Override
+    public boolean canTakeItems(PlayerEntity playerEntity) {
+        return takeable;
+    }
 }

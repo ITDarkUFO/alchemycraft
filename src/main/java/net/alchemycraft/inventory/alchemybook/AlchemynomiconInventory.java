@@ -4,23 +4,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.collection.DefaultedList;
 
 public final class AlchemynomiconInventory implements Inventory {
-    private final ItemStack instance;
+    // private final ItemStack instance;
 
-    private Integer pages;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
-    public AlchemynomiconInventory(ItemStack instance) {
-        this.instance = instance;
-
-        NbtCompound pages_tag = instance.getSubNbt("Pages");
-
-        if (pages_tag != null) {
-            pages = pages_tag.getInt("Pages");
-        }
+    public AlchemynomiconInventory(/*ItemStack instance*/) {
+        // this.instance = instance;
     }
 
     @Override
@@ -44,16 +36,6 @@ public final class AlchemynomiconInventory implements Inventory {
     }
 
     @Override
-    public void markDirty() {
-        NbtCompound pages_tag = instance.getSubNbt("Pages");
-        pages_tag.putInt("Pages", pages);
-    }
-
-    public Integer getPages() {
-        return pages;
-    }
-
-    @Override
     public ItemStack removeStack(int slot) {
         return Inventories.removeStack(items, slot);
     }
@@ -72,5 +54,9 @@ public final class AlchemynomiconInventory implements Inventory {
     @Override
     public int size() {
         return this.items.size();
+    }
+
+    @Override
+    public void markDirty() {
     }
 }
