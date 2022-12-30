@@ -3,6 +3,8 @@ package net.alchemycraft.screen.alchemynomicon.pages;
 import net.alchemycraft.config.Config;
 import net.alchemycraft.screen.AbstractPage;
 import net.alchemycraft.screen.alchemynomicon.AlchemynomiconHandler;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.Identifier;
@@ -28,5 +30,40 @@ public class Test extends AbstractPage {
             for (int i = 0; i < 9; ++i)
                 instance.addSlot(new Slot(instance.getPlayerInventory(), i, 8 + i * 18, 142));
         }
+    }
+
+    @Override
+    public ItemStack transferSlot(PlayerEntity player, int index) {
+        ItemStack newStack = ItemStack.EMPTY;
+        Slot slot = handler.slots.get(index);
+
+        if (slot != null && slot.hasStack()) {
+            ItemStack oldStack = slot.getStack();
+            newStack = oldStack.copy();
+
+            if (handler instanceof AlchemynomiconHandler) {
+                AlchemynomiconHandler instance = (AlchemynomiconHandler) handler;
+
+                if (index == 0) {
+                    if (!instance.insertItem(oldStack, 1, 28, false))
+                        if (!instance.insertItem(oldStack, 28, 37, false))
+                            return ItemStack.EMPTY;
+                // }
+                // else if (index >= 1 && index <= 27) {
+                } else if (!instance.insertItem(oldStack, 1, 37, false))
+                    return ItemStack.EMPTY;
+            }
+
+            if (oldStack.isEmpty())
+                slot.setStack(ItemStack.EMPTY);
+            else
+                slot.markDirty();
+
+            if (oldStack.getCount() == newStack.getCount())
+                return ItemStack.EMPTY;
+
+            slot.onTakeItem(player, oldStack);
+        }
+        return newStack;
     }
 }

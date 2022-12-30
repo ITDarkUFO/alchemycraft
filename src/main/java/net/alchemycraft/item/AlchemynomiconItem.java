@@ -8,6 +8,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.alchemycraft.inventory.alchemybook.AlchemynomiconInventory;
@@ -40,5 +41,10 @@ public class AlchemynomiconItem extends Item {
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) -> {
             return new AlchemynomiconHandler(syncId, inventory, new AlchemynomiconInventory(/* stack */));
         }, Text.translatable("item.alchemycraft.alchemynomicon", pages));
+    }
+
+    @Override
+    public Rarity getRarity(ItemStack stack) {
+        return Rarity.EPIC;
     }
 }

@@ -77,7 +77,12 @@ public class AlchemynomiconHandler extends ScreenHandler {
 	public Slot addSlot(Slot slot) {
 		return super.addSlot(slot);
 	}
-	
+
+	@Override
+	public boolean insertItem(ItemStack stack, int startIndex, int endIndex, boolean fromLast) {
+		return super.insertItem(stack, startIndex, endIndex, fromLast);
+	}
+
 	// Pass Inventories
 	public Inventory getInventory() {
 		return inventory;
@@ -106,8 +111,7 @@ public class AlchemynomiconHandler extends ScreenHandler {
 
 	@Override
 	public ItemStack transferSlot(PlayerEntity player, int index) {
-		ItemStack newStack = ItemStack.EMPTY;
-		return newStack;
+		return getPage().transferSlot(player, index);
 	}
 
 	@Override

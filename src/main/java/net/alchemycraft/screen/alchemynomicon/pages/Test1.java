@@ -2,6 +2,8 @@ package net.alchemycraft.screen.alchemynomicon.pages;
 
 import net.alchemycraft.screen.AbstractPage;
 import net.alchemycraft.screen.alchemynomicon.AlchemynomiconHandler;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.Identifier;
@@ -27,5 +29,11 @@ public class Test1 extends AbstractPage {
             for (int i = 0; i < 9; ++i)
                 instance.addSlot(new Slot(instance.getPlayerInventory(), i, 8 + i * 18, 142));
         }
+    }
+
+    @Override
+    public ItemStack transferSlot(PlayerEntity player, int index) {
+        ItemStack newStack = ItemStack.EMPTY;
+        return newStack;
     }
 }

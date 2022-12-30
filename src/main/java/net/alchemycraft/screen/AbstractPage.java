@@ -2,6 +2,8 @@ package net.alchemycraft.screen;
 
 import java.util.List;
 
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.Identifier;
 
@@ -27,6 +29,8 @@ public abstract class AbstractPage {
     public void draw(ScreenHandler handler) {
         // handler.slots.clear();
     }
+
+    public abstract ItemStack transferSlot(PlayerEntity player, int index);
 
     public Identifier getTexture() {
         return texture;
