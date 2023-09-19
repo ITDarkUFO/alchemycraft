@@ -12,23 +12,22 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class AlchemyRegistryList {
-    
-    public static Block registerBlock(String id, Block block) {
+    public static Block registerBlock(final String id, final Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(MOD_ID, id), block);
     }
 
-    public static Item registerItem(String id, Item item) {
-        if (item instanceof BlockItem) {
+    public static Item registerItem(final String id, final Item item) {
+        if (item instanceof BlockItem)
             ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);
-        }
+
         return Registry.register(Registry.ITEM, new Identifier(MOD_ID, id), item);
     }
 
-    public static ToolItem registerItem(String id, ToolItem item) {
+    public static ToolItem registerItem(final String id, final ToolItem item) {
         return Registry.register(Registry.ITEM, new Identifier(MOD_ID, id), item);
     }
 
-    public static <T extends ScreenHandler> ScreenHandlerType<T> registerHandler(String id, ScreenHandlerType<T> type) {
+    public static <T extends ScreenHandler> ScreenHandlerType<T> registerHandler(final String id, final ScreenHandlerType<T> type) {
         return Registry.register(Registry.SCREEN_HANDLER, new Identifier(MOD_ID, id), type);
     }
 }

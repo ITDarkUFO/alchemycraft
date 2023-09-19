@@ -27,6 +27,7 @@ public class AlchemyCraftClient implements ClientModInitializer {
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
             if (screen instanceof AlchemynomiconScreen) {
                 PressAction setTimeAction = (button) -> {
+                    ((AlchemynomiconScreen)screen).openPage();
                     // long time = client.getServer().getOverworld().getTime();
                     // long timeOfDay = client.getServer().getOverworld().getTimeOfDay();
 
