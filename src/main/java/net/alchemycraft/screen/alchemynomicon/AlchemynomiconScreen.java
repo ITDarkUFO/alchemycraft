@@ -15,6 +15,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -24,11 +25,23 @@ public class AlchemynomiconScreen extends Screen {
     protected int backgroundHeight = 166;
 
     private final Identifier TEXTURE = new Identifier(Config.MOD_ID, "textures/gui/alchemynomicon/alchemynomicon.png");
+    private ItemStack stack;
+    private NbtCompound nbt;
+
     private List<String> pages = List.of("deepslate_silver_ore", "brain_in_jar");
-    private int page = 0;
 
     public AlchemynomiconScreen(ItemStack stack) {
         this(Text.of("Temp"));
+        this.stack = stack;
+
+        if (stack.hasNbt())
+            this.nbt = stack.getNbt();
+        else 
+        {
+            this.nbt = new NbtCompound();
+            this.nbt.putInt("page", 0);
+            stack.setNbt(nbt);
+        }
     }
 
     protected AlchemynomiconScreen(Text title) {
@@ -50,7 +63,7 @@ public class AlchemynomiconScreen extends Screen {
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);
-        var itemStack = new ItemStack(Registry.ITEM.get(new Identifier(Config.MOD_ID, pages.get(page))));
+        var itemStack = new ItemStack(Registry.ITEM.get(new Identifier(Config.MOD_ID, pages.get(nbt.getInt("page")))));
         this.itemRenderer.renderInGui(itemStack, 157, 32);
 
         super.render(matrices, mouseX, mouseY, delta);
@@ -58,6 +71,12 @@ public class AlchemynomiconScreen extends Screen {
 
     public void openPage()
     {
-        page = 1;
+        nbt.putInt("page", 1);
+    }
+
+    @Override
+    public void close() {
+        stack.writeNbt(nbt);
+        super.close();
     }
 }
