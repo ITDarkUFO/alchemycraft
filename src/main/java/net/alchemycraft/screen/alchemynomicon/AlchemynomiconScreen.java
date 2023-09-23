@@ -34,9 +34,9 @@ public class AlchemynomiconScreen extends Screen {
         this(Text.of("Temp"));
         this.stack = stack;
 
-        if (stack.hasNbt())
-            this.nbt = stack.getNbt();
-        else 
+        this.nbt = stack.getNbt();
+
+        if (this.nbt == null)
         {
             this.nbt = new NbtCompound();
             this.nbt.putInt("page", 0);

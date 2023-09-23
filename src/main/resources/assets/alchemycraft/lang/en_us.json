@@ -74,6 +74,10 @@
     "item.alchemycraft.salted_cod" : "Salted Cod",
     "item.alchemycraft.salted_salmon" : "Salted Salmon",
 
+    "block.alchemycraft.disappearing_chest" : "Disappearing Chest",
+    "container.alchemycraft.disappearing_chest" : "Disappearing Chest",
+    "container.alchemycraft.disappearing_chest_double" : "Large Disappearing Chest",
+
     "item.alchemycraft.tooltip.only_for_creative" : "Only for Creative mode",
 
     "advancements.alchemy.root.title" : "Alchemycraft",

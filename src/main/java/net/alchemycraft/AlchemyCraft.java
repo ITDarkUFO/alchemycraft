@@ -1,5 +1,6 @@
 package net.alchemycraft;
 
+import net.alchemycraft.config.BlockEntityTypesConfig;
 import net.alchemycraft.config.BlocksConfig;
 import net.alchemycraft.config.FeaturesConfig;
 import net.alchemycraft.config.HandlersConfig;
@@ -14,6 +15,7 @@ public class AlchemyCraft implements ModInitializer {
 	public void onInitialize() {
 		ItemGroupsConfig.init();
 		ItemsConfig.init();
+		BlockEntityTypesConfig.init();
 		BlocksConfig.init();
 		FeaturesConfig.init();
 		HandlersConfig.init();

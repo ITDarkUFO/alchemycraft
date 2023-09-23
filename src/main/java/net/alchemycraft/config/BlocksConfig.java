@@ -3,6 +3,7 @@ package net.alchemycraft.config;
 import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerBlock;
 
 import net.alchemycraft.block.CinnabarOreBlock;
+import net.alchemycraft.block.DisappearingChestBlock;
 import net.alchemycraft.block.MortarBlock;
 import net.alchemycraft.block.SaltOreBlock;
 import net.alchemycraft.block.SulfurOreBlock;
@@ -96,6 +97,10 @@ public class BlocksConfig {
 	public static final Block ANDESITE_MORTAR = registerBlock("andesite_mortar", new MortarBlock(
 			FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(2.0F, 3.0F),
 			"block.alchemycraft.andesite_mortar"));
+
+	// Dissapiaring Block
+	public static final Block DISAPPEARING_CHEST = registerBlock("disappearing_chest", new DisappearingChestBlock(
+			FabricBlockSettings.of(Material.WOOD, MapColor.CLEAR)));
 
 	public static void init() {
 	}

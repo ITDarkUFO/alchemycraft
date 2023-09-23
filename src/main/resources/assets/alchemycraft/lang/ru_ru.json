@@ -74,6 +74,10 @@
     "item.alchemycraft.salted_cod" : "Соленая треска",
     "item.alchemycraft.salted_salmon" : "Соленый лосось",
 
+    "block.alchemycraft.disappearing_chest" : "Исчезающий сундук",
+    "container.alchemycraft.disappearing_chest" : "Исчезающий сундук",
+    "container.alchemycraft.disappearing_chest_double" : "Большой исчезающий сундук",
+
     "item.alchemycraft.tooltip.only_for_creative" : "Только для креатива",
 
     "advancements.alchemy.root.title" : "Alchemycraft",
