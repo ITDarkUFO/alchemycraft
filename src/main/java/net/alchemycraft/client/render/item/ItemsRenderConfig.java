@@ -10,16 +10,16 @@ import net.minecraft.util.math.BlockPos;
 
 @Environment(EnvType.CLIENT)
 public class ItemsRenderConfig {
-    private BuiltinItemRendererRegistry itemRegistry;
+    private final BuiltinItemRendererRegistry itemRegistry;
 
-    private final DisappearingChestBlockEntity renderDisappearingChest = new DisappearingChestBlockEntity(
+    private static final DisappearingChestBlockEntity DISAPPEARING_CHEST_ENTITY = new DisappearingChestBlockEntity(
             BlockPos.ORIGIN,
             BlocksConfig.DISAPPEARING_CHEST.getDefaultState());
 
     public void init() {
         itemRegistry.register(BlocksConfig.DISAPPEARING_CHEST.asItem(),
                 (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-                    MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(renderDisappearingChest,
+                    MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(DISAPPEARING_CHEST_ENTITY,
                             matrices, vertexConsumers, light, overlay);
                 });
     }

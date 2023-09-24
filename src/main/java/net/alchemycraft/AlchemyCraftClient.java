@@ -1,27 +1,22 @@
 package net.alchemycraft;
 
-import net.alchemycraft.client.render.block.entity.BlocksEntityRenderConfig;
-import net.alchemycraft.client.render.item.ItemsRenderConfig;
-import net.alchemycraft.config.BlockEntityTypesConfig;
-import net.alchemycraft.config.HandlersConfig;
+import net.alchemycraft.config.ClientConfig;
 import net.alchemycraft.screen.alchemynomicon.AlchemynomiconScreen;
-import net.alchemycraft.screen.mortar.MortarScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ButtonWidget.PressAction;
-import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 
 @Environment(EnvType.CLIENT)
 public class AlchemyCraftClient implements ClientModInitializer {
+    private ClientConfig clientConfig;
+
     @Override
     public void onInitializeClient() {
-        HandledScreens.register(HandlersConfig.MORTAR_HANDLER, MortarScreen::new);
+        clientConfig = new ClientConfig();
 
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
             if (screen instanceof AlchemynomiconScreen) {
@@ -47,7 +42,6 @@ public class AlchemyCraftClient implements ClientModInitializer {
             }
         });
 
-        new BlocksEntityRenderConfig().init();
-        new ItemsRenderConfig().init();
+        clientConfig.init();
     }
 }
