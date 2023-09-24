@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import net.alchemycraft.config.BlockEntityTypesConfig;
 import net.alchemycraft.entity.DisappearingChestBlockEntity;
+import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -23,6 +24,7 @@ import net.minecraft.block.entity.BlockEntityType;
 // import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.enums.ChestType;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.mob.PiglinBrain;
@@ -35,6 +37,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -61,6 +64,8 @@ public class DisappearingChestBlock
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final EnumProperty<ChestType> CHEST_TYPE = Properties.CHEST_TYPE;
 
+    private BlockPos neighborPos;
+
     protected static final VoxelShape DOUBLE_NORTH_SHAPE = Block.createCuboidShape(1.0, 0.0, 0.0, 15.0, 14.0, 15.0);
     protected static final VoxelShape DOUBLE_SOUTH_SHAPE = Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 16.0);
     protected static final VoxelShape DOUBLE_WEST_SHAPE = Block.createCuboidShape(0.0, 0.0, 1.0, 15.0, 14.0, 15.0);
@@ -70,7 +75,8 @@ public class DisappearingChestBlock
     private static final DoubleBlockProperties.PropertyRetriever<DisappearingChestBlockEntity, Optional<Inventory>> INVENTORY_RETRIEVER = new DoubleBlockProperties.PropertyRetriever<DisappearingChestBlockEntity, Optional<Inventory>>() {
 
         @Override
-        public Optional<Inventory> getFromBoth(DisappearingChestBlockEntity chestBlockEntity, DisappearingChestBlockEntity chestBlockEntity2) {
+        public Optional<Inventory> getFromBoth(DisappearingChestBlockEntity chestBlockEntity,
+                DisappearingChestBlockEntity chestBlockEntity2) {
             return Optional.of(new DoubleInventory(chestBlockEntity, chestBlockEntity2));
         }
 
@@ -114,7 +120,7 @@ public class DisappearingChestBlock
                 public Text getDisplayName() {
                     if (chestBlockEntity.hasCustomName())
                         return chestBlockEntity.getDisplayName();
-                        
+
                     if (chestBlockEntity2.hasCustomName())
                         return chestBlockEntity2.getDisplayName();
 
@@ -272,12 +278,13 @@ public class DisappearingChestBlock
 
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
-        return ScreenHandler.calculateComparatorOutput(DisappearingChestBlock.getInventory(this, state, world, pos, false));
+        return ScreenHandler
+                .calculateComparatorOutput(DisappearingChestBlock.getInventory(this, state, world, pos, false));
     }
 
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return (BlockState)state.with(FACING, rotation.rotate(state.get(FACING)));
+        return (BlockState) state.with(FACING, rotation.rotate(state.get(FACING)));
     }
 
     @Override
@@ -301,7 +308,7 @@ public class DisappearingChestBlock
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof Inventory) {
-            ItemScatterer.spawn(world, pos, (Inventory)((Object)blockEntity));
+            ItemScatterer.spawn(world, pos, (Inventory) ((Object) blockEntity));
             world.updateComparators(pos, this);
         }
         super.onStateReplaced(state, world, pos, newState, moved);
@@ -322,11 +329,17 @@ public class DisappearingChestBlock
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState,
             WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        var client = MinecraftClient.getInstance();
+
         if (neighborState.isOf(this) && direction.getAxis().isHorizontal()) {
+            client.player.sendMessage(Text.of("Updated"));
+            
             ChestType chestType = neighborState.get(CHEST_TYPE);
             if (state.get(CHEST_TYPE) == ChestType.SINGLE && chestType != ChestType.SINGLE
                     && state.get(FACING) == neighborState.get(FACING)
                     && DisappearingChestBlock.getFacing(neighborState) == direction.getOpposite()) {
+
+                // this.neighborPos = neighborPos;
                 return (BlockState) state.with(CHEST_TYPE, chestType.getOpposite());
             }
         } else if (DisappearingChestBlock.getFacing(state) == direction) {
@@ -337,7 +350,8 @@ public class DisappearingChestBlock
     }
 
     @Nullable
-    public static Inventory getInventory(DisappearingChestBlock block, BlockState state, World world, BlockPos pos, boolean ignoreBlocked) {
+    public static Inventory getInventory(DisappearingChestBlock block, BlockState state, World world, BlockPos pos,
+            boolean ignoreBlocked) {
         return block.getBlockEntitySource(state, world, pos, ignoreBlocked).apply(INVENTORY_RETRIEVER).orElse(null);
     }
 
@@ -356,10 +370,13 @@ public class DisappearingChestBlock
         return false;
     }
 
-
     @Override
-    public DoubleBlockProperties.PropertySource<? extends DisappearingChestBlockEntity> getBlockEntitySource(BlockState state, World world2, BlockPos pos2, boolean ignoreBlocked) {
-        BiPredicate<WorldAccess, BlockPos> biPredicate = ignoreBlocked ? (world, pos) -> false : DisappearingChestBlock::isChestBlocked;
-        return DoubleBlockProperties.toPropertySource(this.entityTypeRetriever.get(), DisappearingChestBlock::getDoubleBlockType, DisappearingChestBlock::getFacing, FACING, state, world2, pos2, biPredicate);
+    public DoubleBlockProperties.PropertySource<? extends DisappearingChestBlockEntity> getBlockEntitySource(
+            BlockState state, World world2, BlockPos pos2, boolean ignoreBlocked) {
+        BiPredicate<WorldAccess, BlockPos> biPredicate = ignoreBlocked ? (world, pos) -> false
+                : DisappearingChestBlock::isChestBlocked;
+        return DoubleBlockProperties.toPropertySource(this.entityTypeRetriever.get(),
+                DisappearingChestBlock::getDoubleBlockType, DisappearingChestBlock::getFacing, FACING, state, world2,
+                pos2, biPredicate);
     }
 }

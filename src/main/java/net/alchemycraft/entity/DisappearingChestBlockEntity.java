@@ -12,20 +12,22 @@ import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.block.enums.ChestType;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.DoubleInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
+// import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -66,12 +68,13 @@ public class DisappearingChestBlockEntity
             return false;
         }
     };
-    
+
     public DisappearingChestBlockEntity(BlockPos pos, BlockState state) {
         this(BlockEntityTypesConfig.DISAPPEARING_CHEST, pos, state);
     }
 
-    protected DisappearingChestBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+    protected DisappearingChestBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos,
+            BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
 
@@ -144,7 +147,8 @@ public class DisappearingChestBlockEntity
         }
     }
 
-    public static void clientTick(World world, BlockPos pos, BlockState state, DisappearingChestBlockEntity blockEntity) {
+    public static void clientTick(World world, BlockPos pos, BlockState state,
+            DisappearingChestBlockEntity blockEntity) {
         blockEntity.lidAnimator.step();
     }
 
@@ -168,14 +172,36 @@ public class DisappearingChestBlockEntity
     public void onClose(PlayerEntity player) {
         if (!this.removed && !player.isSpectator()) {
             this.stateManager.closeContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
+
+            Inventory doubleInventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
+            Boolean isEmpty = true;
+
+            if (doubleInventory == DisappearingChestBlockEntity.this
+                    || doubleInventory instanceof DoubleInventory
+                            && ((DoubleInventory) doubleInventory).isPart(DisappearingChestBlockEntity.this)) {
+                if (!doubleInventory.isEmpty()) {
+                    isEmpty = false;
+                }
+            } else {
+                for (ItemStack itemStack : inventory) {
+                    if (itemStack.getItem() != Items.AIR) {
+                        isEmpty = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isEmpty)
+                world.breakBlock(pos, true);
         }
     }
 
     public static int getPlayersLookingInChestCount(BlockView world, BlockPos pos) {
         BlockEntity blockEntity;
         BlockState blockState = world.getBlockState(pos);
-        if (blockState.hasBlockEntity() && (blockEntity = world.getBlockEntity(pos)) instanceof DisappearingChestBlockEntity) {
-            return ((DisappearingChestBlockEntity)blockEntity).stateManager.getViewerCount();
+        if (blockState.hasBlockEntity()
+                && (blockEntity = world.getBlockEntity(pos)) instanceof DisappearingChestBlockEntity) {
+            return ((DisappearingChestBlockEntity) blockEntity).stateManager.getViewerCount();
         }
         return 0;
     }
