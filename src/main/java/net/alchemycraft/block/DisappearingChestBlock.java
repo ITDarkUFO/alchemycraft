@@ -64,8 +64,6 @@ public class DisappearingChestBlock
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final EnumProperty<ChestType> CHEST_TYPE = Properties.CHEST_TYPE;
 
-    private BlockPos neighborPos;
-
     protected static final VoxelShape DOUBLE_NORTH_SHAPE = Block.createCuboidShape(1.0, 0.0, 0.0, 15.0, 14.0, 15.0);
     protected static final VoxelShape DOUBLE_SOUTH_SHAPE = Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 14.0, 16.0);
     protected static final VoxelShape DOUBLE_WEST_SHAPE = Block.createCuboidShape(0.0, 0.0, 1.0, 15.0, 14.0, 15.0);
@@ -167,6 +165,7 @@ public class DisappearingChestBlock
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction3;
         ChestType chestType = ChestType.SINGLE;
+        // ChestType chestType2 = ChestType.SINGLE;
         Direction direction = ctx.getPlayerFacing().getOpposite();
         // FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         boolean bl = ctx.shouldCancelInteraction();
@@ -175,7 +174,8 @@ public class DisappearingChestBlock
                 && (direction3 = this.getNeighborChestDirection(ctx, direction2.getOpposite())) != null
                 && direction3.getAxis() != direction2.getAxis()) {
             direction = direction3;
-            ChestType chestType2 = chestType = direction.rotateYCounterclockwise() == direction2.getOpposite()
+            // chestType2 = 
+            chestType = direction.rotateYCounterclockwise() == direction2.getOpposite()
                     ? ChestType.RIGHT
                     : ChestType.LEFT;
         }
@@ -186,6 +186,7 @@ public class DisappearingChestBlock
                 chestType = ChestType.RIGHT;
             }
         }
+
         return this.getDefaultState().with(FACING, direction).with(CHEST_TYPE, chestType);
     }
 
@@ -237,7 +238,35 @@ public class DisappearingChestBlock
             player.openHandledScreen(namedScreenHandlerFactory);
             PiglinBrain.onGuardedBlockInteracted(player, true);
         }
+
+        var client = MinecraftClient.getInstance();
+
+        BlockEntity abstractBlockEntity = null;
+        DisappearingChestBlockEntity blockEntity = null;
+
+        if ((abstractBlockEntity = world.getBlockEntity(pos)) instanceof DisappearingChestBlockEntity) {
+            blockEntity = (DisappearingChestBlockEntity) abstractBlockEntity;
+            client.player.sendMessage(Text.of("This pos: " + pos.toShortString()));
+            client.player.sendMessage(Text.of("Neighbor pos: " + blockEntity.neighborPos.toShortString()));
+        }
+
+
         return ActionResult.CONSUME;
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        DisappearingChestBlockEntity blockEntity = this.getBlockEntity(world, pos);
+
+        if (blockEntity.neighborPos != null) {
+            if (this.getBlockEntity(world, blockEntity.neighborPos) != null) {
+                var neighborBlockEntity = this.getBlockEntity(world, blockEntity.neighborPos);
+                neighborBlockEntity.neighborPos = null;
+                world.breakBlock(blockEntity.neighborPos, true);
+            }
+        }
+
+        super.onBreak(world, pos, state, player);
     }
 
     @Override
@@ -294,10 +323,41 @@ public class DisappearingChestBlock
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-        BlockEntity blockEntity;
-        if (itemStack.hasCustomName()
-                && (blockEntity = world.getBlockEntity(pos)) instanceof DisappearingChestBlockEntity) {
-            ((DisappearingChestBlockEntity) blockEntity).setCustomName(itemStack.getName());
+        // TODO Delete client var
+        var client = MinecraftClient.getInstance();
+
+        DisappearingChestBlockEntity blockEntity = this.getBlockEntity(world, pos);
+
+        if (itemStack.hasCustomName()) {
+            blockEntity.setCustomName(itemStack.getName());
+        }
+
+        var chestType = state.get(CHEST_TYPE);
+        client.player.sendMessage(Text.of("onPlaced: " + pos.toShortString()));
+
+        if (chestType != ChestType.SINGLE && blockEntity != null) {
+            var facing = state.get(FACING);
+
+            if (chestType == ChestType.LEFT) {
+                if (facing == Direction.EAST)
+                    blockEntity.neighborPos = pos.south();
+                else if (facing == Direction.WEST)
+                    blockEntity.neighborPos = pos.north();
+                else if (facing == Direction.NORTH)
+                    blockEntity.neighborPos = pos.east();
+                else if (facing == Direction.SOUTH)
+                    blockEntity.neighborPos = pos.west();
+
+            } else if (chestType == ChestType.RIGHT) {
+                if (facing == Direction.EAST)
+                    blockEntity.neighborPos = pos.north();
+                else if (facing == Direction.WEST)
+                    blockEntity.neighborPos = pos.south();
+                else if (facing == Direction.NORTH)
+                    blockEntity.neighborPos = pos.west();
+                else if (facing == Direction.SOUTH)
+                    blockEntity.neighborPos = pos.east();
+            }
         }
     }
 
@@ -329,17 +389,27 @@ public class DisappearingChestBlock
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState,
             WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        var client = MinecraftClient.getInstance();
+
+        DisappearingChestBlockEntity blockEntity = this.getBlockEntity(world, pos);
+
+        //TODO В этом блоке первый сундук прописывает себе neighborPos
+        var client = MinecraftClient.getInstance();        
 
         if (neighborState.isOf(this) && direction.getAxis().isHorizontal()) {
-            client.player.sendMessage(Text.of("Updated"));
-            
             ChestType chestType = neighborState.get(CHEST_TYPE);
-            if (state.get(CHEST_TYPE) == ChestType.SINGLE && chestType != ChestType.SINGLE
+
+            if (state.get(CHEST_TYPE) == ChestType.SINGLE
+                    && chestType != ChestType.SINGLE
                     && state.get(FACING) == neighborState.get(FACING)
                     && DisappearingChestBlock.getFacing(neighborState) == direction.getOpposite()) {
+                        
+                client.player.sendMessage(Text.of("getStateForNeighborUpdate: " + pos.toShortString()));
+                if (blockEntity != null)
+                {
+                    blockEntity.neighborPos = neighborPos;
+                    client.player.sendMessage(Text.of("neighborPos: " + blockEntity.neighborPos.toShortString()));
+                }
 
-                // this.neighborPos = neighborPos;
                 return (BlockState) state.with(CHEST_TYPE, chestType.getOpposite());
             }
         } else if (DisappearingChestBlock.getFacing(state) == direction) {
@@ -378,5 +448,17 @@ public class DisappearingChestBlock
         return DoubleBlockProperties.toPropertySource(this.entityTypeRetriever.get(),
                 DisappearingChestBlock::getDoubleBlockType, DisappearingChestBlock::getFacing, FACING, state, world2,
                 pos2, biPredicate);
+    }
+
+    public DisappearingChestBlockEntity getBlockEntity(WorldAccess world, BlockPos pos)
+    {
+        BlockEntity abstractBlockEntity = null;
+        DisappearingChestBlockEntity blockEntity = null;
+
+        if ((abstractBlockEntity = world.getBlockEntity(pos)) instanceof DisappearingChestBlockEntity) {
+            blockEntity = (DisappearingChestBlockEntity) abstractBlockEntity;
+        }
+
+        return blockEntity;
     }
 }

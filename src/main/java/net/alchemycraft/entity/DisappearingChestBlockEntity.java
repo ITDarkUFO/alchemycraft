@@ -12,13 +12,11 @@ import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.block.enums.ChestType;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.DoubleInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -38,6 +36,8 @@ import net.minecraft.world.World;
 public class DisappearingChestBlockEntity
         extends LootableContainerBlockEntity
         implements LidOpenable {
+
+    public BlockPos neighborPos = null;
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
     private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
     private final ViewerCountManager stateManager = new ViewerCountManager() {
