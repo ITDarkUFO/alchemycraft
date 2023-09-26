@@ -1,26 +1,20 @@
 package net.alchemycraft.entity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import net.alchemycraft.config.BlockEntityTypesConfig;
+import net.alchemycraft.libs.utils.TickTimer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-// import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.block.entity.ChestLidAnimator;
 import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.block.enums.ChestType;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.ai.brain.Schedule;
-import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.DoubleInventory;
@@ -29,14 +23,11 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-// import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -51,6 +42,8 @@ public class DisappearingChestBlockEntity
     public BlockPos neighborBlockPos = null;
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
     private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
+    public final TickTimer destructionTimer = new TickTimer(5);
+
     private final ViewerCountManager stateManager = new ViewerCountManager() {
 
         @Override
@@ -154,7 +147,7 @@ public class DisappearingChestBlockEntity
         for (var item : nbt.getIntArray("NeighborPosition")) {
             neighborPos1.add(item);
         }
-        
+
         neighborBlockPos = new BlockPos(neighborPos1.get(0), neighborPos1.get(1), neighborPos1.get(2));
     }
 
@@ -172,6 +165,10 @@ public class DisappearingChestBlockEntity
     public static void clientTick(World world, BlockPos pos, BlockState state,
             DisappearingChestBlockEntity blockEntity) {
         blockEntity.lidAnimator.step();
+        blockEntity.destructionTimer.step();
+
+        if (blockEntity.destructionTimer.isComplete())
+            world.breakBlock(pos, true);
     }
 
     @Override
@@ -213,10 +210,8 @@ public class DisappearingChestBlockEntity
                 }
             }
 
-            if (isEmpty)
-            {
-                world.breakBlock(pos, true);
-            }
+            if (isEmpty && !player.isCreative())
+                this.destructionTimer.start();
         }
     }
 

@@ -106,6 +106,7 @@ public class DisappearingChestBlockEntityRenderer<T extends BlockEntity>
         return TexturedModelData.of(modelData, 64, 64);
     }
 
+    @SuppressWarnings("all")
     @Override
     public void render(T entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers,
             int light, int overlay) {

@@ -44,7 +44,7 @@ public class BlocksConfig {
 
 	public static final Block DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore",
 			new OreBlock(FabricBlockSettings.copyOf(SILVER_ORE).mapColor(MapColor.DEEPSLATE_GRAY)
-					.strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
+					.requiresTool().strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
 
 	public static final Block LEAD_ORE = registerBlock("lead_ore",
 			new OreBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.DARK_RED)
@@ -100,7 +100,7 @@ public class BlocksConfig {
 
 	// Dissapiaring Block
 	public static final Block DISAPPEARING_CHEST = registerBlock("disappearing_chest", new DisappearingChestBlock(
-			FabricBlockSettings.of(Material.WOOD, MapColor.CLEAR)));
+			FabricBlockSettings.of(Material.WOOD, MapColor.CLEAR).strength(2.5f)));
 
 	public static void init() {
 	}

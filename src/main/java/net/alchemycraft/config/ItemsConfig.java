@@ -208,7 +208,7 @@ public final class ItemsConfig {
         //
         public static Item DISAPPEARING_CHEST = registerItem("disappearing_chest",
                         new BlockItem(BlocksConfig.DISAPPEARING_CHEST,
-                                        new FabricItemSettings().group(ItemGroupsConfig.BLOCKS)));
+                                        new FabricItemSettings().group(ItemGroupsConfig.DECORATIONS)));
 
         private ItemsConfig() {
         }
