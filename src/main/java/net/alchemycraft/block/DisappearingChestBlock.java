@@ -246,8 +246,8 @@ public class DisappearingChestBlock
 
         if ((abstractBlockEntity = world.getBlockEntity(pos)) instanceof DisappearingChestBlockEntity) {
             blockEntity = (DisappearingChestBlockEntity) abstractBlockEntity;
-            client.player.sendMessage(Text.of("This pos: " + pos.toShortString()));
-            client.player.sendMessage(Text.of("Neighbor pos: " + blockEntity.neighborPos.toShortString()));
+            // client.player.sendMessage(Text.of("This pos: " + pos.toShortString()));
+            // client.player.sendMessage(Text.of("Neighbor pos: " + blockEntity.neighborBlockPos.toShortString()));
         }
 
 
@@ -258,11 +258,11 @@ public class DisappearingChestBlock
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DisappearingChestBlockEntity blockEntity = this.getBlockEntity(world, pos);
 
-        if (blockEntity.neighborPos != null) {
-            if (this.getBlockEntity(world, blockEntity.neighborPos) != null) {
-                var neighborBlockEntity = this.getBlockEntity(world, blockEntity.neighborPos);
-                neighborBlockEntity.neighborPos = null;
-                world.breakBlock(blockEntity.neighborPos, true);
+        if (blockEntity.neighborBlockPos != null) {
+            if (this.getBlockEntity(world, blockEntity.neighborBlockPos) != null) {
+                var neighborBlockEntity = this.getBlockEntity(world, blockEntity.neighborBlockPos);
+                neighborBlockEntity.neighborBlockPos = null;
+                world.breakBlock(blockEntity.neighborBlockPos, true);
             }
         }
 
@@ -340,23 +340,23 @@ public class DisappearingChestBlock
 
             if (chestType == ChestType.LEFT) {
                 if (facing == Direction.EAST)
-                    blockEntity.neighborPos = pos.south();
+                    blockEntity.neighborBlockPos = pos.south();
                 else if (facing == Direction.WEST)
-                    blockEntity.neighborPos = pos.north();
+                    blockEntity.neighborBlockPos = pos.north();
                 else if (facing == Direction.NORTH)
-                    blockEntity.neighborPos = pos.east();
+                    blockEntity.neighborBlockPos = pos.east();
                 else if (facing == Direction.SOUTH)
-                    blockEntity.neighborPos = pos.west();
+                    blockEntity.neighborBlockPos = pos.west();
 
             } else if (chestType == ChestType.RIGHT) {
                 if (facing == Direction.EAST)
-                    blockEntity.neighborPos = pos.north();
+                    blockEntity.neighborBlockPos = pos.north();
                 else if (facing == Direction.WEST)
-                    blockEntity.neighborPos = pos.south();
+                    blockEntity.neighborBlockPos = pos.south();
                 else if (facing == Direction.NORTH)
-                    blockEntity.neighborPos = pos.west();
+                    blockEntity.neighborBlockPos = pos.west();
                 else if (facing == Direction.SOUTH)
-                    blockEntity.neighborPos = pos.east();
+                    blockEntity.neighborBlockPos = pos.east();
             }
         }
     }
@@ -406,8 +406,8 @@ public class DisappearingChestBlock
                 client.player.sendMessage(Text.of("getStateForNeighborUpdate: " + pos.toShortString()));
                 if (blockEntity != null)
                 {
-                    blockEntity.neighborPos = neighborPos;
-                    client.player.sendMessage(Text.of("neighborPos: " + blockEntity.neighborPos.toShortString()));
+                    blockEntity.neighborBlockPos = neighborPos;
+                    client.player.sendMessage(Text.of("neighborPos: " + blockEntity.neighborBlockPos.toShortString()));
                 }
 
                 return (BlockState) state.with(CHEST_TYPE, chestType.getOpposite());

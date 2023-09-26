@@ -1,5 +1,11 @@
 package net.alchemycraft.entity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import net.alchemycraft.config.BlockEntityTypesConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -12,6 +18,9 @@ import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.block.enums.ChestType;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.ai.brain.Schedule;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.DoubleInventory;
@@ -20,8 +29,10 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -37,7 +48,7 @@ public class DisappearingChestBlockEntity
         extends LootableContainerBlockEntity
         implements LidOpenable {
 
-    public BlockPos neighborPos = null;
+    public BlockPos neighborBlockPos = null;
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
     private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
     private final ViewerCountManager stateManager = new ViewerCountManager() {
@@ -137,6 +148,14 @@ public class DisappearingChestBlockEntity
         if (!this.deserializeLootTable(nbt)) {
             Inventories.readNbt(nbt, this.inventory);
         }
+
+        List<Integer> neighborPos1 = new ArrayList<>();
+
+        for (var item : nbt.getIntArray("NeighborPosition")) {
+            neighborPos1.add(item);
+        }
+        
+        neighborBlockPos = new BlockPos(neighborPos1.get(0), neighborPos1.get(1), neighborPos1.get(2));
     }
 
     @Override
@@ -145,6 +164,9 @@ public class DisappearingChestBlockEntity
         if (!this.serializeLootTable(nbt)) {
             Inventories.writeNbt(nbt, this.inventory);
         }
+
+        nbt.putIntArray("NeighborPosition", new ArrayList<Integer>(
+                List.of(neighborBlockPos.getX(), neighborBlockPos.getY(), neighborBlockPos.getZ())));
     }
 
     public static void clientTick(World world, BlockPos pos, BlockState state,
@@ -192,7 +214,9 @@ public class DisappearingChestBlockEntity
             }
 
             if (isEmpty)
+            {
                 world.breakBlock(pos, true);
+            }
         }
     }
 
