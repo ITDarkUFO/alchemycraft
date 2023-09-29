@@ -158,7 +158,6 @@ public class DisappearingChestBlock
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction3;
         ChestType chestType = ChestType.SINGLE;
-        // ChestType chestType2 = ChestType.SINGLE;
         Direction direction = ctx.getPlayerFacing().getOpposite();
         // FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         boolean bl = ctx.shouldCancelInteraction();
@@ -167,7 +166,7 @@ public class DisappearingChestBlock
                 && (direction3 = this.getNeighborChestDirection(ctx, direction2.getOpposite())) != null
                 && direction3.getAxis() != direction2.getAxis()) {
             direction = direction3;
-            // chestType2 =
+            // ChestType chestType2 =
             chestType = direction.rotateYCounterclockwise() == direction2.getOpposite()
                     ? ChestType.RIGHT
                     : ChestType.LEFT;

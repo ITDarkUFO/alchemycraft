@@ -10,9 +10,9 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class AlchemynomiconScreen extends Screen {
     protected int backgroundWidth = 176;

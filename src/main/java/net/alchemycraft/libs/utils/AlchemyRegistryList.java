@@ -8,10 +8,10 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolItem;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class AlchemyRegistryList {
     public static Block registerBlock(final String id, final Block block) {

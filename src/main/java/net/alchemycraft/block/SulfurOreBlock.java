@@ -7,11 +7,10 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 
 public class SulfurOreBlock extends OreBlock {
-    private int min_exp = 2;
-    private int max_exp = 5;
+    private int minExp = 2;
+    private int maxExp = 5;
 
     public SulfurOreBlock(Settings settings) {
         super(settings);
@@ -21,11 +20,9 @@ public class SulfurOreBlock extends OreBlock {
     public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack,
             boolean dropExperience) {
         super.onStacksDropped(state, world, pos, stack, dropExperience);
-        if (dropExperience) {
-            if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-                int experience = MathHelper.nextInt(world.random, min_exp, max_exp);
-                this.dropExperience(world, pos, experience);
-            }
+        if (dropExperience && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
+            int exp = minExp + world.random.nextInt(maxExp);
+            this.dropExperience(world, pos, exp);
         }
     }
 }

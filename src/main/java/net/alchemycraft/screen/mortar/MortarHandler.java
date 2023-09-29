@@ -101,6 +101,7 @@ public class MortarHandler extends AbstractRecipeScreenHandler<MortarCraftingInv
                 .run((world, pos) -> updateResult(this, world, this.playerInventory.player, this.input, this.result));
     }
 
+    @Override
     public void close(PlayerEntity player) {
         super.close(player);
         this.screenHandlerContext.run((world, pos) -> this.dropInventory(player, this.input));
@@ -137,7 +138,7 @@ public class MortarHandler extends AbstractRecipeScreenHandler<MortarCraftingInv
             }
 
             if (oldStack.isEmpty()) {
-                slot.setStack(ItemStack.EMPTY);
+                slot.setStackNoCallbacks(ItemStack.EMPTY);
             } else {
                 slot.markDirty();
             }

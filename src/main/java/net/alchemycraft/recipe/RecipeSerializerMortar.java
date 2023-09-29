@@ -11,10 +11,10 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.registry.Registry;
 
 public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
 

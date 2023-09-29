@@ -2,8 +2,8 @@ package net.alchemycraft.config;
 
 import net.alchemycraft.recipe.RecipeSerializerMortar;
 import net.alchemycraft.recipe.RecipesMortar;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.Identifier;
 
 public class RecipesConfig {
     public static void init() {

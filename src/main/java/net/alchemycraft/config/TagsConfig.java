@@ -2,9 +2,9 @@ package net.alchemycraft.config;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class TagsConfig {

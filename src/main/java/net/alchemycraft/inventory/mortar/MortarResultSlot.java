@@ -95,7 +95,7 @@ public class MortarResultSlot extends Slot {
             if (!newStack.isEmpty()) {
                 if (oldStack.isEmpty()) {
                     this.input.setStack(i, newStack);
-                } else if (ItemStack.areItemsEqualIgnoreDamage(oldStack, newStack)
+                } else if (ItemStack.areItemsEqual(oldStack, newStack)
                         && ItemStack.areNbtEqual(oldStack, newStack)) {
                     newStack.increment(oldStack.getCount());
                     this.input.setStack(i, newStack);
