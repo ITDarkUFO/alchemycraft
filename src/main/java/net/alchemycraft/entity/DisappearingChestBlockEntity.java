@@ -162,7 +162,7 @@ public class DisappearingChestBlockEntity
                 List.of(neighborBlockPos.getX(), neighborBlockPos.getY(), neighborBlockPos.getZ())));
     }
 
-    public static void clientTick(World world, BlockPos pos, BlockState state,
+    public static void tick(World world, BlockPos pos, BlockState state,
             DisappearingChestBlockEntity blockEntity) {
         blockEntity.lidAnimator.step();
         blockEntity.destructionTimer.step();

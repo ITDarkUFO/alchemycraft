@@ -412,7 +412,7 @@ public class DisappearingChestBlock
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
             BlockEntityType<T> type) {
         return DisappearingChestBlock.checkType(type, this.getExpectedEntityType(),
-                DisappearingChestBlockEntity::clientTick);
+                DisappearingChestBlockEntity::tick);
     }
 
     @Override
