@@ -9,9 +9,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
 public class CinnabarOreBlock extends OreBlock {
-    private int minExp = 1;
-    private int maxExp = 4;
-
     public CinnabarOreBlock(Settings settings) {
         super(settings);
     }
@@ -21,7 +18,7 @@ public class CinnabarOreBlock extends OreBlock {
             boolean dropExperience) {
         super.onStacksDropped(state, world, pos, stack, dropExperience);
         if (dropExperience && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-            int exp = minExp + world.random.nextInt(maxExp);
+            int exp = 1 + world.random.nextInt(3);
             this.dropExperience(world, pos, exp);
         }
     }

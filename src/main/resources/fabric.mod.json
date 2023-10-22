@@ -28,8 +28,8 @@
     "alchemycraft.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.22",
-    "fabric": ">=0.89.2+1.20.2",
+    "fabricloader": ">=0.14.23",
+    "fabric": ">=0.90.0+1.20.2",
     "minecraft": "1.20.2",
     "java": ">=17"
   }

@@ -11,6 +11,7 @@
         "thisotherthing.vscode-todo-list",
         "vscjava.vscode-gradle",
         "github.vscode-pull-request-github",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "vscjava.vscode-java-pack"
     ]
 }

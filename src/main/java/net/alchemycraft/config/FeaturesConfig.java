@@ -1,23 +1,18 @@
 package net.alchemycraft.config;
 
-import net.alchemycraft.feature.DeepslateLeadOreGeneratorFeature;
-import net.alchemycraft.feature.DeepslateCinnabarOreGeneratorFeature;
-import net.alchemycraft.feature.DeepslateSilverOreGeneratorFeature;
-import net.alchemycraft.feature.LeadOreGeneratorFeature;
-import net.alchemycraft.feature.CinnabarOreGeneratorFeature;
-import net.alchemycraft.feature.SaltOreGeneratorFeature;
-import net.alchemycraft.feature.SilverOreGeneratorFeature;
-import net.alchemycraft.feature.SulfurOreGeneratorFeature;
+import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerPlacedFeature;
+
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep.Feature;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class FeaturesConfig {
+    public static final RegistryKey<PlacedFeature> SALT_ORE_UPPER = registerPlacedFeature("salt_ore_upper");
+    public static final RegistryKey<PlacedFeature> SALT_ORE_BURIED = registerPlacedFeature("salt_ore_buried");
+
     public static void init() {
-        SaltOreGeneratorFeature.init();
-        CinnabarOreGeneratorFeature.init();
-        DeepslateCinnabarOreGeneratorFeature.init();
-        SulfurOreGeneratorFeature.init();
-        SilverOreGeneratorFeature.init();
-        DeepslateSilverOreGeneratorFeature.init();
-        LeadOreGeneratorFeature.init();
-        DeepslateLeadOreGeneratorFeature.init();
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), Feature.UNDERGROUND_ORES, SALT_ORE_UPPER);   
     }
 }

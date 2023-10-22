@@ -8,10 +8,12 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolItem;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class AlchemyRegistryList {
     public static Block registerBlock(final String id, final Block block) {
@@ -37,5 +39,9 @@ public class AlchemyRegistryList {
     public static <T extends BlockEntity> BlockEntityType<T> registerBlockEntityHandler(String id,
             BlockEntityType<T> entityType) {
         return Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MOD_ID, id), entityType);
+    }
+
+    public static RegistryKey<PlacedFeature> registerPlacedFeature(String id) {
+        return RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MOD_ID, id));
     }
 }
