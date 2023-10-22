@@ -158,7 +158,7 @@ public class DisappearingChestBlock
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction3;
         ChestType chestType = ChestType.SINGLE;
-        Direction direction = ctx.getPlayerFacing().getOpposite();
+        Direction direction = ctx.getHorizontalPlayerFacing().getOpposite();
         // FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         boolean bl = ctx.shouldCancelInteraction();
         Direction direction2 = ctx.getSide();
@@ -410,7 +410,7 @@ public class DisappearingChestBlock
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
             BlockEntityType<T> type) {
-        return DisappearingChestBlock.checkType(type, this.getExpectedEntityType(),
+        return DisappearingChestBlock.validateTicker(type, this.getExpectedEntityType(),
                 DisappearingChestBlockEntity::tick);
     }
 

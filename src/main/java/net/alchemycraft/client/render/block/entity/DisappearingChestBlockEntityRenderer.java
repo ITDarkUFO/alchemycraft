@@ -32,7 +32,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import net.minecraft.world.World;
 
 public class DisappearingChestBlockEntityRenderer<T extends BlockEntity>
@@ -129,7 +129,7 @@ public class DisappearingChestBlockEntityRenderer<T extends BlockEntity>
         matrices.push();
         float f = blockState.get(DisappearingChestBlock.FACING).asRotation();
         matrices.translate(0.5, 0.5, 0.5);
-        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-f));
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-f));
         matrices.translate(-0.5, -0.5, -0.5);
         if (bl) {
             propertySource = abstractChestBlock.getBlockEntitySource(blockState, world, entity.getPos(), true);
@@ -141,7 +141,7 @@ public class DisappearingChestBlockEntityRenderer<T extends BlockEntity>
         g = 1.0f - g;
         g = 1.0f - g * g * g;
         int i = ((Int2IntFunction) propertySource.apply(new LightmapCoordinatesRetriever())).applyAsInt(light);
-        SpriteIdentifier spriteIdentifier = TexturedRenderLayers.getChestTexture(entity, chestType, this.christmas);
+        SpriteIdentifier spriteIdentifier = TexturedRenderLayers.getChestTextureId(entity, chestType, this.christmas);
         VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers,
                 RenderLayer::getEntityCutout);
         if (bl2) {

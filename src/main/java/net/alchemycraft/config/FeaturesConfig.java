@@ -4,7 +4,7 @@ import static net.alchemycraft.libs.utils.AlchemyRegistryList.registerPlacedFeat
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep.Feature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
