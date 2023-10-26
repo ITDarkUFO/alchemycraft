@@ -1,6 +1,5 @@
 package net.alchemycraft.item.material;
 
-import net.alchemycraft.config.ItemGroupsConfig;
 import net.alchemycraft.config.ItemsConfig;
 import net.alchemycraft.item.customtool.AxeItemCustom;
 import net.alchemycraft.item.customtool.HoeItemCustom;
@@ -46,18 +45,18 @@ public class SilverToolMaterial implements ToolMaterial {
     }
 
     public static ToolItem SILVER_PICKAXE = new PickaxeItemCustom(SilverToolMaterial.INSTANCE, 3, -2.8F,
-            new Item.Settings().group(ItemGroupsConfig.TOOLS));
+            new Item.Settings());
 
     public static ToolItem SILVER_SWORD = new SwordItemCustom(SilverToolMaterial.INSTANCE, 5, 1.6F,
-            new Item.Settings().group(ItemGroupsConfig.TOOLS));
+            new Item.Settings());
 
     public static ToolItem SILVER_SHOVEL = new ShovelItemCustom(SilverToolMaterial.INSTANCE, 3, -3F,
-            new Item.Settings().group(ItemGroupsConfig.TOOLS));
+            new Item.Settings());
 
     public static ToolItem SILVER_HOE = new HoeItemCustom(SilverToolMaterial.INSTANCE, 0, -1F,
-            new Item.Settings().group(ItemGroupsConfig.TOOLS));
+            new Item.Settings());
 
     public static ToolItem SILVER_AXE = new AxeItemCustom(SilverToolMaterial.INSTANCE, 8, 0.9F,
-            new Item.Settings().group(ItemGroupsConfig.TOOLS));
+            new Item.Settings());
 
 }

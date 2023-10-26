@@ -1,10 +1,9 @@
 package net.alchemycraft.item.material;
 
-import net.alchemycraft.config.ItemGroupsConfig;
 import net.alchemycraft.config.ItemsConfig;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorItem.Type;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.recipe.Ingredient;
@@ -19,13 +18,13 @@ public class SilverArmorMaterial implements ArmorMaterial {
     public static final ArmorMaterial INSTANCE = new SilverArmorMaterial();
 
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()];
+    public int getDurability(Type type) {
+        return BASE_DURABILITY[type.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return PROTECTION_VALUES[slot.getEntitySlotId()];
+    public int getProtection(Type type) {
+        return PROTECTION_VALUES[type.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override
@@ -58,15 +57,16 @@ public class SilverArmorMaterial implements ArmorMaterial {
         return 0F;
     }
 
-    public static Item SILVER_HELMET = new ArmorItem(SilverArmorMaterial.INSTANCE, EquipmentSlot.HEAD,
-            new FabricItemSettings().group(ItemGroupsConfig.COMBAT));
+    public static Item SILVER_HELMET = new ArmorItem(SilverArmorMaterial.INSTANCE, Type.HELMET,
+            new FabricItemSettings());
 
-    public static Item SILVER_CHESTPLATE = new ArmorItem(SilverArmorMaterial.INSTANCE, EquipmentSlot.CHEST,
-            new FabricItemSettings().group(ItemGroupsConfig.COMBAT));
+    public static Item SILVER_CHESTPLATE = new ArmorItem(SilverArmorMaterial.INSTANCE, Type.CHESTPLATE,
+            new FabricItemSettings());
 
-    public static Item SILVER_LEGGINGS = new ArmorItem(SilverArmorMaterial.INSTANCE, EquipmentSlot.LEGS,
-            new FabricItemSettings().group(ItemGroupsConfig.COMBAT));
+    public static Item SILVER_LEGGINGS = new ArmorItem(SilverArmorMaterial.INSTANCE, Type.LEGGINGS,
+            new FabricItemSettings());
 
-    public static Item SILVER_BOOTS = new ArmorItem(SilverArmorMaterial.INSTANCE, EquipmentSlot.FEET,
-            new Item.Settings().group(ItemGroupsConfig.COMBAT));
+    public static Item SILVER_BOOTS = new ArmorItem(SilverArmorMaterial.INSTANCE, Type.BOOTS,
+            new Item.Settings());
+
 }

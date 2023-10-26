@@ -3,10 +3,12 @@ package net.alchemycraft.inventory.mortar;
 import java.util.Optional;
 
 import net.alchemycraft.recipe.RecipesMortar;
+import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.recipe.RecipeUnlocker;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.collection.DefaultedList;
@@ -53,10 +55,10 @@ public class MortarResultSlot extends Slot {
     @Override
     protected void onCrafted(ItemStack stack) {
         if (amount > 0) {
-            stack.onCraft(player.world, player, amount);
+            stack.onCraft(player.getWorld(), player, amount);
         }
         if (inventory instanceof RecipeUnlocker) {
-            ((RecipeUnlocker) inventory).unlockLastRecipe(player);
+            ((RecipeUnlocker) inventory).unlockLastRecipe(player, this.input.getInputStacks());
         }
         amount = 0;
     }
@@ -65,10 +67,10 @@ public class MortarResultSlot extends Slot {
     public void onTakeItem(PlayerEntity player, ItemStack stack) {
         this.onCrafted(stack);
 
-        DefaultedList<ItemStack> defaultedList = player.world.getRecipeManager()
-                .getRemainingStacks(RecipesMortar.Type.INSTANCE, this.input, player.world);
+        DefaultedList<ItemStack> defaultedList = player.getWorld().getRecipeManager()
+                .getRemainingStacks(RecipesMortar.Type.INSTANCE, this.input, player.getWorld());
             
-        Optional<RecipesMortar> ingredients = player.world.getRecipeManager().getFirstMatch(RecipesMortar.Type.INSTANCE, this.input, player.world);
+        Optional<RecipesMortar> ingredients = player.getWorld().getRecipeManager().getFirstMatch(RecipesMortar.Type.INSTANCE, this.input, player.getWorld());
 
         // Decrease Pestle Durability
         ItemStack pestleSlot = this.input.getStack(0);

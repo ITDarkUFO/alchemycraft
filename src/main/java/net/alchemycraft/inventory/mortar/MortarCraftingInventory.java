@@ -2,6 +2,7 @@ package net.alchemycraft.inventory.mortar;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
+import java.util.List;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeInputProvider;
@@ -26,6 +27,12 @@ public class MortarCraftingInventory implements Inventory, RecipeInputProvider {
     @Override
     public void provideRecipeInputs(RecipeMatcher finder) {
         this.items.forEach((finder::addInput));
+    }
+
+    List<ItemStack> getInputStacks() {
+        //TODO: Проверить, что выводит
+        // return items.subList(1, 3);
+        return List.of(items.get(1), items.get(2));
     }
 
     @Override

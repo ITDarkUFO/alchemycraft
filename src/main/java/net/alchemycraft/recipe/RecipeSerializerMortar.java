@@ -3,6 +3,7 @@ package net.alchemycraft.recipe;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import com.mojang.serialization.Codec;
 
 import net.alchemycraft.config.Config;
 import net.minecraft.item.Item;
@@ -25,11 +26,13 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
 
     public static final Identifier ID = new Identifier(Config.MOD_ID, "mortar");
 
+    // public RecipesMortar read(Identifier recipeId, JsonObject json) {
     @Override // Turns json into Recipe
     public RecipesMortar read(Identifier recipeId, JsonObject json) {
         JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
         ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-        Ingredient pestle = Ingredient.fromJson(ingredients.get(0));
+        Ingredient pestle = Ingredient.fromPacket(byteBuf);
+        // Ingredient pestle = Ingredient.fromJson(ingredients.get(0));
 
         DefaultedList<ItemStack> inputs = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
@@ -84,5 +87,11 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
 
         ItemStack output = packetData.readItemStack();
         return new RecipesMortar(pestle, inputs, output, recipeId);
+    }
+
+    @Override
+    public Codec<RecipesMortar> codec() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codec'");
     }
 }
