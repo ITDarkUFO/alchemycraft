@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/ITDarkUFO/AlchemyCraft/1.19.1/source/logo.png" width=160 height=160/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ITDarkUFO/AlchemyCraft/stable/source/logo.png" width=160 height=160/></p>
 <h3 align="center">AlchemyCraft+</h3>
 <p align="center">A Minecraft Mod about Alchemy, Transfiguration and much more.</p>
 <p align="center">
