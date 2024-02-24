@@ -7,8 +7,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
+import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ButtonWidget.PressAction;
+import net.minecraft.text.Text;
 
 @Environment(EnvType.CLIENT)
 public class AlchemyCraftClient implements ClientModInitializer {
@@ -36,7 +38,10 @@ public class AlchemyCraftClient implements ClientModInitializer {
                     // client.world.sendPacket(packet);
                 };
 
-                ButtonWidget button = new ButtonWidget(100, 100, 50, 20, screen.getTitle(), setTimeAction);
+                ButtonWidget button = new ButtonWidget.Builder(screen.getTitle(), setTimeAction)
+                        .dimensions(100, 100, 50, 20)
+                        .tooltip(Tooltip.of(Text.of("Тестовый текст кнопки")))
+                        .build();
 
                 Screens.getButtons(screen).add(button);
             }

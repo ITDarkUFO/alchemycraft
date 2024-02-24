@@ -3,12 +3,11 @@ package net.alchemycraft.inventory.mortar;
 import java.util.Optional;
 
 import net.alchemycraft.recipe.RecipesMortar;
-import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.screen.slot.CraftingResultSlot;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeUnlocker;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.collection.DefaultedList;
@@ -70,7 +69,7 @@ public class MortarResultSlot extends Slot {
         DefaultedList<ItemStack> defaultedList = player.getWorld().getRecipeManager()
                 .getRemainingStacks(RecipesMortar.Type.INSTANCE, this.input, player.getWorld());
             
-        Optional<RecipesMortar> ingredients = player.getWorld().getRecipeManager().getFirstMatch(RecipesMortar.Type.INSTANCE, this.input, player.getWorld());
+        Optional<RecipeEntry<RecipesMortar>> ingredients = player.getWorld().getRecipeManager().getFirstMatch(RecipesMortar.Type.INSTANCE, this.input, player.getWorld());
 
         // Decrease Pestle Durability
         ItemStack pestleSlot = this.input.getStack(0);
@@ -87,7 +86,7 @@ public class MortarResultSlot extends Slot {
             ItemStack newStack = defaultedList.get(i);
             if (!oldStack.isEmpty()) {
                 int removed_items_counter = 0;
-                for (Ingredient ingredient : ingredients.get().getIngredients()) {
+                for (Ingredient ingredient : ingredients.get().value().getIngredients()) {
                     if (ingredient.test(oldStack))
                         removed_items_counter++;
                 }
@@ -98,7 +97,7 @@ public class MortarResultSlot extends Slot {
                 if (oldStack.isEmpty()) {
                     this.input.setStack(i, newStack);
                 } else if (ItemStack.areItemsEqual(oldStack, newStack)
-                        && ItemStack.areNbtEqual(oldStack, newStack)) {
+                        && ItemStack.areEqual(oldStack, newStack)) {
                     newStack.increment(oldStack.getCount());
                     this.input.setStack(i, newStack);
                 } else if (!this.player.getInventory().insertStack(newStack)) {

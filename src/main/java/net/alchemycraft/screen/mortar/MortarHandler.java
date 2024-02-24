@@ -16,6 +16,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
@@ -80,12 +81,13 @@ public class MortarHandler extends AbstractRecipeScreenHandler<MortarCraftingInv
         if (!world.isClient) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;
             ItemStack itemStack = ItemStack.EMPTY;
-            Optional<RecipesMortar> optional = world.getServer().getRecipeManager()
-                    .getFirstMatch(RecipesMortar.Type.INSTANCE, craftingInventory, world);
+            Optional<RecipeEntry<RecipesMortar>> optional = world.getServer().getRecipeManager().getFirstMatch(RecipesMortar.Type.INSTANCE, craftingInventory, world);
+            // world.getServer().getRecipeManager()
+            //         .getFirstMatch(RecipesMortar.Type.INSTANCE, craftingInventory, world);
             if (optional.isPresent()) {
-                RecipesMortar recipeMortar = optional.get();
-                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, recipeMortar)) {
-                    itemStack = recipeMortar.craft(craftingInventory);
+                RecipesMortar recipeMortar = optional.get().value();
+                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, optional.get())) {
+                    itemStack = recipeMortar.craft(craftingInventory, null);
                 }
             }
 
@@ -102,13 +104,13 @@ public class MortarHandler extends AbstractRecipeScreenHandler<MortarCraftingInv
     }
 
     @Override
-    public void close(PlayerEntity player) {
-        super.close(player);
+    public void onClosed(PlayerEntity player) {
+        super.onClosed(player);
         this.screenHandlerContext.run((world, pos) -> this.dropInventory(player, this.input));
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int index) {
+    public ItemStack quickMove(PlayerEntity player, int index) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
 
@@ -174,8 +176,8 @@ public class MortarHandler extends AbstractRecipeScreenHandler<MortarCraftingInv
     }
 
     @Override
-    public boolean matches(Recipe<? super MortarCraftingInventory> recipe) {
-        return recipe.matches(this.input, this.playerInventory.player.world);
+    public boolean matches(RecipeEntry<? extends Recipe <MortarCraftingInventory>> recipe) {
+        return recipe.value().matches(this.input, this.playerInventory.player.getWorld());
     }
 
     @Override

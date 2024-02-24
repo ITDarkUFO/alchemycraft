@@ -6,17 +6,18 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class RecipesMortar implements Recipe<MortarCraftingInventory> {
     private final Ingredient pestleSlot;
-    private final DefaultedList<ItemStack> recipeItems;
+    private final DefaultedList<Ingredient> recipeItems;
     private final ItemStack outputStack;
     private final Identifier identifier;
 
-    public RecipesMortar(Ingredient pestleSlot, DefaultedList<ItemStack> recipeItems, ItemStack outputStack,
+    public RecipesMortar(Ingredient pestleSlot, DefaultedList<Ingredient> recipeItems, ItemStack outputStack,
             Identifier identifier) {
         this.pestleSlot = pestleSlot;
         this.recipeItems = recipeItems;
@@ -31,26 +32,20 @@ public class RecipesMortar implements Recipe<MortarCraftingInventory> {
     @Override
     public boolean matches(MortarCraftingInventory inventory, World world) {
         if (pestleSlot.test(inventory.getStack(0)))
-            if (recipeItems.get(0).getItem() == inventory.getStack(1).getItem() && recipeItems.get(0).getCount() <= inventory.getStack(1).getCount())
-                return recipeItems.get(1).getItem() == inventory.getStack(2).getItem() && recipeItems.get(1).getCount() <= inventory.getStack(2).getCount();
+            if (recipeItems.get(0).test(inventory.getStack(1)))
+                return recipeItems.get(1).test(inventory.getStack(2));
 
         return false;
     }
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
-        DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(0);
-
-        for (ItemStack itemStack : recipeItems) 
-            for (int i = 0; i < itemStack.getCount(); i++)
-                ingredients.add(Ingredient.ofStacks(itemStack));
-
-        return ingredients;
+        return recipeItems;
     }
 
     @Override
-    public ItemStack craft(MortarCraftingInventory inventory) {
-        return outputStack.copy();
+    public ItemStack craft(MortarCraftingInventory inventory, DynamicRegistryManager registryManager) {
+        return getResult(registryManager);
     }
 
     @Override
@@ -58,13 +53,7 @@ public class RecipesMortar implements Recipe<MortarCraftingInventory> {
         return true;
     }
 
-    @Override
-    public ItemStack getOutput() {
-        return outputStack.copy();
-    }
-
-    @Override
-    public Identifier getId() {
+    public Identifier getIdentifier() {
         return identifier;
     }
 
@@ -90,5 +79,10 @@ public class RecipesMortar implements Recipe<MortarCraftingInventory> {
     @Override
     public boolean isIgnoredInRecipeBook() {
         return true;
+    }
+
+    @Override
+    public ItemStack getResult(DynamicRegistryManager registryManager) {
+        return outputStack;
     }
 }

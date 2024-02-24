@@ -5,12 +5,12 @@ import java.util.List;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.alchemycraft.config.Config;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -43,24 +43,24 @@ public class AlchemynomiconScreen extends Screen {
     }
 
     @Override
-    public void renderBackground(MatrixStack matrices) {
+    public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
         // Get page background
-        RenderSystem.setShader(GameRenderer::getPositionColorTexShader);
+        RenderSystem.setShader(GameRenderer::getPositionColorTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = 15;
-        super.renderBackground(matrices);
-        drawTexture(matrices, x, y, getZOffset(), 0, 0, 256, 256, 256, 256);
+        super.renderBackground(context, mouseX, mouseY, delta);
+        context.drawTexture(TEXTURE, x, y, 0, 0, 0, 256, 256, 256, 256);
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
-        var itemStack = new ItemStack(Registry.ITEM.get(new Identifier(Config.MOD_ID, pages.get(nbt.getInt("page")))));
-        this.itemRenderer.renderInGui(itemStack, 157, 32);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        renderBackground(context, mouseX, mouseY, delta);
+        var itemStack = new ItemStack(Registries.ITEM.get(new Identifier(Config.MOD_ID, pages.get(nbt.getInt("page")))));
+        context.drawItem(itemStack, 157, 32);
 
-        super.render(matrices, mouseX, mouseY, delta);
+        super.render(context, mouseX, mouseY, delta);
     }
 
     public void openPage()
