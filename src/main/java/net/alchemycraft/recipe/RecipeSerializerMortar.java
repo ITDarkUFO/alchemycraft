@@ -1,16 +1,58 @@
 package net.alchemycraft.recipe;
 
+import java.lang.reflect.Array;
+
+import com.ibm.icu.impl.locale.LocaleDistance.Data;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.alchemycraft.config.Config;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeCodecs;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.recipe.ShapelessRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.dynamic.Codecs;
 
 public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
+    // Ingredient pestleSlot, DefaultedList<Ingredient> recipeItems, ItemStack
+    // outputStack, Identifier identifier
+
+    private static final Codec<RecipesMortar> CODEC = RecordCodecBuilder.create((instance) -> {
+        return instance.group(
+                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredients").forGetter((recipe) -> {
+                    return recipe.getPestleSlot();
+                }),
+                Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").flatXmap((ingredients) -> {
+                    Ingredient[] ingredients2 = (Ingredient[]) ingredients.stream().filter((ingredient) -> {
+                        return !ingredient.isEmpty();
+                    }).toArray((i) -> {
+                        return new Ingredient[i];
+                    });
+                    if (ingredients2.length == 0) {
+                        return DataResult.error(() -> {
+                            return "No ingredients for mortar recipe";
+                        });
+                    } else {
+                        return ingredients2.length > 3 ? DataResult.error(() -> {
+                            return "Too many ingredients for mortar recipe";
+                        }) : DataResult.success(DefaultedList.copyOf(Ingredient.EMPTY, ingredients2));
+                    }
+                }, DataResult::success).forGetter((recipe) -> {
+                    return recipe.getIngredients();
+                }),
+                RecipeCodecs.CRAFTING_RESULT.fieldOf("output").forGetter((recipe) -> {
+                    return recipe.getResult(null);
+                }),
+                Identifier.CODEC.fieldOf("identifier").forGetter(RecipesMortar::getIdentifier))
+                .apply(instance, RecipesMortar::new);
+    });
 
     private RecipeSerializerMortar() {
     }
@@ -29,7 +71,7 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
         for (int j = 0; j < inputs.size(); ++j) {
             inputs.set(j, Ingredient.fromPacket(buf));
         }
-        
+
         ItemStack output = buf.readItemStack();
         Identifier recipeId = buf.readIdentifier();
 
@@ -56,6 +98,6 @@ public class RecipeSerializerMortar implements RecipeSerializer<RecipesMortar> {
 
     @Override
     public Codec<RecipesMortar> codec() {
-        return null;
+        return CODEC;
     }
 }
